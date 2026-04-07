@@ -4,11 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronUp } from "lucide-react";
 import { useScrollY } from "@/hooks/useScrollY";
 
-const SCROLL_THRESHOLD = 300;
-
 export default function BackToTop() {
     const scrollY = useScrollY();
-    const isVisible = scrollY > SCROLL_THRESHOLD;
+    const isVisible = scrollY > 300;
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -18,20 +16,17 @@ export default function BackToTop() {
         <AnimatePresence>
             {isVisible && (
                 <motion.button
-                    initial={{ opacity: 0, scale: 0.8, y: 10 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.8, y: 10 }}
-                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    key="back-to-top"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
                     onClick={scrollToTop}
                     aria-label="Back to top"
-                    className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full
-                     bg-primary text-white shadow-blue-glow
-                     flex items-center justify-center
-                     hover:bg-primary-600 hover:scale-110
-                     transition-transform duration-200
-                     focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-lg cursor-pointer"
                 >
-                    <ChevronUp className="w-5 h-5" />
+                    <ChevronUp size={20} />
                 </motion.button>
             )}
         </AnimatePresence>

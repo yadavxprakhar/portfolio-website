@@ -58,10 +58,10 @@
   }
 }
 
-/* ── Base Styles ── */
+/* ── Base Styles ── */rm -rf .next
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(214.3 31.8% 91.4%);
   }
 
   html {
@@ -71,12 +71,16 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-inter, sans-serif);
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
   }
 
   /* Text selection color */

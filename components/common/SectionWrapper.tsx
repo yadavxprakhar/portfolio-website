@@ -2,36 +2,35 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { ANIMATION_VARIANTS } from "@/lib/constants";
 
 interface SectionWrapperProps {
     id: string;
     className?: string;
     children: React.ReactNode;
-    altBackground?: boolean; // Alternate section bg for visual rhythm
+    alternate?: boolean;
 }
 
 export default function SectionWrapper({
                                            id,
                                            className,
                                            children,
-                                           altBackground = false,
+                                           alternate = false,
                                        }: SectionWrapperProps) {
     return (
         <section
             id={id}
             className={cn(
-                "py-20 px-4 md:px-8 w-full",
-                altBackground && "bg-[var(--section-bg-alt)]",
+                "w-full py-20 px-4 md:px-8 lg:px-16",
+                alternate && "bg-[var(--section-bg-alt)]",
                 className
             )}
         >
             <motion.div
                 className="max-w-6xl mx-auto"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
-                variants={ANIMATION_VARIANTS.fadeUp}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-100px" }}
             >
                 {children}
             </motion.div>

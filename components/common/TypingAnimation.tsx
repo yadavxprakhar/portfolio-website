@@ -1,73 +1,83 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 interface TypingAnimationProps {
     texts: string[];
-    speed?: number;       // ms per character typed (default: 80)
-    deleteSpeed?: number; // ms per character deleted (default: 40)
-    pauseTime?: number;   // ms to pause at full text (default: 1800)
+    speed?: number;
+    deleteSpeed?: number;
+    pauseTime?: number;
     className?: string;
 }
 
-type Phase = "typing" | "pausing" | "deleting";
+type Phase = "typing" | "pausing" | "deleting" | "waiting";
 
 export default function TypingAnimation({
                                             texts,
-                                            speed = 80,
-                                            deleteSpeed = 40,
-                                            pauseTime = 1800,
+                                            speed = 100,
+                                            deleteSpeed = 50,
+                                            pauseTime = 2000,
                                             className,
                                         }: TypingAnimationProps) {
     const [displayText, setDisplayText] = useState("");
-    const [textIndex, setTextIndex] = useState(0);
     const [phase, setPhase] = useState<Phase>("typing");
-
-    const currentText = texts[textIndex];
-
-    const tick = useCallback(() => {
-        if (phase === "typing") {
-            if (displayText.length < currentText.length) {
-                setDisplayText(currentText.slice(0, displayText.length + 1));
-            } else {
-                setPhase("pausing");
-            }
-        } else if (phase === "pausing") {
-            // Handled by separate setTimeout below
-        } else if (phase === "deleting") {
-            if (displayText.length > 0) {
-                setDisplayText(displayText.slice(0, -1));
-            } else {
-                setTextIndex((prev) => (prev + 1) % texts.length);
-                setPhase("typing");
-            }
-        }
-    }, [phase, displayText, currentText, texts.length]);
+    const textIndexRef = useRef(0);
+    const charIndexRef = useRef(0);
 
     useEffect(() => {
-        if (phase === "pausing") {
-            const pauseTimer = setTimeout(() => {
-                setPhase("deleting");
-            }, pauseTime);
-            return () => clearTimeout(pauseTimer);
+        if (texts.length === 0) return;
+
+        let timer: ReturnType<typeof setTimeout>;
+
+        const currentText = texts[textIndexRef.current];
+
+        if (phase === "typing") {
+            if (charIndexRef.current < currentText.length) {
+                timer = setTimeout(() => {
+                    charIndexRef.current += 1;
+                    setDisplayText(currentText.slice(0, charIndexRef.current));
+                }, speed);
+            } else {
+                // Finished typing — pause before deleting
+                timer = setTimeout(() => setPhase("deleting"), pauseTime);
+            }
+        } else if (phase === "deleting") {
+            if (charIndexRef.current > 0) {
+                timer = setTimeout(() => {
+                    charIndexRef.current -= 1;
+                    setDisplayText(currentText.slice(0, charIndexRef.current));
+                }, deleteSpeed);
+            } else {
+                // Finished deleting — move to next text
+                textIndexRef.current = (textIndexRef.current + 1) % texts.length;
+                setPhase("waiting");
+            }
+        } else if (phase === "waiting") {
+            // Brief pause before typing next word
+            timer = setTimeout(() => setPhase("typing"), 300);
         }
 
-        const interval = setInterval(
-            tick,
-            phase === "typing" ? speed : deleteSpeed
-        );
-        return () => clearInterval(interval);
-    }, [phase, tick, speed, deleteSpeed, pauseTime]);
+        return () => clearTimeout(timer);
+    }, [phase, displayText, texts, speed, deleteSpeed, pauseTime]);
 
     return (
-        <span className={cn("inline-flex items-center", className)}>
+        <span className={cn("inline-flex items-center gap-0", className)}>
       <span>{displayText}</span>
             {/* Blinking cursor */}
             <span
-                className="ml-0.5 inline-block w-0.5 h-[1em] bg-current animate-blink"
+                className="ml-0.5 inline-block w-[2px] h-[1.1em] bg-current align-middle"
+                style={{
+                    animation: "blink-cursor 1s step-end infinite",
+                }}
                 aria-hidden="true"
             />
+      <style>{`
+        @keyframes blink-cursor {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+      `}</style>
     </span>
     );
-}
+}}

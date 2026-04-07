@@ -8,18 +8,23 @@ import { Button } from "@/components/ui/button";
 
 export default function ThemeToggle() {
     const { theme, setTheme } = useTheme();
-    // Prevent hydration mismatch — don't render until mounted
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         setMounted(true);
     }, []);
 
+    // Render a size-stable placeholder before mount to prevent layout shift
     if (!mounted) {
-        // Render a placeholder with the same dimensions to prevent layout shift
         return (
-            <Button variant="ghost" size="icon" className="w-9 h-9" disabled>
-                <span className="w-4 h-4" />
+            <Button
+                variant="ghost"
+                size="icon"
+                className="w-9 h-9 rounded-full"
+                disabled
+                aria-label="Toggle theme"
+            >
+                <span className="w-4 h-4 block" />
             </Button>
         );
     }
@@ -32,15 +37,15 @@ export default function ThemeToggle() {
             size="icon"
             onClick={() => setTheme(isDark ? "light" : "dark")}
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            className="w-9 h-9 relative overflow-hidden"
+            className="w-9 h-9 rounded-full relative overflow-hidden"
         >
             <AnimatePresence mode="wait" initial={false}>
                 {isDark ? (
                     <motion.span
                         key="sun"
-                        initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                        initial={{ rotate: -90, opacity: 0, scale: 0.7 }}
                         animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                        exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                        exit={{ rotate: 90, opacity: 0, scale: 0.7 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         className="absolute inset-0 flex items-center justify-center"
                     >
@@ -49,16 +54,16 @@ export default function ThemeToggle() {
                 ) : (
                     <motion.span
                         key="moon"
-                        initial={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                        initial={{ rotate: 90, opacity: 0, scale: 0.7 }}
                         animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                        exit={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                        exit={{ rotate: -90, opacity: 0, scale: 0.7 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         className="absolute inset-0 flex items-center justify-center"
                     >
-                        <Moon className="w-4 h-4 text-slate-700" />
+                        <Moon className="w-4 h-4 text-slate-600 dark:text-slate-300" />
                     </motion.span>
                 )}
             </AnimatePresence>
         </Button>
     );
-}
+}}

@@ -1,19 +1,54 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiGithub, FiLinkedin, FiTwitter, FiInstagram, FiMail } from "react-icons/fi";
-import { SOCIAL_LINKS } from "@/lib/constants";
+import {
+    FaGithub,
+    FaLinkedin,
+    FaTwitter,
+    FaInstagram,
+    FaEnvelope,
+} from "react-icons/fa";
 import { cn } from "@/lib/utils";
-import type { SocialLink } from "@/types";
 
-// Map icon name strings to actual react-icon components
-const ICON_MAP: Record<string, React.ElementType> = {
-    FiGithub,
-    FiLinkedin,
-    FiTwitter,
-    FiInstagram,
-    FiMail,
-};
+interface SocialItem {
+    label: string;
+    href: string;
+    icon: React.ElementType;
+    external: boolean;
+}
+
+const SOCIAL_ITEMS: SocialItem[] = [
+    {
+        label: "GitHub",
+        href: "https://github.com/yadavxprakhar",
+        icon: FaGithub,
+        external: true,
+    },
+    {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/prakharyxdev",
+        icon: FaLinkedin,
+        external: true,
+    },
+    {
+        label: "Twitter",
+        href: "https://x.com/PrakharYxdev",
+        icon: FaTwitter,
+        external: true,
+    },
+    {
+        label: "Instagram",
+        href: "https://www.instagram.com/prakharyxdev/",
+        icon: FaInstagram,
+        external: true,
+    },
+    {
+        label: "Email",
+        href: "mailto:yadavprakhar1034@gmail.com",
+        icon: FaEnvelope,
+        external: false,
+    },
+];
 
 interface SocialLinksProps {
     className?: string;
@@ -27,32 +62,30 @@ export default function SocialLinks({
                                         showLabels = false,
                                     }: SocialLinksProps) {
     return (
-        <div className={cn("flex items-center gap-3", className)}>
-            {SOCIAL_LINKS.map((link: SocialLink, index: number) => {
-                const IconComponent = ICON_MAP[link.icon];
-                if (!IconComponent) return null;
-
+        <div className={cn("flex items-center gap-3 flex-wrap", className)}>
+            {SOCIAL_ITEMS.map((item, index) => {
+                const Icon = item.icon;
                 return (
                     <motion.a
-                        key={link.label}
-                        href={link.href}
-                        target={link.href.startsWith("mailto") ? "_self" : "_blank"}
-                        rel="noopener noreferrer"
-                        aria-label={link.label}
-                        initial={{ opacity: 0, y: 10 }}
+                        key={item.label}
+                        href={item.href}
+                        target={item.external ? "_blank" : undefined}
+                        rel={item.external ? "noopener noreferrer" : undefined}
+                        aria-label={item.label}
+                        initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.08, duration: 0.3 }}
-                        whileHover={{ scale: 1.15, y: -2 }}
+                        transition={{ delay: index * 0.07, duration: 0.3, ease: "easeOut" }}
+                        whileHover={{ scale: 1.1, y: -2 }}
                         whileTap={{ scale: 0.95 }}
                         className={cn(
                             "flex items-center gap-1.5 text-muted-foreground",
                             "hover:text-primary transition-colors duration-200",
-                            "focus:outline-none focus:ring-2 focus:ring-primary rounded-sm"
+                            "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
                         )}
                     >
-                        <IconComponent size={iconSize} />
+                        <Icon size={iconSize} />
                         {showLabels && (
-                            <span className="text-sm font-medium">{link.label}</span>
+                            <span className="text-sm font-medium">{item.label}</span>
                         )}
                     </motion.a>
                 );
