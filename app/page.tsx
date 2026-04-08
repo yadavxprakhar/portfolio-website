@@ -9,22 +9,19 @@ import Hobbies from "@/components/sections/Hobbies";
 import Contact from "@/components/sections/Contact";
 import BackToTop from "@/components/common/BackToTop";
 
-export default function HomePage() {
-  return (
-      <>
-        {/* Each section uses its own id for smooth-scroll nav targeting */}
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Education />
-        <Certifications />
-        <GitHubStats />
-        <Hobbies />
-        <Contact />
-
-        {/* Fixed utility component */}
-        <BackToTop />
-      </>
-  );
+export default function Home() {
+    return (
+        <main>
+            <Hero />
+            <About />
+            <Skills />
+            <Projects />
+            <Education />
+            <Certifications />
+            <GitHubStats />
+            <Hobbies />
+            <Contact />
+            <BackToTop />
+        </main>
+    );
 }
