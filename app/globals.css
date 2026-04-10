@@ -1,154 +1,63 @@
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
-
-/* ── CSS Variables: Light Mode ── */
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
-
-    /* Custom site variables */
-    --color-primary: #1d4ed8;
-    --color-secondary: #0ea5e9;
-    --color-accent: #0d9488;
-    --section-bg-alt: #f8faff;
-
-    /* Font family variable */
-    --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  }
-
-  /* ── CSS Variables: Dark Mode ── */
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
-
-    --section-bg-alt: #0f172a;
-  }
-}
-
-/* ── Base Styles ── */
-@layer base {
-  * {
-    border-color: hsl(214.3 31.8% 91.4%);
-  }
-
-  html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    font-family: var(--font-inter);
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.2;
-  }
-
-  /* Text selection color */
-  ::selection {
-    background-color: rgba(29, 78, 216, 0.3);
-    color: inherit;
-  }
-
-  ::-moz-selection {
-    background-color: rgba(29, 78, 216, 0.3);
-    color: inherit;
-  }
-}
-
-/* ── Custom Scrollbar ── */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1d4ed8;
-  border-radius: 10px;
-  opacity: 0.7;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #0ea5e9;
-}
-
-/* Firefox scrollbar */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #1d4ed8 transparent;
-}
-
-/* ── Utility Classes ── */
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #1d4ed8, #0ea5e9, #0d9488);
   }
 
   .section-heading {
-    @apply text-3xl md:text-4xl font-bold mb-2;
+    font-size: 1.875rem;     /* text-3xl */
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-heading {
+      font-size: 2.25rem;    /* md:text-4xl */
+    }
   }
 
   .section-subheading {
-    @apply text-muted-foreground text-base md:text-lg mb-12;
+    color: hsl(var(--muted-foreground));
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-subheading {
+      font-size: 1.125rem;   /* md:text-lg */
+    }
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    transition: all 300ms;
+  }
+  .card-hover:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    transform: translateY(-4px);
   }
 
   .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20;
+    background-color: rgb(255 255 255 / 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgb(255 255 255 / 0.2);
   }
 
-  /* Animated underline for links */
   .animated-underline {
-    @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0
-    after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
+    position: relative;
+  }
+  .animated-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: hsl(var(--primary));
+    transition: width 300ms;
+  }
+  .animated-underline:hover::after {
+    width: 100%;
   }
 }

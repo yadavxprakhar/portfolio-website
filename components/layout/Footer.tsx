@@ -10,8 +10,8 @@ export default function Footer() {
         <footer className="w-full border-t border-border bg-background py-8 px-4">
             <motion.div
                 className="max-w-6xl mx-auto flex flex-col items-center gap-5 text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                // initial={{ opacity: 0, y: 20 }}
+                // whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" as const }}
                 viewport={{ once: true }}
             >
