@@ -11,7 +11,7 @@ interface TypingAnimationProps {
     className?: string;
 }
 
-type Phase = "typing" | "pausing" | "deleting" | "waiting";
+type Phase = "typing" | "deleting" | "waiting";
 
 export default function TypingAnimation({
                                             texts,
@@ -28,9 +28,8 @@ export default function TypingAnimation({
     useEffect(() => {
         if (texts.length === 0) return;
 
-        let timer: ReturnType<typeof setTimeout>;
-
         const currentText = texts[textIndexRef.current];
+        let timer: ReturnType<typeof setTimeout>;
 
         if (phase === "typing") {
             if (charIndexRef.current < currentText.length) {
@@ -59,11 +58,12 @@ export default function TypingAnimation({
         }
 
         return () => clearTimeout(timer);
-    }, [phase, displayText, texts, speed, deleteSpeed, pauseTime]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [phase, texts.length, speed, deleteSpeed, pauseTime]);
 
     return (
         <span className={cn("inline-flex items-center gap-0", className)}>
-      <span>{displayText}</span>
+            <span>{displayText}</span>
             {/* Blinking cursor */}
             <span
                 className="ml-0.5 inline-block w-[2px] h-[1.1em] bg-current align-middle"
@@ -72,12 +72,12 @@ export default function TypingAnimation({
                 }}
                 aria-hidden="true"
             />
-      <style>{`
-        @keyframes blink-cursor {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
-        }
-      `}</style>
-    </span>
+            <style>{`
+                @keyframes blink-cursor {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0; }
+                }
+            `}</style>
+        </span>
     );
-}}
+}

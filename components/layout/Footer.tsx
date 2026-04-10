@@ -12,7 +12,7 @@ export default function Footer() {
                 className="max-w-6xl mx-auto flex flex-col items-center gap-5 text-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                transition={{ duration: 0.5, ease: "easeOut" as const }}
                 viewport={{ once: true }}
             >
 

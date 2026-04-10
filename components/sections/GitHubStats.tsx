@@ -95,7 +95,7 @@ const stagger = {
 
 const fadeUp = {
     hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
 export default function GitHubStats() {
@@ -109,7 +109,7 @@ export default function GitHubStats() {
                 className="text-center mb-10"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, ease: "easeOut" }}
+                transition={{ duration: 0.55, ease: "easeOut" as const }}
                 viewport={{ once: true }}
             >
                 <p className="text-primary text-sm font-semibold uppercase tracking-wider mb-2">
@@ -143,7 +143,7 @@ export default function GitHubStats() {
                 className="flex justify-center mt-8"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, ease: "easeOut", delay: 0.3 }}
+                transition={{ duration: 0.45, ease: "easeOut" as const, delay: 0.3 }}
                 viewport={{ once: true }}
             >
                 <a

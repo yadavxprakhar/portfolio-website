@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import ParticleBackground from "@/components/common/ParticleBackground";
 import TypingAnimation from "@/components/common/TypingAnimation";
@@ -13,10 +13,9 @@ const TYPING_TEXTS = [
     "Clean Code Advocate",
 ];
 
-// Code card syntax — broken into annotated tokens for highlighting
 const CODE_LINES = [
     { tokens: [{ text: "// Prakhar Yadav", type: "comment" }] },
-    { tokens: [] }, // blank line
+    { tokens: [] },
     {
         tokens: [
             { text: "const ", type: "keyword" },
@@ -100,38 +99,34 @@ const TOKEN_CLASSES: Record<TokenType, string> = {
 function CodeCard() {
     return (
         <div className="relative flex items-center justify-center">
-            {/* Blue glow */}
             <div
                 className="absolute w-72 h-72 bg-primary/20 rounded-full blur-3xl -z-10"
                 aria-hidden="true"
             />
-
             <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="w-full max-w-sm"
             >
                 <div className="bg-zinc-900 border border-zinc-700 rounded-xl overflow-hidden shadow-2xl">
-                    {/* Traffic lights top bar */}
                     <div className="flex items-center gap-1.5 px-4 py-3 bg-zinc-800/60 border-b border-zinc-700">
                         <span className="w-3 h-3 rounded-full bg-red-500/80" />
                         <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
                         <span className="w-3 h-3 rounded-full bg-green-500/80" />
                         <span className="ml-3 text-xs text-zinc-500 font-mono">
-              developer.ts
-            </span>
+                            developer.ts
+                        </span>
                     </div>
-
-                    {/* Code body */}
                     <div className="p-5 font-mono text-sm leading-relaxed">
                         {CODE_LINES.map((line, i) => (
                             <div key={i} className="min-h-[1.5rem]">
                                 {line.tokens.map((token, j) => (
-                                     <span
+                                    <span
                                         key={j}
-                                        className={TOKEN_CLASSES[token.type as TokenType]}>
+                                        className={TOKEN_CLASSES[token.type as TokenType]}
+                                    >
                                         {token.text}
-                                     </span>
+                                    </span>
                                 ))}
                             </div>
                         ))}
@@ -142,41 +137,43 @@ function CodeCard() {
     );
 }
 
-// Individual stagger variants
-const container = {
+const container: Variants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+        transition: {
+            staggerChildren: 0.15,
+            delayChildren: 0.2,
+        },
     },
 };
 
-const item = (delay: number) => ({
+const itemVariant: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.6, ease: "easeOut", delay },
+        transition: { duration: 0.6, ease: "easeOut" as const },
     },
-});
+};
 
 export default function Hero() {
     const scrollToProjects = () => {
-        document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+        document.getElementById("projects")?.scrollIntoView({
+            behavior: "smooth",
+        });
     };
 
     return (
         <section
             id="hero"
-            className="relative min-h-screen flex items-center w-full
-                 px-4 md:px-8 lg:px-16 pt-16 overflow-hidden"
+            className="relative min-h-screen flex items-center w-full px-4 md:px-8 lg:px-16 pt-16 overflow-hidden"
         >
-            {/* Particle canvas sits at z-0 behind everything */}
+            {/* Particle canvas */}
             <ParticleBackground />
 
             <div className="relative z-10 max-w-6xl mx-auto w-full py-16 lg:py-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
                     {/* ── Left: Text Content ── */}
                     <motion.div
                         variants={container}
@@ -185,33 +182,28 @@ export default function Hero() {
                         className="flex flex-col gap-5"
                     >
                         {/* Availability Badge */}
-                        <motion.div variants={item(0.2)}>
-              <span
-                  className="inline-flex items-center gap-2 text-sm rounded-full
-                           bg-green-500/10 text-green-600 dark:text-green-400
-                           border border-green-500/20 px-3 py-1"
-              >
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-                </span>
-                Actively Seeking SDE-1 &amp; Backend Roles
-              </span>
+                        <motion.div variants={itemVariant}>
+                            <span className="inline-flex items-center gap-2 text-sm rounded-full bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20 px-3 py-1">
+                                <span className="relative flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                                </span>
+                                Actively Seeking SDE-1 & Backend Roles
+                            </span>
                         </motion.div>
 
                         {/* Headline */}
                         <motion.h1
-                            variants={item(0.4)}
-                            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight
-                         text-foreground leading-tight"
+                            variants={itemVariant}
+                            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-tight"
                         >
                             Hi, I&apos;m{" "}
                             <span className="text-primary">Prakhar Yadav</span>
                         </motion.h1>
 
-                        {/* Typing animation */}
+                        {/* Typing Animation */}
                         <motion.div
-                            variants={item(0.6)}
+                            variants={itemVariant}
                             className="text-2xl md:text-3xl font-semibold"
                         >
                             <span className="text-muted-foreground">I&apos;m a </span>
@@ -226,7 +218,7 @@ export default function Hero() {
 
                         {/* Subheadline */}
                         <motion.p
-                            variants={item(0.7)}
+                            variants={itemVariant}
                             className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
                         >
                             I build scalable full-stack applications using Java, Spring Boot,
@@ -234,9 +226,9 @@ export default function Hero() {
                             solving.
                         </motion.p>
 
-                        {/* Short intro */}
+                        {/* Short Intro */}
                         <motion.p
-                            variants={item(0.8)}
+                            variants={itemVariant}
                             className="text-base text-muted-foreground max-w-xl leading-relaxed"
                         >
                             Final-year Computer Science student based in Greater Noida, India.
@@ -247,7 +239,7 @@ export default function Hero() {
 
                         {/* CTA Buttons */}
                         <motion.div
-                            variants={item(0.9)}
+                            variants={itemVariant}
                             className="flex flex-row flex-wrap gap-3 mt-1"
                         >
                             <Button
@@ -259,39 +251,47 @@ export default function Hero() {
                             </Button>
 
                             <a href="/Prakhar_Yadav_Resume.pdf" download>
-                                <Button variant="secondary" size="default" className="font-medium">
+                                <Button
+                                    variant="secondary"
+                                    size="default"
+                                    className="font-medium"
+                                >
                                     Download Resume
                                 </Button>
                             </a>
 
-
-                            href="https://github.com/yadavxprakhar"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            <a
+                                href="https://github.com/yadavxprakhar"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
-                            <Button variant="outline" size="default" className="font-medium">
-                                View GitHub ↗
-                            </Button>
-                        </a>
+                                <Button
+                                    variant="outline"
+                                    size="default"
+                                    className="font-medium"
+                                >
+                                    View GitHub ↗
+                                </Button>
+                            </a>
+                        </motion.div>
+
+                        {/* Social Links */}
+                        <motion.div variants={itemVariant}>
+                            <SocialLinks iconSize={22} className="mt-1" />
+                        </motion.div>
                     </motion.div>
 
-                    {/* Social Links */}
-                    <motion.div variants={item(1.0)}>
-                        <SocialLinks iconSize={22} className="mt-1" />
+                    {/* ── Right: Code Card (desktop only) ── */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 40 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7, ease: "easeOut" as const, delay: 0.5 }}
+                        className="hidden lg:flex items-center justify-center"
+                    >
+                        <CodeCard />
                     </motion.div>
-                </motion.div>
-
-                {/* ── Right: Code Card (desktop only) ── */}
-                <motion.div
-                    initial={{ opacity: 0, x: 40 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, ease: "easeOut", delay: 0.5 }}
-                    className="hidden lg:flex items-center justify-center"
-                >
-                    <CodeCard />
-                </motion.div>
+                </div>
             </div>
-        </div>
-</section>
-);
+        </section>
+    );
 }

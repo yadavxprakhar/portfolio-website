@@ -67,7 +67,7 @@ const cardVariant = {
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.55, ease: "easeOut" },
+        transition: { duration: 0.55, ease: "easeOut" as const },
     },
 };
 
@@ -79,7 +79,7 @@ export default function Certifications() {
                 className="text-center mb-12"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, ease: "easeOut" }}
+                transition={{ duration: 0.55, ease: "easeOut" as const }}
                 viewport={{ once: true }}
             >
                 <p className="text-primary text-sm font-semibold uppercase tracking-wider mb-2">
@@ -106,7 +106,7 @@ export default function Certifications() {
                         key={cert.id}
                         variants={cardVariant}
                         whileHover={{ y: -2, boxShadow: "0 8px 30px rgba(29,78,216,0.15)" }}
-                        transition={{ type: "spring", stiffness: 280, damping: 20 }}
+                        whileTap={{ scale: 0.99 }}
                         className="bg-card border border-border border-l-4 border-l-primary
                        rounded-xl p-6 flex flex-col gap-3
                        transition-shadow duration-200"

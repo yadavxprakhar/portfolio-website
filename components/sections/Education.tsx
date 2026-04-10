@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { GraduationCap, BookOpen, MapPin } from "lucide-react";
 import SectionWrapper from "@/components/common/SectionWrapper";
+import { type Variants } from "framer-motion";
 
 interface EducationEntry {
     id: string;
@@ -50,7 +51,7 @@ const EDUCATION: EducationEntry[] = [
     },
 ];
 
-const stagger = {
+const stagger: Variants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
@@ -58,9 +59,16 @@ const stagger = {
     },
 };
 
-const fadeUp = {
+const fadeUp: Variants = {
     hidden: { opacity: 0, y: 28 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.55,
+            ease: "easeOut" as const  // ← tells TypeScript this is a literal, not string
+        }
+    },
 };
 
 export default function Education() {
@@ -71,7 +79,7 @@ export default function Education() {
                 className="text-center mb-12"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, ease: "easeOut" }}
+                transition={{ duration: 0.55, ease: "easeOut" as const }}
                 viewport={{ once: true }}
             >
                 <p className="text-primary text-sm font-semibold uppercase tracking-wider mb-2">

@@ -32,7 +32,7 @@ const cardVariant = {
         opacity: 1,
         scale: 1,
         y: 0,
-        transition: { duration: 0.45, ease: "easeOut" },
+        transition: { duration: 0.45, ease: "easeOut" as const },
     },
 };
 
@@ -44,7 +44,7 @@ export default function Hobbies() {
                 className="text-center mb-4"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, ease: "easeOut" }}
+                transition={{ duration: 0.55, ease: "easeOut" as const }}
                 viewport={{ once: true }}
             >
                 <p className="text-primary text-sm font-semibold uppercase tracking-wider mb-2">
@@ -60,7 +60,7 @@ export default function Hobbies() {
                 className="text-muted-foreground text-lg text-center max-w-2xl mx-auto mb-12 leading-relaxed"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+                transition={{ duration: 0.5, ease: "easeOut" as const, delay: 0.15 }}
                 viewport={{ once: true }}
             >
                 In my free time, I enjoy solving DSA problems, exploring backend and

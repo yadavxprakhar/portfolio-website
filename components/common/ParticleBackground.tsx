@@ -117,4 +117,4 @@ export default function ParticleBackground() {
             aria-hidden="true"
         />
     );
-}}
+}

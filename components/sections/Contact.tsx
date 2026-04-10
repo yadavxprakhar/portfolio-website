@@ -4,7 +4,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
-import { Mail, Linkedin } from "lucide-react";
+import { Mail } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -38,7 +39,7 @@ const stagger = {
 
 const fadeUp = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
 function FieldError({ message }: { message?: string }) {
@@ -90,7 +91,7 @@ export default function Contact() {
                 className="text-center mb-12"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, ease: "easeOut" }}
+                transition={{ duration: 0.55, ease: "easeOut" as const }}
                 viewport={{ once: true }}
             >
                 <p className="text-primary text-sm font-semibold uppercase tracking-wider mb-2">
@@ -133,60 +134,60 @@ export default function Contact() {
                         </p>
 
                         {/* Email card */}
-
-                        href="mailto:yadavprakhar1034@gmail.com"
-                        className="flex items-center gap-3 bg-muted/50 hover:bg-muted
-                        rounded-lg p-3 transition-colors duration-200 group"
+                        <a
+                            href="mailto:yadavprakhar1034@gmail.com"
+                            className="flex items-center gap-3 bg-muted/50 hover:bg-muted
+                            rounded-lg p-3 transition-colors duration-200 group"
                         >
-                        <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                            <Mail className="w-4 h-4 text-primary" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2">
-                                <span className="text-sm font-semibold text-foreground">
-                                   Email
-                                </span>
-                                <span
-                                    className="text-xs bg-primary/10 text-primary
-                                    rounded-full px-2 py-0.5 font-medium"
-                                >
-                                   Preferred
-                                </span>
+                            <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                                <Mail className="w-4 h-4 text-primary" />
                             </div>
+                            <div className="flex-1 min-w-0">
+                                <div className="flex items-center gap-2">
+                                    <span className="text-sm font-semibold text-foreground">
+                                        Email
+                                    </span>
+                                    <span
+                                        className="text-xs bg-primary/10 text-primary
+                                        rounded-full px-2 py-0.5 font-medium"
+                                    >
+                                        Preferred
+                                    </span>
+                                </div>
                                 <p className="text-xs text-muted-foreground truncate">
-                                     yadavprakhar1034@gmail.com
+                                    yadavprakhar1034@gmail.com
                                 </p>
-                        </div>
-                            <a
+                            </div>
+                        </a>
 
-                                  {/* LinkedIn card */}
-
-                                  href="https://www.linkedin.com/in/prakharyxdev"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="flex items-center gap-3 bg-muted/50 hover:bg-muted
-                                  rounded-lg p-3 transition-colors duration-200"
-                            >
-                                 <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                                     <Linkedin className="w-4 h-4 text-primary" />
-                                 </div>
-                                 <div className="flex-1 min-w-0">
-                                     <div className="flex items-center gap-2">
-                                         <span className="text-sm font-semibold text-foreground">
-                                             LinkedIn
-                                         </span>
-                                         <span
-                                             className="text-xs bg-primary/10 text-primary
-                                             rounded-full px-2 py-0.5 font-medium"
-                                         >
-                                             Preferred
-                                         </span>
-                                     </div>
-                                     <p className="text-xs text-muted-foreground">
-                                         @prakharyxdev
-                                     </p>
-                                 </div>
-                            </a>
+                        {/* LinkedIn card */}
+                        <a
+                            href="https://www.linkedin.com/in/prakharyxdev"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-3 bg-muted/50 hover:bg-muted
+                            rounded-lg p-3 transition-colors duration-200"
+                        >
+                            <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                                <FaLinkedin className="w-4 h-4 text-primary" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                                <div className="flex items-center gap-2">
+                                    <span className="text-sm font-semibold text-foreground">
+                                        LinkedIn
+                                    </span>
+                                    <span
+                                        className="text-xs bg-primary/10 text-primary
+                                        rounded-full px-2 py-0.5 font-medium"
+                                    >
+                                        Preferred
+                                    </span>
+                                </div>
+                                <p className="text-xs text-muted-foreground">
+                                    @prakharyxdev
+                                </p>
+                            </div>
+                        </a>
                     </motion.div>
 
                     {/* All socials */}
@@ -197,9 +198,9 @@ export default function Contact() {
                     {/* Resume download */}
                     <motion.div variants={fadeUp}>
                         <a href="/Prakhar_Yadav_Resume.pdf" download>
-                           <Button size="default" className="font-medium">
-                               Download Resume ↓
-                           </Button>
+                            <Button size="default" className="font-medium">
+                                Download Resume ↓
+                            </Button>
                         </a>
                     </motion.div>
                 </motion.div>
@@ -208,162 +209,162 @@ export default function Contact() {
                 <motion.div
                     initial={{ opacity: 0, y: 28 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+                    transition={{ duration: 0.6, ease: "easeOut" as const, delay: 0.15 }}
                     viewport={{ once: true, margin: "-60px" }}
                     className="bg-card border border-border rounded-xl p-6 md:p-8"
                 >
-                     <form
-                          onSubmit={handleSubmit(onSubmit)}
-                          noValidate
-                          className="flex flex-col gap-5"
-                     >
-                     {/* Name */}
-                     <div className="flex flex-col gap-1.5">
-                         <label
-                             htmlFor="contact-name"
-                             className="text-sm font-medium text-foreground"
-                         >
-                             Your Name <span className="text-red-500">*</span>
-                         </label>
-                         <Input
-                             id="contact-name"
-                             placeholder="John Doe"
-                             disabled={sending}
-                             aria-invalid={!!errors.name}
+                    <form
+                        onSubmit={handleSubmit(onSubmit)}
+                        noValidate
+                        className="flex flex-col gap-5"
+                    >
+                        {/* Name */}
+                        <div className="flex flex-col gap-1.5">
+                            <label
+                                htmlFor="contact-name"
+                                className="text-sm font-medium text-foreground"
+                            >
+                                Your Name <span className="text-red-500">*</span>
+                            </label>
+                            <Input
+                                id="contact-name"
+                                placeholder="John Doe"
+                                disabled={sending}
+                                aria-invalid={!!errors.name}
                                 {...register("name", {
                                     required: "Name is required",
                                     minLength: {
-                                    value: 2,
-                                    message: "Name must be at least 2 characters",
-                                },
-                             })}
-                         />
-                              <FieldError message={errors.name?.message} />
-                     </div>
+                                        value: 2,
+                                        message: "Name must be at least 2 characters",
+                                    },
+                                })}
+                            />
+                            <FieldError message={errors.name?.message} />
+                        </div>
 
-                     {/* Email */}
-                      <div className="flex flex-col gap-1.5">
-                          <label
-                             htmlFor="contact-email"
-                             className="text-sm font-medium text-foreground"
-                          >
-                              Your Email <span className="text-red-500">*</span>
-                          </label>
-                          <Input
-                             id="contact-email"
-                             type="email"
-                             placeholder="john@example.com"
-                             disabled={sending}
-                             aria-invalid={!!errors.email}
-                             {...register("email", {
-                                 required: "Email is required",
-                                 pattern: {
-                                     value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                                     message: "Please enter a valid email address",
-                                 },
-                             })}
-                          />
-                              <FieldError message={errors.email?.message} />
-                      </div>
+                        {/* Email */}
+                        <div className="flex flex-col gap-1.5">
+                            <label
+                                htmlFor="contact-email"
+                                className="text-sm font-medium text-foreground"
+                            >
+                                Your Email <span className="text-red-500">*</span>
+                            </label>
+                            <Input
+                                id="contact-email"
+                                type="email"
+                                placeholder="john@example.com"
+                                disabled={sending}
+                                aria-invalid={!!errors.email}
+                                {...register("email", {
+                                    required: "Email is required",
+                                    pattern: {
+                                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                        message: "Please enter a valid email address",
+                                    },
+                                })}
+                            />
+                            <FieldError message={errors.email?.message} />
+                        </div>
 
-                         {/* Subject */}
-                         <div className="flex flex-col gap-1.5">
-                             <label
-                                 htmlFor="contact-subject"
-                                 className="text-sm font-medium text-foreground"
-                             >
-                                 Subject <span className="text-red-500">*</span>
-                             </label>
-                             <select
+                        {/* Subject */}
+                        <div className="flex flex-col gap-1.5">
+                            <label
+                                htmlFor="contact-subject"
+                                className="text-sm font-medium text-foreground"
+                            >
+                                Subject <span className="text-red-500">*</span>
+                            </label>
+                            <select
                                 id="contact-subject"
                                 disabled={sending}
                                 aria-invalid={!!errors.subject}
                                 className="flex h-10 w-full rounded-md border border-input
-                                     bg-background px-3 py-2 text-sm
-                                     text-foreground ring-offset-background
-                                     focus-visible:outline-none
-                                     focus-visible:ring-2 focus-visible:ring-ring
-                                     focus-visible:ring-offset-2
-                                     disabled:cursor-not-allowed disabled:opacity-50
-                                      transition-colors duration-150"
-                                    {...register("subject", {
-                                         required: "Please select a subject",
-                                          validate: (v) => v !== "" || "Please select a subject",
-                                    })}
-                             >
-                                  {SUBJECT_OPTIONS.map((opt) => (
-                                      <option key={opt.value} value={opt.value}>
-                                          {opt.label}
-                                      </option>
-                                  ))}
-                             </select>
-                             <FieldError message={errors.subject?.message} />
-                      </div>
+                                    bg-background px-3 py-2 text-sm
+                                    text-foreground ring-offset-background
+                                    focus-visible:outline-none
+                                    focus-visible:ring-2 focus-visible:ring-ring
+                                    focus-visible:ring-offset-2
+                                    disabled:cursor-not-allowed disabled:opacity-50
+                                    transition-colors duration-150"
+                                {...register("subject", {
+                                    required: "Please select a subject",
+                                    validate: (v) => v !== "" || "Please select a subject",
+                                })}
+                            >
+                                {SUBJECT_OPTIONS.map((opt) => (
+                                    <option key={opt.value} value={opt.value}>
+                                        {opt.label}
+                                    </option>
+                                ))}
+                            </select>
+                            <FieldError message={errors.subject?.message} />
+                        </div>
 
-                     {/* Message */}
-                      <div className="flex flex-col gap-1.5">
-                          <label
+                        {/* Message */}
+                        <div className="flex flex-col gap-1.5">
+                            <label
                                 htmlFor="contact-message"
-                               className="text-sm font-medium text-foreground"
-                          >
-                               Message <span className="text-red-500">*</span>
-                          </label>
-                          <Textarea
-                             id="contact-message"
-                             placeholder="Tell me about the opportunity or just say hello..."
-                             rows={5}
-                             disabled={sending}
-                             aria-invalid={!!errors.message}
-                             className="resize-none"
-                                 {...register("message", {
+                                className="text-sm font-medium text-foreground"
+                            >
+                                Message <span className="text-red-500">*</span>
+                            </label>
+                            <Textarea
+                                id="contact-message"
+                                placeholder="Tell me about the opportunity or just say hello..."
+                                rows={5}
+                                disabled={sending}
+                                aria-invalid={!!errors.message}
+                                className="resize-none"
+                                {...register("message", {
                                     required: "Message is required",
                                     minLength: {
-                                         value: 20,
-                                         message: "Message must be at least 20 characters",
+                                        value: 20,
+                                        message: "Message must be at least 20 characters",
                                     },
-                                 })}
-                          />
-                         <FieldError message={errors.message?.message} />
-                      </div>
+                                })}
+                            />
+                            <FieldError message={errors.message?.message} />
+                        </div>
 
-                      {/* Submit */}
-                       <Button
-                          type="submit"
-                          disabled={sending}
-                          className="w-full font-medium mt-1"
-                          size="default"
-                       >
-                       {sending ? (
-                            <span className="flex items-center justify-center gap-2">
-                                {/* Inline spinner */}
-                                <svg
-                                    className="w-4 h-4 animate-spin"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    aria-hidden="true"
-                                >
-                                    <circle
-                                        className="opacity-25"
-                                        cx="12"
-                                        cy="12"
-                                        r="10"
-                                        stroke="currentColor"
-                                        strokeWidth="4"
-                                    />
-                                     <path
-                                        className="opacity-75"
-                                        fill="currentColor"
-                                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                                     />
-                                 </svg>
-                               Sending...
-                            </span>
-                       ) : (
-                           "Send Message →"
-                       )}
-                           </Button>
-                       </form>
+                        {/* Submit */}
+                        <Button
+                            type="submit"
+                            disabled={sending}
+                            className="w-full font-medium mt-1"
+                            size="default"
+                        >
+                            {sending ? (
+                                <span className="flex items-center justify-center gap-2">
+                                    {/* Inline spinner */}
+                                    <svg
+                                        className="w-4 h-4 animate-spin"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        aria-hidden="true"
+                                    >
+                                        <circle
+                                            className="opacity-25"
+                                            cx="12"
+                                            cy="12"
+                                            r="10"
+                                            stroke="currentColor"
+                                            strokeWidth="4"
+                                        />
+                                        <path
+                                            className="opacity-75"
+                                            fill="currentColor"
+                                            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                                        />
+                                    </svg>
+                                    Sending...
+                                </span>
+                            ) : (
+                                "Send Message →"
+                            )}
+                        </Button>
+                    </form>
                 </motion.div>
             </div>
         </SectionWrapper>

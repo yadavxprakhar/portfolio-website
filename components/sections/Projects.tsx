@@ -107,12 +107,12 @@ const cardVariant = {
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.5, ease: "easeOut" },
+        transition: { duration: 0.5, ease: "easeOut" as const },
     },
     exit: {
         opacity: 0,
         y: -16,
-        transition: { duration: 0.25, ease: "easeIn" },
+        transition: { duration: 0.25, ease: "easeIn" as const }, // ← Add 'as const' here
     },
 };
 
@@ -145,8 +145,8 @@ function ProjectCard({ project }: { project: Project }) {
                         className="absolute top-0 right-0 bg-yellow-400 text-yellow-900
                        text-xs font-bold px-2 py-1 rounded-bl-lg"
                     >
-            ⭐ Featured
-          </span>
+                        ⭐ Featured
+                    </span>
                 )}
             </div>
 
@@ -175,60 +175,60 @@ function ProjectCard({ project }: { project: Project }) {
                             className="bg-primary/10 text-primary text-xs
                          rounded-full px-2 py-0.5 font-medium"
                         >
-              {tech}
-            </span>
+                            {tech}
+                        </span>
                     ))}
                 </div>
 
                 {/* Action buttons — pushed to bottom */}
                 <div className="flex gap-2 mt-auto pt-3">
                     {/* GitHub */}
-
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
-                    <Button variant="outline" size="sm" className="text-xs">
-                        GitHub ↗
-                    </Button>
-                </a>
-
-                {/* Live Demo */}
-                {project.liveUrl ? (
-
-                        href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >
-                    <Button size="sm" className="text-xs">
-                    Live Demo ↗
-                    </Button>
+                        <Button variant="outline" size="sm" className="text-xs">
+                            GitHub ↗
+                        </Button>
                     </a>
+
+                    {/* Live Demo */}
+                    {project.liveUrl ? (
+                        <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Button size="sm" className="text-xs">
+                                Live Demo ↗
+                            </Button>
+                        </a>
                     ) : (
-                    <TooltipProvider delayDuration={100}>
-                <Tooltip>
-                    <TooltipTrigger asChild>
-                  <span>
-                    <Button
-                        size="sm"
-                        className="text-xs"
-                        disabled
-                        aria-label="Live demo coming soon"
-                    >
-                      Live Demo ↗
-                    </Button>
-                  </span>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                        <p>Coming Soon 🚀</p>
-                    </TooltipContent>
-                </Tooltip>
-            </TooltipProvider>
-            )}
-</div>
-</div>
-</motion.div>
-);
+                        <TooltipProvider delayDuration={100}>
+                            <Tooltip>
+                                <TooltipTrigger asChild>
+                                    <span>
+                                        <Button
+                                            size="sm"
+                                            className="text-xs"
+                                            disabled
+                                            aria-label="Live demo coming soon"
+                                        >
+                                            Live Demo ↗
+                                        </Button>
+                                    </span>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>Coming Soon 🚀</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                    )}
+                </div>
+            </div>
+        </motion.div>
+    );
 }
 
 export default function Projects() {
@@ -246,7 +246,7 @@ export default function Projects() {
                 className="text-center mb-10"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, ease: "easeOut" }}
+                transition={{ duration: 0.55, ease: "easeOut" as const }}
                 viewport={{ once: true }}
             >
                 <p className="text-primary text-sm font-semibold uppercase tracking-wider mb-2">
@@ -265,7 +265,7 @@ export default function Projects() {
                 className="flex flex-wrap justify-center gap-2 mb-10"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
+                transition={{ duration: 0.45, ease: "easeOut" as const, delay: 0.1 }}
                 viewport={{ once: true }}
             >
                 {FILTER_TABS.map((tab) => (

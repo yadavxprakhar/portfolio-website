@@ -116,12 +116,12 @@ export default function Navbar() {
                 {/* ── Right Side Controls ── */}
                 <div className="flex items-center gap-2">
                     {/* Resume Download Button — visible on desktop */}
-
                     <a
                         href="/Prakhar_Yadav_Resume.pdf"
                         download
                         className="hidden md:inline-flex"
-                        aria-label="Download Resume">
+                        aria-label="Download Resume"
+                    >
                         <Button variant="outline" size="sm">
                             Resume ↓
                         </Button>
@@ -146,9 +146,9 @@ export default function Navbar() {
                                     transition={{ duration: 0.2 }}
                                 >
                                     {mobileOpen ? (
-                                         <X className="w-5 h-5" />
+                                        <X className="w-5 h-5" />
                                     ) : (
-                                         <Menu className="w-5 h-5" />
+                                        <Menu className="w-5 h-5" />
                                     )}
                                 </motion.span>
                             </Button>
@@ -156,45 +156,45 @@ export default function Navbar() {
 
                         {/* Mobile Sheet Panel */}
                         <SheetContent side="right" className="w-64 pt-12 flex flex-col gap-2">
-                             <nav aria-label="Mobile navigation">
-                                 <ul className="flex flex-col gap-1">
-                                     {NAV_ITEMS.map((item) => {
+                            <nav aria-label="Mobile navigation">
+                                <ul className="flex flex-col gap-1">
+                                    {NAV_ITEMS.map((item) => {
                                         const isActive = activeSection === item.sectionId;
                                         return (
                                             <li key={item.sectionId}>
                                                 <SheetClose asChild>
                                                     <button
-                                                       onClick={() => handleNavClick(item.href)}
-                                                       className={cn(
-                                                          "w-full text-left px-4 py-3 rounded-md text-sm font-medium",
-                                                          "transition-colors duration-200 focus:outline-none",
-                                                          "focus-visible:ring-2 focus-visible:ring-primary",
-                                                           isActive
-                                                               ? "text-primary bg-primary/10"
-                                                               : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                                                       )}
+                                                        onClick={() => handleNavClick(item.href)}
+                                                        className={cn(
+                                                            "w-full text-left px-4 py-3 rounded-md text-sm font-medium",
+                                                            "transition-colors duration-200 focus:outline-none",
+                                                            "focus-visible:ring-2 focus-visible:ring-primary",
+                                                            isActive
+                                                                ? "text-primary bg-primary/10"
+                                                                : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                                                        )}
                                                     >
-                                                    {item.label}
+                                                        {item.label}
                                                     </button>
                                                 </SheetClose>
                                             </li>
                                         );
-                                     })}
-                                 </ul>
-                             </nav>
+                                    })}
+                                </ul>
+                            </nav>
 
                             {/* Resume download in mobile sheet */}
                             <div className="mt-4 px-2">
                                 <SheetClose asChild>
-
-                                    href="/Prakhar_Yadav_Resume.pdf"
-                                    download
-                                    className="block"
-                                    <a>
+                                    <a
+                                        href="/Prakhar_Yadav_Resume.pdf"
+                                        download
+                                        className="block"
+                                    >
                                         <Button
-                                           variant="outline"
-                                           size="sm"
-                                           className="w-full text-sm font-medium"
+                                            variant="outline"
+                                            size="sm"
+                                            className="w-full text-sm font-medium"
                                         >
                                             Resume ↓
                                         </Button>
@@ -206,5 +206,5 @@ export default function Navbar() {
                 </div>
             </nav>
         </header>
-   )
+    );
 }

@@ -74,7 +74,7 @@ export default function SocialLinks({
                         aria-label={item.label}
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.07, duration: 0.3, ease: "easeOut" }}
+                        transition={{ delay: index * 0.07, duration: 0.3, ease: "easeOut" as const }}
                         whileHover={{ scale: 1.1, y: -2 }}
                         whileTap={{ scale: 0.95 }}
                         className={cn(

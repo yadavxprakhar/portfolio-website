@@ -30,6 +30,9 @@
     --color-secondary: #0ea5e9;
     --color-accent: #0d9488;
     --section-bg-alt: #f8faff;
+
+    /* Font family variable */
+    --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
   /* ── CSS Variables: Dark Mode ── */
@@ -58,7 +61,7 @@
   }
 }
 
-/* ── Base Styles ── */rm -rf .next
+/* ── Base Styles ── */
 @layer base {
   * {
     border-color: hsl(214.3 31.8% 91.4%);
@@ -73,7 +76,7 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: var(--font-inter, sans-serif);
+    font-family: var(--font-inter);
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
