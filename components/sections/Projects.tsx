@@ -48,7 +48,7 @@ const PROJECTS: Project[] = [
             "Vite",
             "REST API",
         ],
-        githubUrl: "https://github.com/yadavxprakhar/linklytics",
+        githubUrl: "https://github.com/yadavxprakhar/Linklytics---A-URL-Shortner-App",
         liveUrl: null,
     },
     {
@@ -124,11 +124,11 @@ function ProjectCard({ project }: { project: Project }) {
             initial="hidden"
             animate="visible"
             exit="exit"
-            whileHover={{ y: -4 }}
+            whileHover={{ y: -6, scale: 1.01 }}
             transition={{ type: "spring", stiffness: 280, damping: 22 }}
             className="bg-card border border-border rounded-xl overflow-hidden
-                 hover:shadow-xl hover:border-primary/30
-                 transition-shadow duration-300 flex flex-col"
+                 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/40
+                 transition-all duration-300 flex flex-col"
         >
             {/* Gradient banner */}
             <div
@@ -168,12 +168,12 @@ function ProjectCard({ project }: { project: Project }) {
                 </p>
 
                 {/* Tech pills */}
-                <div className="flex flex-wrap gap-1.5 mt-1">
+                <div className="flex flex-wrap gap-2 mt-2">
                     {project.techStack.map((tech) => (
                         <span
                             key={tech}
                             className="bg-primary/10 text-primary text-xs
-                         rounded-full px-2 py-0.5 font-medium"
+                         rounded-full px-2.5 py-1 font-semibold border border-primary/20"
                         >
                             {tech}
                         </span>
@@ -181,15 +181,16 @@ function ProjectCard({ project }: { project: Project }) {
                 </div>
 
                 {/* Action buttons — pushed to bottom */}
-                <div className="flex gap-2 mt-auto pt-3">
+                <div className="flex gap-3 mt-auto pt-4">
                     {/* GitHub */}
                     <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
+                        className="flex-1"
                     >
-                        <Button variant="outline" size="sm" className="text-xs">
-                            GitHub ↗
+                        <Button variant="outline" size="default" className="w-full font-medium group transition-all hover:border-primary/50">
+                            GitHub <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform ml-1">↗</span>
                         </Button>
                     </a>
 
@@ -199,9 +200,10 @@ function ProjectCard({ project }: { project: Project }) {
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="flex-1"
                         >
-                            <Button size="sm" className="text-xs">
-                                Live Demo ↗
+                            <Button size="default" className="w-full font-medium group">
+                                Live Demo <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform ml-1">↗</span>
                             </Button>
                         </a>
                     ) : (
@@ -210,8 +212,8 @@ function ProjectCard({ project }: { project: Project }) {
                                 <TooltipTrigger asChild>
                                     <span>
                                         <Button
-                                            size="sm"
-                                            className="text-xs"
+                                            size="default"
+                                            className="w-full font-medium opacity-80"
                                             disabled
                                             aria-label="Live demo coming soon"
                                         >

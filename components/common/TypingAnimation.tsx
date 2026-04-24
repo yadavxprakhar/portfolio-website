@@ -33,10 +33,12 @@ export default function TypingAnimation({
 
         if (phase === "typing") {
             if (charIndexRef.current < currentText.length) {
+                // Add slight randomness to typing speed to feel more natural
+                const variableSpeed = speed + Math.random() * 60 - 30;
                 timer = setTimeout(() => {
                     charIndexRef.current += 1;
                     setDisplayText(currentText.slice(0, charIndexRef.current));
-                }, speed);
+                }, variableSpeed);
             } else {
                 // Finished typing — pause before deleting
                 timer = setTimeout(() => setPhase("deleting"), pauseTime);
@@ -66,7 +68,7 @@ export default function TypingAnimation({
             <span>{displayText}</span>
             {/* Blinking cursor */}
             <span
-                className="ml-0.5 inline-block w-[2px] h-[1.1em] bg-current align-middle"
+                className="ml-[1px] inline-block w-[3px] h-[1.1em] bg-primary align-middle rounded-full"
                 style={{
                     animation: "blink-cursor 1s step-end infinite",
                 }}

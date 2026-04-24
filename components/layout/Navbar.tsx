@@ -57,16 +57,18 @@ export default function Navbar() {
     return (
         <header
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+                "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
                 scrolled
-                    ? "backdrop-blur-md bg-background/80 border-b border-border shadow-sm"
-                    : "bg-transparent"
+                    ? "backdrop-blur-2xl bg-background/60 border-b border-border/40 shadow-sm py-2"
+                    : "bg-transparent py-4"
             )}
         >
             <nav className="max-w-6xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
 
                 {/* ── Logo ── */}
-                <button
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                     className="text-xl font-bold tracking-tight focus:outline-none
                      focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
@@ -74,18 +76,20 @@ export default function Navbar() {
                 >
                     <span className="text-primary">PY</span>
                     <span className="text-foreground">.</span>
-                </button>
+                </motion.button>
 
                 {/* ── Desktop Nav Links ── */}
-                <ul className="hidden md:flex items-center gap-1">
+                <ul className="hidden md:flex items-center gap-2">
                     {NAV_ITEMS.map((item) => {
                         const isActive = activeSection === item.sectionId;
                         return (
                             <li key={item.sectionId}>
-                                <button
+                                <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
                                     onClick={() => handleNavClick(item.href)}
                                     className={cn(
-                                        "relative px-3 py-2 text-sm font-medium rounded-md",
+                                        "relative px-4 py-2 text-sm font-semibold rounded-full",
                                         "transition-colors duration-200 focus:outline-none",
                                         "focus-visible:ring-2 focus-visible:ring-primary",
                                         isActive
@@ -93,21 +97,21 @@ export default function Navbar() {
                                             : "text-muted-foreground hover:text-foreground"
                                     )}
                                 >
-                                    {item.label}
-                                    {/* Active underline indicator */}
+                                    <span className="relative z-10">{item.label}</span>
+                                    {/* Active pill indicator */}
                                     <AnimatePresence>
                                         {isActive && (
                                             <motion.span
-                                                layoutId="nav-underline"
-                                                className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary rounded-full"
+                                                layoutId="nav-pill"
+                                                className="absolute inset-0 z-0 bg-primary/10 rounded-full"
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
                                                 exit={{ opacity: 0 }}
-                                                transition={{ duration: 0.2 }}
+                                                transition={{ type: "spring", stiffness: 400, damping: 30 }}
                                             />
                                         )}
                                     </AnimatePresence>
-                                </button>
+                                </motion.button>
                             </li>
                         );
                     })}
@@ -116,16 +120,18 @@ export default function Navbar() {
                 {/* ── Right Side Controls ── */}
                 <div className="flex items-center gap-2">
                     {/* Resume Download Button — visible on desktop */}
-                    <a
+                    <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         href="/Prakhar_Yadav_Resume.pdf"
                         download
                         className="hidden md:inline-flex"
                         aria-label="Download Resume"
                     >
-                        <Button variant="outline" size="sm">
+                        <Button variant="outline" size="sm" className="font-semibold">
                             Resume ↓
                         </Button>
-                    </a>
+                    </motion.a>
 
                     {/* Theme Toggle */}
                     <ThemeToggle />
@@ -166,11 +172,11 @@ export default function Navbar() {
                                                     <button
                                                         onClick={() => handleNavClick(item.href)}
                                                         className={cn(
-                                                            "w-full text-left px-4 py-3 rounded-md text-sm font-medium",
-                                                            "transition-colors duration-200 focus:outline-none",
+                                                            "w-full text-left px-4 py-3 rounded-md text-sm font-semibold",
+                                                            "transition-all duration-200 focus:outline-none",
                                                             "focus-visible:ring-2 focus-visible:ring-primary",
                                                             isActive
-                                                                ? "text-primary bg-primary/10"
+                                                                ? "text-primary bg-primary/10 scale-[1.02]"
                                                                 : "text-muted-foreground hover:text-foreground hover:bg-muted"
                                                         )}
                                                     >

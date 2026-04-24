@@ -3,15 +3,7 @@
 import { motion, type Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import ParticleBackground from "@/components/common/ParticleBackground";
-import TypingAnimation from "@/components/common/TypingAnimation";
 import SocialLinks from "@/components/common/SocialLinks";
-
-const TYPING_TEXTS = [
-    "Full Stack Developer",
-    "Backend-Focused Engineer",
-    "Spring Boot Developer",
-    "Clean Code Advocate",
-];
 
 const CODE_LINES = [
     { tokens: [{ text: "// Prakhar Yadav", type: "comment" }] },
@@ -195,26 +187,19 @@ export default function Hero() {
                         {/* Headline */}
                         <motion.h1
                             variants={itemVariant}
-                            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-tight"
+                            className="text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-foreground leading-[1.1]"
                         >
                             Hi, I&apos;m{" "}
                             <span className="text-primary">Prakhar Yadav</span>
                         </motion.h1>
 
-                        {/* Typing Animation */}
-                        <motion.div
+                        {/* Title Text */}
+                        <motion.h2
                             variants={itemVariant}
-                            className="text-2xl md:text-3xl font-semibold"
+                            className="text-2xl md:text-3xl lg:text-4xl font-semibold mt-2 text-primary"
                         >
-                            <span className="text-muted-foreground">I&apos;m a </span>
-                            <TypingAnimation
-                                texts={TYPING_TEXTS}
-                                speed={90}
-                                deleteSpeed={45}
-                                pauseTime={2000}
-                                className="text-primary"
-                            />
-                        </motion.div>
+                            Full Stack Developer
+                        </motion.h2>
 
                         {/* Subheadline */}
                         <motion.p
@@ -240,39 +225,48 @@ export default function Hero() {
                         {/* CTA Buttons */}
                         <motion.div
                             variants={itemVariant}
-                            className="flex flex-row flex-wrap gap-3 mt-1"
+                            className="flex flex-row flex-wrap gap-4 mt-4"
                         >
-                            <Button
-                                onClick={scrollToProjects}
-                                size="default"
-                                className="font-medium"
-                            >
-                                View My Projects
-                            </Button>
+                            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                                <Button
+                                    onClick={scrollToProjects}
+                                    size="lg"
+                                    className="font-medium shadow-blue-glow"
+                                >
+                                    View My Projects
+                                </Button>
+                            </motion.div>
 
-                            <a href="/Prakhar_Yadav_Resume.pdf" download>
+                            <motion.a 
+                                href="/Prakhar_Yadav_Resume.pdf" 
+                                download
+                                whileHover={{ scale: 1.05 }} 
+                                whileTap={{ scale: 0.95 }}
+                            >
                                 <Button
                                     variant="secondary"
-                                    size="default"
+                                    size="lg"
                                     className="font-medium"
                                 >
                                     Download Resume
                                 </Button>
-                            </a>
+                            </motion.a>
 
-                            <a
+                            <motion.a
                                 href="https://github.com/yadavxprakhar"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }} 
+                                whileTap={{ scale: 0.95 }}
                             >
                                 <Button
                                     variant="outline"
-                                    size="default"
+                                    size="lg"
                                     className="font-medium"
                                 >
                                     View GitHub ↗
                                 </Button>
-                            </a>
+                            </motion.a>
                         </motion.div>
 
                         {/* Social Links */}

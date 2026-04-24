@@ -20,17 +20,17 @@ export default function SectionWrapper({
         <section
             id={id}
             className={cn(
-                "w-full py-20 px-4 md:px-8 lg:px-16",
-                alternate && "bg-[var(--section-bg-alt)]",
+                "w-full py-24 px-4 md:px-8 lg:px-16",
+                alternate && "bg-muted/30",
                 className
             )}
         >
             <motion.div
                 className="max-w-6xl mx-auto"
-                // initial={{ opacity: 0, y: 40 }}
-                // whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" as const }}
-                viewport={{ once: true, margin: "-100px" }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
+                viewport={{ once: true, margin: "-80px" }}
             >
                 {children}
             </motion.div>

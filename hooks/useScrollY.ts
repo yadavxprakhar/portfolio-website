@@ -27,6 +27,7 @@ export function useScrollY(): number {
         };
 
         // Set initial value
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setScrollY(window.scrollY);
 
         window.addEventListener("scroll", handleScroll, { passive: true });

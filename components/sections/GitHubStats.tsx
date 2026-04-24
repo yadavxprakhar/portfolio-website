@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -100,7 +100,16 @@ const fadeUp = {
 
 export default function GitHubStats() {
     const { resolvedTheme } = useTheme();
-    const themeQ = themeQuery(resolvedTheme);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setMounted(true);
+    }, []);
+
+    // Use a stable default (e.g., light mode) on the server and first client render
+    // to prevent hydration mismatch. Once mounted, use the resolved theme.
+    const themeQ = mounted ? themeQuery(resolvedTheme) : themeQuery("light");
 
     return (
         <SectionWrapper id="github-stats" alternate>
