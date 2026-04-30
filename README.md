@@ -130,4 +130,4 @@ Give a ⭐️ if you like this project!
 Next.js Documentation - learn about Next.js features and API.
 Learn Next.js - an interactive Next.js tutorial.
 Tailwind CSS Documentation
-<p align="center">Made with ❤️ by Prakhar Yadav</p> ```
+<p align="center">Made with ❤️ by Prakhar Yadav</p> 
