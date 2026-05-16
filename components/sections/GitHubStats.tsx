@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 import SectionWrapper from "@/components/common/SectionWrapper";
+import { Button } from "@/components/ui/button";
 
 const GH_USER = "yadavxprakhar";
 
@@ -13,8 +15,6 @@ interface StatCard {
     id: string;
     label: string;
     getUrl: (theme: string) => string;
-    width: number;
-    height: number;
 }
 
 const STAT_CARDS: StatCard[] = [
@@ -22,150 +22,89 @@ const STAT_CARDS: StatCard[] = [
         id: "stats",
         label: "GitHub Stats",
         getUrl: (t) =>
-            `https://github-readme-stats.vercel.app/api?username=${GH_USER}&show_icons=true&hide_border=true&${t}`,
-        width: 495,
-        height: 195,
+            `https://github-readme-stats.shion.dev/api?username=${GH_USER}&show_icons=true&hide_border=true&include_all_commits=true&count_private=true&${t}`,
     },
     {
         id: "langs",
         label: "Top Languages",
         getUrl: (t) =>
-            `https://github-readme-stats.vercel.app/api/top-langs?username=${GH_USER}&layout=compact&hide_border=true&${t}`,
-        width: 495,
-        height: 195,
+            `https://github-readme-stats.shion.dev/api/top-langs?username=${GH_USER}&layout=compact&hide_border=true&include_all_commits=true&count_private=true&${t}`,
     },
     {
         id: "streak",
         label: "Streak Stats",
         getUrl: (t) =>
             `https://github-readme-streak-stats.herokuapp.com?user=${GH_USER}&hide_border=true&${t}`,
-        width: 495,
-        height: 195,
     },
 ];
 
 function themeQuery(resolvedTheme: string | undefined): string {
-    if (resolvedTheme === "dark") {
-        return "theme=dark&bg_color=0d1117";
-    }
-    return "theme=default&bg_color=ffffff";
+    return "theme=transparent&text_color=94a3b8&icon_color=6366f1&title_color=ffffff&bg_color=00000000";
 }
-
-function SkeletonCard() {
-    return (
-        <div className="w-full h-48 rounded-xl bg-muted animate-pulse" />
-    );
-}
-
-function StatImageCard({ card, themeQ }: { card: StatCard; themeQ: string }) {
-    const [loaded, setLoaded] = useState(false);
-    const url = card.getUrl(themeQ);
-
-    return (
-        <motion.div
-            whileHover={{ scale: 1.02, y: -2 }}
-            transition={{ type: "spring", stiffness: 300, damping: 22 }}
-            className="bg-card border border-border rounded-xl p-4
-                 hover:shadow-lg transition-shadow duration-200
-                 flex items-center justify-center overflow-hidden min-h-[200px]"
-        >
-            {!loaded && <SkeletonCard />}
-            <Image
-                src={url}
-                alt={card.label}
-                width={card.width}
-                height={card.height}
-                className={`w-full h-auto object-contain rounded-lg
-                    transition-opacity duration-300
-                    ${loaded ? "opacity-100" : "opacity-0 absolute"}`}
-                onLoad={() => setLoaded(true)}
-                unoptimized // These are remote SVGs — bypass Next.js image optimization
-            />
-        </motion.div>
-    );
-}
-
-const stagger = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-    },
-};
-
-const fadeUp = {
-    hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
-};
 
 export default function GitHubStats() {
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
-    // Use a stable default (e.g., light mode) on the server and first client render
-    // to prevent hydration mismatch. Once mounted, use the resolved theme.
-    const themeQ = mounted ? themeQuery(resolvedTheme) : themeQuery("light");
+    const themeQ = themeQuery(resolvedTheme);
 
     return (
-        <SectionWrapper id="github-stats" alternate>
-            {/* Header */}
-            <motion.div
-                className="text-center mb-10"
-                // initial={{ opacity: 0, y: 24 }}
-                // whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, ease: "easeOut" as const }}
-                viewport={{ once: true }}
-            >
-                <p className="text-primary text-sm font-semibold uppercase tracking-wider mb-2">
-                    Open Source
-                </p>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                    GitHub Activity
-                </h2>
-                <p className="text-muted-foreground mt-3 text-base max-w-xl mx-auto">
-                    My open source presence and coding activity
-                </p>
-            </motion.div>
-
-            {/* Stat Cards */}
-            <motion.div
-                className="grid grid-cols-1 md:grid-cols-3 gap-5"
-                variants={stagger}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-60px" }}
-            >
-                {STAT_CARDS.map((card) => (
-                    <motion.div key={card.id} variants={fadeUp}>
-                        <StatImageCard card={card} themeQ={themeQ} />
-                    </motion.div>
-                ))}
-            </motion.div>
-
-            {/* CTA */}
-            <motion.div
-                className="flex justify-center mt-8"
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, ease: "easeOut" as const, delay: 0.3 }}
-                viewport={{ once: true }}
-            >
-                <a
-                    href={`https://github.com/${GH_USER}`}
-
-                    target="_blank"
-                    rel="noopener noreferrer"
+        <SectionWrapper id="github-stats" className="py-32">
+            <div className="max-w-7xl mx-auto px-6">
+                <motion.div
+                    className="text-center mb-20"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
                 >
-                    <Button variant="outline" size="default" className="font-medium">
-                        View GitHub Profile ↗
+                    <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">
+                        Code <span className="text-gradient">Activity</span>
+                    </h2>
+                    <p className="text-slate-400 text-lg">
+                        Real-time statistics of my contributions and open-source presence.
+                    </p>
+                </motion.div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {STAT_CARDS.map((card, i) => (
+                        <motion.div
+                            key={card.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                            className="p-4 rounded-2xl border border-white/10 bg-white/5 hover:border-white/20 transition-all flex items-center justify-center min-h-[220px] overflow-hidden"
+                        >
+                            {mounted && (
+                                <img
+                                    src={card.getUrl(themeQ)}
+                                    alt={card.label}
+                                    className="w-full h-auto"
+                                    loading="lazy"
+                                />
+                            )}
+                        </motion.div>
+                    ))}
+                </div>
+
+                <motion.div 
+                    className="mt-12 text-center"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                >
+                    <Button variant="outline" className="rounded-full border-white/10 bg-white/5 hover:bg-white/10 text-white font-bold px-8 h-12" asChild>
+                        <a href={`https://github.com/${GH_USER}`} target="_blank">
+                            <FaGithub className="w-4 h-4 mr-2" />
+                            Explore GitHub Profile
+                        </a>
                     </Button>
-                </a>
-            </motion.div>
+                </motion.div>
+            </div>
         </SectionWrapper>
     );
 }

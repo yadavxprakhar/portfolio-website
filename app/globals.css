@@ -19,116 +19,110 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-outfit), var(--font-inter), sans-serif;
 }
 
 @layer base {
   :root {
-    --background: #F9FAFB;
-    --foreground: #111827;
-    --card: #FFFFFF;
-    --card-foreground: #111827;
-    --popover: #FFFFFF;
-    --popover-foreground: #111827;
-    --primary: #1d4ed8;
-    --primary-foreground: #FFFFFF;
-    --secondary: #E5E7EB;
-    --secondary-foreground: #111827;
-    --muted: #F3F4F6;
-    --muted-foreground: #6B7280;
-    --accent: #0ea5e9;
-    --accent-foreground: #FFFFFF;
-    --border: #E5E7EB;
+    --background: #ffffff;
+    --foreground: #020617;
+    --card: #ffffff;
+    --card-foreground: #020617;
+    --popover: #ffffff;
+    --popover-foreground: #020617;
+    --primary: #6366f1;
+    --primary-foreground: #ffffff;
+    --secondary: #f1f5f9;
+    --secondary-foreground: #0f172a;
+    --muted: #f1f5f9;
+    --muted-foreground: #64748b;
+    --accent: #22d3ee;
+    --accent-foreground: #ffffff;
+    --border: #e2e8f0;
+    --radius: 0.75rem;
   }
 
   .dark {
-    --background: #0B0F19;
-    --foreground: #F9FAFB;
-    --card: #111827;
-    --card-foreground: #F9FAFB;
-    --popover: #111827;
-    --popover-foreground: #F9FAFB;
-    --primary: #3b82f6;
-    --primary-foreground: #FFFFFF;
-    --secondary: #1F2937;
-    --secondary-foreground: #F9FAFB;
-    --muted: #1F2937;
-    --muted-foreground: #9CA3AF;
-    --accent: #38bdf8;
-    --accent-foreground: #FFFFFF;
-    --border: #374151;
+    --background: #020617;
+    --foreground: #f8fafc;
+    --card: #0f172a;
+    --card-foreground: #f8fafc;
+    --popover: #0f172a;
+    --popover-foreground: #f8fafc;
+    --primary: #818cf8;
+    --primary-foreground: #ffffff;
+    --secondary: #1e293b;
+    --secondary-foreground: #f8fafc;
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
+    --accent: #22d3ee;
+    --accent-foreground: #0f172a;
+    --border: #1e293b;
   }
 
   * {
     border-color: var(--border);
   }
+  
   body {
     background-color: var(--background);
     color: var(--foreground);
     font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-image: linear-gradient(to right, #1d4ed8, #0ea5e9, #0d9488);
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-cyan-400 to-indigo-400;
+    background-size: 200% auto;
+    animation: shine 5s linear infinite;
   }
 
-  .section-heading {
-    font-size: 1.875rem;     /* text-3xl */
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  @media (min-width: 768px) {
-    .section-heading {
-      font-size: 2.25rem;    /* md:text-4xl */
-    }
-  }
-
-  .section-subheading {
-    color: hsl(var(--muted-foreground));
-    font-size: 1rem;
-    margin-bottom: 3rem;
-  }
-
-  @media (min-width: 768px) {
-    .section-subheading {
-      font-size: 1.125rem;   /* md:text-lg */
-    }
-  }
-
-  .card-hover {
-    transition: all 300ms;
-  }
-  .card-hover:hover {
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-    transform: translateY(-4px);
+  @keyframes shine {
+    to { background-position: 200% center; }
   }
 
   .glass {
-    background-color: rgb(255 255 255 / 0.1);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgb(255 255 255 / 0.2);
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.1)];
   }
 
-  .animated-underline {
-    position: relative;
+  .glass-darker {
+    @apply bg-black/40 backdrop-blur-2xl border border-white/5;
   }
-  .animated-underline::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
+
+  .noise {
+    position: fixed;
+    top: 0;
     left: 0;
-    height: 2px;
-    width: 0;
-    background-color: hsl(var(--primary));
-    transition: width 300ms;
-  }
-  .animated-underline:hover::after {
     width: 100%;
+    height: 100%;
+    content: "";
+    opacity: 0.03;
+    z-index: 9999;
+    pointer-events: none;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32 px-6 md:px-12 lg:px-24;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
   }
 }

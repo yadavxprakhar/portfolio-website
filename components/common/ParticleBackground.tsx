@@ -12,7 +12,7 @@ interface Particle {
 
 const PARTICLE_COUNT = 25;
 const MAX_DISTANCE = 140;
-const PARTICLE_COLOR = "29, 78, 216"; // #1d4ed8 as RGB
+const PARTICLE_COLOR = "99, 102, 241"; // Indigo 500
 const SPEED = 0.35;
 
 function createParticles(width: number, height: number): Particle[] {

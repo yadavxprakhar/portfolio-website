@@ -7,63 +7,52 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="w-full border-t border-border bg-card py-12 px-4 md:px-8">
-            <motion.div
-                className="max-w-6xl mx-auto flex flex-col gap-10"
-                // initial={{ opacity: 0, y: 20 }}
-                // whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut" as const }}
-                viewport={{ once: true }}
-            >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                    {/* Col 1 — Brand */}
-                    <div className="flex flex-col gap-4 items-start">
-                        <span className="text-3xl font-extrabold tracking-tight">
-                            <span className="text-primary">PY</span>
-                            <span className="text-foreground">.</span>
-                        </span>
-                        <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
-                            Building scalable, production-ready applications with clean architecture and modern web technologies.
-                        </p>
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full
-                                bg-primary/10 text-xs font-semibold text-primary border border-primary/20">
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+        <footer className="w-full border-t border-white/5 bg-[#020617] py-20 px-6">
+            <div className="max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                    <div className="col-span-2 space-y-6">
+                        <div className="flex items-center gap-2">
+                            <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center">
+                                <span className="text-white font-bold text-sm">P</span>
+                            </div>
+                            <span className="text-xl font-bold tracking-tighter text-white">
+                                Prakhar<span className="text-indigo-400">.</span>
                             </span>
-                            Available for hire
                         </div>
+                        <p className="text-slate-400 max-w-sm text-sm leading-relaxed">
+                            A dedicated Full Stack Developer focused on building high-performance systems and meaningful digital experiences.
+                        </p>
                     </div>
 
-                    {/* Col 2 — Quick Links */}
-                    <div className="flex flex-col gap-3">
-                        <h4 className="font-semibold text-foreground">Navigation</h4>
-                        <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-                            <li><a href="#about" className="hover:text-primary transition-colors">About</a></li>
-                            <li><a href="#skills" className="hover:text-primary transition-colors">Skills</a></li>
-                            <li><a href="#projects" className="hover:text-primary transition-colors">Projects</a></li>
-                            <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
+                    <div className="space-y-4">
+                        <h4 className="text-xs font-bold text-white uppercase tracking-widest">Sitemap</h4>
+                        <ul className="space-y-2 text-sm text-slate-400">
+                            <li><a href="#about" className="hover:text-indigo-400 transition-colors">About</a></li>
+                            <li><a href="#skills" className="hover:text-indigo-400 transition-colors">Skills</a></li>
+                            <li><a href="#projects" className="hover:text-indigo-400 transition-colors">Projects</a></li>
+                            <li><a href="#contact" className="hover:text-indigo-400 transition-colors">Contact</a></li>
                         </ul>
                     </div>
 
-                    {/* Col 3 — Socials */}
-                    <div className="flex flex-col gap-3">
-                        <h4 className="font-semibold text-foreground">Connect</h4>
-                        <SocialLinks iconSize={20} showLabels={false} className="justify-start gap-4" />
+                    <div className="space-y-4">
+                        <h4 className="text-xs font-bold text-white uppercase tracking-widest">Connect</h4>
+                        <div className="flex flex-col gap-2 text-sm text-slate-400">
+                            <a href="mailto:yadavprakhar1034@gmail.com" className="hover:text-indigo-400 transition-colors">Email</a>
+                            <a href="https://www.linkedin.com/in/prakharyxdev" target="_blank" className="hover:text-indigo-400 transition-colors">LinkedIn</a>
+                            <a href="https://github.com/yadavxprakhar" target="_blank" className="hover:text-indigo-400 transition-colors">GitHub</a>
+                        </div>
                     </div>
                 </div>
 
-                <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-                    <p>© {currentYear} Prakhar Yadav. All Rights Reserved.</p>
-                    <a
-                         href="https://github.com/yadavxprakhar/portfolio-website"
-                         target="_blank"
-                         rel="noopener noreferrer"
-                         className="hover:text-primary transition-colors duration-200 underline underline-offset-2">
-                         Designed & Built by Prakhar ↗
-                    </a>
+                <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                        © {currentYear} Prakhar Yadav · Built with Passion
+                    </p>
+                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                        Stay Curious
+                    </p>
                 </div>
-        </motion.div>
-</footer>
-);
+            </div>
+        </footer>
+    );
 }

@@ -21,16 +21,16 @@ export default function SectionWrapper({
             id={id}
             className={cn(
                 "w-full py-24 px-4 md:px-8 lg:px-16",
-                alternate && "bg-muted/30",
+                alternate && "bg-white/[0.02]",
                 className
             )}
         >
             <motion.div
-                className="max-w-6xl mx-auto"
-                initial={{ opacity: 0, y: 30 }}
+                className="max-w-7xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                viewport={{ once: true, margin: "-100px" }}
             >
                 {children}
             </motion.div>

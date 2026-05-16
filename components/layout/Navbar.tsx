@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import {
     Sheet,
     SheetContent,
@@ -57,84 +57,76 @@ export default function Navbar() {
     return (
         <header
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-                scrolled
-                    ? "backdrop-blur-2xl bg-background/60 border-b border-border/40 shadow-sm py-2"
-                    : "bg-transparent py-4"
+                "fixed top-6 left-0 right-0 z-50 transition-all duration-500 px-4 md:px-8",
+                scrolled ? "top-4" : "top-6"
             )}
         >
-            <nav className="max-w-6xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
+            <nav className={cn(
+                "max-w-4xl mx-auto h-14 flex items-center justify-between px-6 rounded-full transition-all duration-300",
+                scrolled 
+                    ? "glass-darker border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]" 
+                    : "bg-transparent border-transparent"
+            )}>
 
-                {/* ── Logo ── */}
+                {/* Logo */}
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                    className="text-xl font-bold tracking-tight focus:outline-none
-                     focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
+                    className="flex items-center gap-2 focus:outline-none"
                     aria-label="Scroll to top"
                 >
-                    <span className="text-primary">PY</span>
-                    <span className="text-foreground">.</span>
+                    <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                        <span className="text-white font-bold text-sm">P</span>
+                    </div>
+                    <span className="hidden sm:block text-sm font-bold tracking-tight text-white">
+                        Prakhar<span className="text-indigo-400">.</span>
+                    </span>
                 </motion.button>
 
-                {/* ── Desktop Nav Links ── */}
-                <ul className="hidden md:flex items-center gap-2">
+                {/* Desktop Nav Links */}
+                <ul className="hidden md:flex items-center gap-1">
                     {NAV_ITEMS.map((item) => {
                         const isActive = activeSection === item.sectionId;
                         return (
                             <li key={item.sectionId}>
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
+                                <button
                                     onClick={() => handleNavClick(item.href)}
                                     className={cn(
-                                        "relative px-4 py-2 text-sm font-semibold rounded-full",
-                                        "transition-colors duration-200 focus:outline-none",
-                                        "focus-visible:ring-2 focus-visible:ring-primary",
+                                        "relative px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-300",
                                         isActive
-                                            ? "text-primary"
-                                            : "text-muted-foreground hover:text-foreground"
+                                            ? "text-white"
+                                            : "text-slate-400 hover:text-white"
                                     )}
                                 >
                                     <span className="relative z-10">{item.label}</span>
-                                    {/* Active pill indicator */}
-                                    <AnimatePresence>
-                                        {isActive && (
-                                            <motion.span
-                                                layoutId="nav-pill"
-                                                className="absolute inset-0 z-0 bg-primary/10 rounded-full"
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
-                                                exit={{ opacity: 0 }}
-                                                transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                                            />
-                                        )}
-                                    </AnimatePresence>
-                                </motion.button>
+                                    {isActive && (
+                                        <motion.span
+                                            layoutId="nav-pill"
+                                            className="absolute inset-0 z-0 bg-white/10 rounded-full"
+                                            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                                        />
+                                    )}
+                                </button>
                             </li>
                         );
                     })}
                 </ul>
 
-                {/* ── Right Side Controls ── */}
-                <div className="flex items-center gap-2">
-                    {/* Resume Download Button — visible on desktop */}
+                {/* Right Side Controls */}
+                <div className="flex items-center gap-3">
+                    <ThemeToggle />
+                    
                     <motion.a
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         href="/Prakhar_Yadav_Resume.pdf"
                         download
-                        className="hidden md:inline-flex"
-                        aria-label="Download Resume"
+                        className="hidden sm:flex items-center gap-1 px-4 py-1.5 rounded-full bg-white text-black text-xs font-bold hover:bg-slate-200 transition-colors"
                     >
-                        <Button variant="outline" size="sm" className="font-semibold">
-                            Resume ↓
-                        </Button>
+                        Resume
+                        <ArrowUpRight className="w-3 h-3" />
                     </motion.a>
-
-                    {/* Theme Toggle */}
-                    <ThemeToggle />
 
                     {/* Mobile Hamburger */}
                     <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -142,71 +134,28 @@ export default function Navbar() {
                             <Button
                                 variant="ghost"
                                 size="icon"
-                                className="md:hidden w-9 h-9"
+                                className="md:hidden w-8 h-8 rounded-full hover:bg-white/10"
                                 aria-label="Open navigation menu"
                             >
-                                <motion.span
-                                    key={mobileOpen ? "close" : "open"}
-                                    initial={{ rotate: -45, opacity: 0 }}
-                                    animate={{ rotate: 0, opacity: 1 }}
-                                    transition={{ duration: 0.2 }}
-                                >
-                                    {mobileOpen ? (
-                                        <X className="w-5 h-5" />
-                                    ) : (
-                                        <Menu className="w-5 h-5" />
-                                    )}
-                                </motion.span>
+                                {mobileOpen ? <X className="w-4 h-4 text-white" /> : <Menu className="w-4 h-4 text-white" />}
                             </Button>
                         </SheetTrigger>
 
-                        {/* Mobile Sheet Panel */}
-                        <SheetContent side="right" className="w-64 pt-12 flex flex-col gap-2">
-                            <nav aria-label="Mobile navigation">
-                                <ul className="flex flex-col gap-1">
-                                    {NAV_ITEMS.map((item) => {
-                                        const isActive = activeSection === item.sectionId;
-                                        return (
-                                            <li key={item.sectionId}>
-                                                <SheetClose asChild>
-                                                    <button
-                                                        onClick={() => handleNavClick(item.href)}
-                                                        className={cn(
-                                                            "w-full text-left px-4 py-3 rounded-md text-sm font-semibold",
-                                                            "transition-all duration-200 focus:outline-none",
-                                                            "focus-visible:ring-2 focus-visible:ring-primary",
-                                                            isActive
-                                                                ? "text-primary bg-primary/10 scale-[1.02]"
-                                                                : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                                                        )}
-                                                    >
-                                                        {item.label}
-                                                    </button>
-                                                </SheetClose>
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </nav>
-
-                            {/* Resume download in mobile sheet */}
-                            <div className="mt-4 px-2">
-                                <SheetClose asChild>
-                                    <a
-                                        href="/Prakhar_Yadav_Resume.pdf"
-                                        download
-                                        className="block"
+                        <SheetContent side="top" className="h-fit bg-[#020617] border-white/10 px-6 py-12">
+                            <nav className="flex flex-col gap-6 items-center justify-center">
+                                {NAV_ITEMS.map((item) => (
+                                    <button
+                                        key={item.sectionId}
+                                        onClick={() => handleNavClick(item.href)}
+                                        className="text-2xl font-bold text-slate-400 hover:text-white transition-colors"
                                     >
-                                        <Button
-                                            variant="outline"
-                                            size="sm"
-                                            className="w-full text-sm font-medium"
-                                        >
-                                            Resume ↓
-                                        </Button>
-                                    </a>
-                                </SheetClose>
-                            </div>
+                                        {item.label}
+                                    </button>
+                                ))}
+                                <Button className="w-full mt-4 bg-indigo-600 rounded-full h-14 text-lg">
+                                    Download Resume
+                                </Button>
+                            </nav>
                         </SheetContent>
                     </Sheet>
                 </div>

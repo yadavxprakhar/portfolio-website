@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import BackToTop from "@/components/common/BackToTop";
+import CustomCursor from "@/components/common/CustomCursor";
 import { SITE_CONFIG } from "@/lib/constants";
 import "./globals.css";
 
@@ -11,6 +13,12 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-outfit",
 });
 
 export const metadata: Metadata = {
@@ -76,32 +84,30 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-                                     children,
-                                   }: {
+  children,
+}: {
   children: React.ReactNode;
 }) {
   return (
-      <html lang="en" suppressHydrationWarning className={inter.variable}>
-      <body className="font-sans antialiased min-h-screen bg-background text-foreground">
-      <ThemeProvider
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${outfit.variable}`}>
+      <body className="font-sans antialiased min-h-screen bg-background text-foreground selection:bg-indigo-500/30">
+        <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
-          disableTransitionOnChange={false}
-      >
-        {/* Sticky top navbar */}
-        <Navbar />
-
-        {/* Main content */}
-        <main className="relative">{children}</main>
-
-        {/* Footer */}
-        <Footer />
-
-        {/* shadcn toast notifications */}
-        <Toaster />
-      </ThemeProvider>
+          disableTransitionOnChange
+        >
+          <CustomCursor />
+          <div className="noise" />
+          
+          <Navbar />
+          <main className="relative">{children}</main>
+          <Footer />
+          <BackToTop />
+          
+          <Toaster position="bottom-right" theme="dark" />
+        </ThemeProvider>
       </body>
-      </html>
+    </html>
   );
 }

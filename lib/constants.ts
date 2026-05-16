@@ -14,7 +14,7 @@ export const NAV_LINKS: NavLink[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
     {
         label: "GitHub",
-        href: "https://github.com/prakharyadav",
+        href: "https://github.com/yadavxprakhar",
         icon: "FiGithub",
     },
     {
@@ -45,7 +45,7 @@ export const SITE_CONFIG: SiteConfig = {
     description:
         "Final-year CS student and Full Stack Developer specializing in Java, Spring Boot & React. Open to internships and full-time opportunities.",
     url:
-        process.env.NEXT_PUBLIC_SITE_URL ?? "https://prakharyadav.dev",
+        process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-website-tau-seven-73.vercel.app/",
     ogImage: "/images/og-image.png",
 };
 

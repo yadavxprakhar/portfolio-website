@@ -4,30 +4,32 @@ import { motion, type Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import ParticleBackground from "@/components/common/ParticleBackground";
 import SocialLinks from "@/components/common/SocialLinks";
+import { ArrowRight, Download } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 const CODE_LINES = [
-    { tokens: [{ text: "// Prakhar Yadav", type: "comment" }] },
+    { tokens: [{ text: "// Senior Full Stack Developer", type: "comment" }] },
     { tokens: [] },
     {
         tokens: [
             { text: "const ", type: "keyword" },
-            { text: "developer", type: "variable" },
+            { text: "prakhar", type: "variable" },
             { text: " = {", type: "default" },
-        ],
-    },
-    {
-        tokens: [
-            { text: "  name", type: "property" },
-            { text: ": ", type: "default" },
-            { text: '"Prakhar Yadav"', type: "string" },
-            { text: ",", type: "default" },
         ],
     },
     {
         tokens: [
             { text: "  role", type: "property" },
             { text: ": ", type: "default" },
-            { text: '"Full Stack Developer"', type: "string" },
+            { text: '"SDE-1"', type: "string" },
+            { text: ",", type: "default" },
+        ],
+    },
+    {
+        tokens: [
+            { text: "  focus", type: "property" },
+            { text: ": ", type: "default" },
+            { text: '"Distributed Systems"', type: "string" },
             { text: ",", type: "default" },
         ],
     },
@@ -38,23 +40,14 @@ const CODE_LINES = [
             { text: '"Java"', type: "string" },
             { text: ", ", type: "default" },
             { text: '"Spring Boot"', type: "string" },
-            { text: ",", type: "default" },
-        ],
-    },
-    {
-        tokens: [
-            { text: "          ", type: "default" },
-            { text: '"React"', type: "string" },
-            { text: ", ", type: "default" },
-            { text: '"PostgreSQL"', type: "string" },
             { text: "],", type: "default" },
         ],
     },
     {
         tokens: [
-            { text: "  focus", type: "property" },
+            { text: "  frontend", type: "property" },
             { text: ": ", type: "default" },
-            { text: '"Clean Architecture"', type: "string" },
+            { text: '"React / Next.js"', type: "string" },
             { text: ",", type: "default" },
         ],
     },
@@ -79,10 +72,10 @@ type TokenType =
     | "default";
 
 const TOKEN_CLASSES: Record<TokenType, string> = {
-    comment: "text-gray-500 italic",
-    keyword: "text-purple-400",
-    string: "text-green-400",
-    property: "text-blue-300",
+    comment: "text-slate-500 italic",
+    keyword: "text-indigo-400",
+    string: "text-cyan-400",
+    property: "text-violet-400",
     boolean: "text-orange-400",
     variable: "text-foreground",
     default: "text-foreground/80",
@@ -90,39 +83,39 @@ const TOKEN_CLASSES: Record<TokenType, string> = {
 
 function CodeCard() {
     return (
-        <div className="relative flex items-center justify-center">
-            <div
-                className="absolute w-72 h-72 bg-primary/20 rounded-full blur-3xl -z-10"
-                aria-hidden="true"
-            />
+        <div className="relative group">
+            {/* Glow effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+            
             <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full max-w-sm"
+                initial={{ rotateY: 20, rotateX: 10, opacity: 0 }}
+                animate={{ rotateY: 0, rotateX: 0, opacity: 1 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                className="relative glass-darker rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
             >
-                <div className="bg-zinc-900 border border-zinc-700 rounded-xl overflow-hidden shadow-2xl">
-                    <div className="flex items-center gap-1.5 px-4 py-3 bg-zinc-800/60 border-b border-zinc-700">
-                        <span className="w-3 h-3 rounded-full bg-red-500/80" />
-                        <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                        <span className="w-3 h-3 rounded-full bg-green-500/80" />
-                        <span className="ml-3 text-xs text-zinc-500 font-mono">
-                            developer.ts
-                        </span>
+                <div className="flex items-center justify-between px-5 py-3 bg-white/5 border-b border-white/10">
+                    <div className="flex gap-2">
+                        <div className="w-3 h-3 rounded-full bg-red-500/50" />
+                        <div className="w-3 h-3 rounded-full bg-amber-500/50" />
+                        <div className="w-3 h-3 rounded-full bg-emerald-500/50" />
                     </div>
-                    <div className="p-5 font-mono text-sm leading-relaxed">
-                        {CODE_LINES.map((line, i) => (
-                            <div key={i} className="min-h-[1.5rem]">
-                                {line.tokens.map((token, j) => (
-                                    <span
-                                        key={j}
-                                        className={TOKEN_CLASSES[token.type as TokenType]}
-                                    >
-                                        {token.text}
-                                    </span>
-                                ))}
-                            </div>
-                        ))}
-                    </div>
+                    <span className="text-[10px] text-slate-500 font-mono tracking-widest uppercase">
+                        profile.ts
+                    </span>
+                </div>
+                <div className="p-8 font-mono text-xs md:text-sm leading-relaxed">
+                    {CODE_LINES.map((line, i) => (
+                        <div key={i} className="min-h-[1.5rem]">
+                            {line.tokens.map((token, j) => (
+                                <span
+                                    key={j}
+                                    className={TOKEN_CLASSES[token.type as TokenType]}
+                                >
+                                    {token.text}
+                                </span>
+                            ))}
+                        </div>
+                    ))}
                 </div>
             </motion.div>
         </div>
@@ -134,18 +127,18 @@ const container: Variants = {
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.15,
-            delayChildren: 0.2,
+            staggerChildren: 0.1,
+            delayChildren: 0.3,
         },
     },
 };
 
 const itemVariant: Variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.6, ease: "easeOut" as const },
+        transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
     },
 };
 
@@ -159,128 +152,96 @@ export default function Hero() {
     return (
         <section
             id="hero"
-            className="relative min-h-screen flex items-center w-full px-4 md:px-8 lg:px-16 pt-16 overflow-hidden"
+            className="relative min-h-[90vh] flex items-center w-full section-padding overflow-hidden"
         >
-            {/* Particle canvas */}
+            <div className="hero-glow" />
             <ParticleBackground />
 
-            <div className="relative z-10 max-w-6xl mx-auto w-full py-16 lg:py-24">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    {/* ── Left: Text Content ── */}
+            <div className="relative z-10 max-w-7xl mx-auto w-full pt-20">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    {/* Left: Text Content */}
                     <motion.div
                         variants={container}
                         initial="hidden"
                         animate="visible"
-                        className="flex flex-col gap-5"
+                        className="lg:col-span-7 flex flex-col gap-8"
                     >
-                        {/* Availability Badge */}
                         <motion.div variants={itemVariant}>
-                            <span className="inline-flex items-center gap-2 text-sm rounded-full bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20 px-3 py-1">
+                            <span className="inline-flex items-center gap-2 text-[13px] font-medium rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-4 py-1.5 uppercase tracking-wider">
                                 <span className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500" />
                                 </span>
-                                Actively Seeking SDE-1 & Backend Roles
+                                Available for new opportunities
                             </span>
                         </motion.div>
 
-                        {/* Headline */}
-                        <motion.h1
-                            variants={itemVariant}
-                            className="text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-foreground leading-[1.1]"
-                        >
-                            Hi, I&apos;m{" "}
-                            <span className="text-primary">Prakhar Yadav</span>
-                        </motion.h1>
+                        <div className="space-y-4">
+                            <motion.h1
+                                variants={itemVariant}
+                                className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1]"
+                            >
+                                Crafting <span className="text-gradient">Digital</span> <br /> 
+                                Experiences.
+                            </motion.h1>
+                            
+                            <motion.p
+                                variants={itemVariant}
+                                className="text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed"
+                            >
+                                I&apos;m <span className="text-white font-semibold">Prakhar Yadav</span>, a Full Stack Developer specializing in high-performance backend systems and fluid user interfaces.
+                            </motion.p>
+                        </div>
 
-                        {/* Title Text */}
-                        <motion.h2
-                            variants={itemVariant}
-                            className="text-2xl md:text-3xl lg:text-4xl font-semibold mt-2 text-primary"
-                        >
-                            Full Stack Developer
-                        </motion.h2>
-
-                        {/* Subheadline */}
-                        <motion.p
-                            variants={itemVariant}
-                            className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
-                        >
-                            I build scalable full-stack applications using Java, Spring Boot,
-                            and React that focus on clean architecture and real-world problem
-                            solving.
-                        </motion.p>
-
-                        {/* Short Intro */}
-                        <motion.p
-                            variants={itemVariant}
-                            className="text-base text-muted-foreground max-w-xl leading-relaxed"
-                        >
-                            Final-year Computer Science student based in Greater Noida, India.
-                            I specialize in building backend systems with Java and Spring Boot,
-                            and integrating them with modern React frontends. Currently open to
-                            SDE-1, Backend, and Full Stack opportunities.
-                        </motion.p>
-
-                        {/* CTA Buttons */}
                         <motion.div
                             variants={itemVariant}
-                            className="flex flex-row flex-wrap gap-4 mt-4"
+                            className="flex flex-row flex-wrap gap-4 items-center"
                         >
-                            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                <Button
-                                    onClick={scrollToProjects}
-                                    size="lg"
-                                    className="font-medium shadow-blue-glow"
-                                >
-                                    View My Projects
-                                </Button>
-                            </motion.div>
-
-                            <motion.a 
-                                href="/Prakhar_Yadav_Resume.pdf" 
-                                download
-                                whileHover={{ scale: 1.05 }} 
-                                whileTap={{ scale: 0.95 }}
+                            <Button
+                                onClick={scrollToProjects}
+                                size="lg"
+                                className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-full px-8 h-14 text-base font-semibold group"
                             >
-                                <Button
-                                    variant="secondary"
-                                    size="lg"
-                                    className="font-medium"
-                                >
-                                    Download Resume
-                                </Button>
-                            </motion.a>
+                                Explore Work
+                                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </Button>
 
-                            <motion.a
-                                href="https://github.com/yadavxprakhar"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                whileHover={{ scale: 1.05 }} 
-                                whileTap={{ scale: 0.95 }}
-                            >
+                            <div className="flex items-center gap-3">
+                                <Button
+                                    variant="outline"
+                                    size="icon"
+                                    className="rounded-full w-14 h-14 border-white/10 bg-white/5 hover:bg-white/10"
+                                    asChild
+                                >
+                                    <a href="https://github.com/yadavxprakhar" target="_blank">
+                                        <FaGithub className="w-5 h-5" />
+                                    </a>
+                                </Button>
                                 <Button
                                     variant="outline"
                                     size="lg"
-                                    className="font-medium"
+                                    className="rounded-full h-14 border-white/10 bg-white/5 hover:bg-white/10 font-medium"
+                                    asChild
                                 >
-                                    View GitHub ↗
+                                    <a href="/Prakhar_Yadav_Resume.pdf" download>
+                                        <Download className="mr-2 w-4 h-4" />
+                                        Resume
+                                    </a>
                                 </Button>
-                            </motion.a>
+                            </div>
                         </motion.div>
 
-                        {/* Social Links */}
                         <motion.div variants={itemVariant}>
-                            <SocialLinks iconSize={22} className="mt-1" />
+                            <SocialLinks iconSize={20} className="opacity-60 hover:opacity-100 transition-opacity" />
                         </motion.div>
                     </motion.div>
 
-                    {/* ── Right: Code Card (desktop only) ── */}
+                    {/* Right: Code Card */}
                     <motion.div
-                        initial={{ opacity: 0, x: 40 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.7, ease: "easeOut" as const, delay: 0.5 }}
-                        className="hidden lg:flex items-center justify-center"
+                        initial={{ opacity: 0, scale: 0.9, x: 20 }}
+                        animate={{ opacity: 1, scale: 1, x: 0 }}
+                        transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                        className="lg:col-span-5 relative hidden lg:block"
                     >
                         <CodeCard />
                     </motion.div>

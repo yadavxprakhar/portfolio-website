@@ -2,11 +2,11 @@ import type { Project } from "@/types";
 
 export const projects: Project[] = [
     {
-        id: "linklytics",
-        title: "Linklytics",
+        id: "lynkforge",
+        title: "Lynkforge",
         description:
             "A production-ready URL shortener with real-time click analytics, custom aliases, and a clean dashboard. Built for scale with Spring Boot and React.",
-        longDescription: `Linklytics is a full-stack URL shortening platform inspired by Bitly. 
+        longDescription: `Lynkforge is a full-stack URL shortening platform inspired by Bitly. 
     It handles link creation, custom short aliases, expiry settings, and tracks every click 
     with metadata including referrer, device type, and timestamp. The dashboard gives users 
     a clear view of link performance in real time.`,
@@ -30,40 +30,40 @@ export const projects: Project[] = [
             "REST API with Swagger documentation",
             "Responsive React dashboard with live stats",
         ],
-        liveUrl: "https://linklytics.vercel.app",
-        githubUrl: "https://github.com/prakharyadav/linklytics",
+        liveUrl: "https://lynkforge.vercel.app",
+        githubUrl: "https://github.com/prakharyadav/lynkforge",
         featured: true,
-        image: "/images/linklytics.png",
+        image: "/images/lynkforge.png",
     },
     {
-        id: "resume-builder",
-        title: "Resume Builder",
+        id: "flowkit",
+        title: "FlowKit",
         description:
-            "A web-based resume builder that lets developers generate ATS-friendly resumes with a live preview, multiple templates, and PDF export.",
-        longDescription: `A React-based resume builder focused on developer use cases. 
-    Users fill in sections like experience, education, and skills through a clean form interface, 
-    see a live preview on the right, and export a clean PDF. Designed with ATS formatting in mind.`,
+            "A collaborative team task management system with real-time updates, project tracking, and workspace isolation.",
+        longDescription: `FlowKit is a comprehensive team collaboration tool designed to streamline project management. 
+    It features real-time workspace updates, task assignment, status tracking, and a clean, 
+    intuitive dashboard for teams to stay aligned. Built with a focus on speed and flow.`,
         techStack: [
             "React",
             "TypeScript",
             "Tailwind CSS",
-            "react-hook-form",
-            "react-to-print",
+            "Node.js",
+            "MongoDB",
+            "Framer Motion",
             "Zustand",
         ],
-        category: "frontend",
+        category: "fullstack",
         features: [
-            "Live two-panel preview while editing",
-            "Multiple resume templates (minimal, modern)",
-            "ATS-safe formatting — no tables or columns",
-            "PDF export with proper print styles",
-            "Local state persistence with Zustand",
-            "Section reordering with drag and drop",
+            "Real-time workspace and task updates",
+            "Team collaboration with role-based access",
+            "Task status tracking and project management",
+            "Intuitive, high-performance dashboard",
+            "Workspace isolation for multiple teams",
         ],
-        liveUrl: "https://resume-builder-prakhar.vercel.app",
-        githubUrl: "https://github.com/prakharyadav/resume-builder",
-        featured: false,
-        image: "/images/resume-builder.png",
+        liveUrl: "https://flow-kit-flame.vercel.app/",
+        githubUrl: "https://github.com/yadavxprakhar/FlowKit",
+        featured: true,
+        image: "/images/flowkit.png",
     },
 ];
 
