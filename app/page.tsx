@@ -5,6 +5,7 @@ import Projects from "@/components/sections/Projects";
 import Education from "@/components/sections/Education";
 import Certifications from "@/components/sections/Certifications";
 import GitHubStats from "@/components/sections/GitHubStats";
+import TerminalConsole from "@/components/sections/TerminalConsole";
 import Hobbies from "@/components/sections/Hobbies";
 import Contact from "@/components/sections/Contact";
 import BackToTop from "@/components/common/BackToTop";
@@ -19,6 +20,7 @@ export default function Home() {
             <Education />
             <Certifications />
             <GitHubStats />
+            <TerminalConsole />
             <Hobbies />
             <Contact />
             <BackToTop />

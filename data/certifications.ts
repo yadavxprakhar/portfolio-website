@@ -11,6 +11,15 @@ export const certifications: Certification[] = [
             "Industry-recognized certification covering Java, Spring Boot, Hibernate, React, and full-stack architecture fundamentals.",
     },
     {
+        id: "infosys-java-developer",
+        title: "Java Developer Certification",
+        issuer: "Infosys Springboard",
+        year: 2025,
+        credentialUrl: "https://drive.google.com/file/d/1uNpFOtOa9jiJd1EvhfolNTlt3fni6rrj/view",
+        relevance:
+            "Verified Java Developer status validation covering Object-Oriented programming concepts, core data structures, and algorithmic principles.",
+    },
+    {
         id: "oracle-sql",
         title: "Programming with SQL",
         issuer: "Oracle Academy",

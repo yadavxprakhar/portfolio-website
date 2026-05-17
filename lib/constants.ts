@@ -19,8 +19,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
     },
     {
         label: "LinkedIn",
-        href: "https://linkedin.com/in/prakharyadav",
-        icon: "FiLinkedin",
+        href: "https://www.linkedin.com/in/prakharyxdev/",
+        icon: "FiLinkedIn",
     },
     {
         label: "Twitter",

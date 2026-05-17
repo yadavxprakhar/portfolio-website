@@ -28,12 +28,20 @@ const EDUCATION: EducationEntry[] = [
         location: "Raebareli, India",
         score: "89%",
         coursework: ["Physics", "Chemistry", "Mathematics", "Computer Science"],
+    },
+    {
+        institution: "Jawahar Navodaya Vidyalaya",
+        degree: "High School (Class X)",
+        period: "2019",
+        location: "Raebareli, India",
+        score: "92%",
+        coursework: ["Science", "Mathematics", "Social Science", "English", "Hindi"],
     }
 ];
 
 export default function Education() {
     return (
-        <SectionWrapper id="education" className="py-32">
+        <SectionWrapper id="education" className="py-32 border-t border-border bg-card">
             <div className="max-w-4xl mx-auto px-6">
                 <motion.div
                     className="text-center mb-20"
@@ -41,56 +49,60 @@ export default function Education() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">
+                    <span className="text-[10px] font-mono text-amber-500 font-bold uppercase tracking-widest bg-amber-500/5 px-2.5 py-1 border border-amber-500/20 rounded">
+                        Academic Nodes
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-4 tracking-tighter">
                         Education & <span className="text-gradient">Background</span>
                     </h2>
-                    <p className="text-slate-400 text-lg">
-                        My formal education and specialized academic training.
+                    <p className="text-slate-400 max-w-2xl mx-auto text-base leading-relaxed">
+                        My formal education and specialized academic training, organized chronologically.
                     </p>
                 </motion.div>
 
-                <div className="space-y-12">
+                <div className="space-y-12 relative before:absolute before:left-0 before:top-2 before:bottom-2 before:w-[1px] before:bg-border/60">
                     {EDUCATION.map((edu, i) => (
                         <motion.div
-                            key={edu.institution}
+                            key={edu.degree}
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="relative pl-8 border-l border-white/10 group"
+                            className="relative pl-8 group"
                         >
-                            <div className="absolute left-[-5px] top-0 w-[9px] h-[9px] rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)] group-hover:scale-150 transition-transform" />
+                            {/* Technical Timeline Connector */}
+                            <div className="absolute left-[-5px] top-2 w-[9px] h-[9px] rounded-full border-2 border-border bg-background group-hover:border-amber-500 group-hover:bg-amber-500 transition-all duration-300 z-10" />
                             
-                            <div className="space-y-4">
-                                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
-                                    <h3 className="text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors">
+                            <div className="p-6 md:p-8 rounded-xl border border-border bg-[#0d0d0e]/60 hover:border-amber-500/30 transition-all duration-300">
+                                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                                    <h3 className="text-xl font-bold text-white group-hover:text-amber-500 transition-colors">
                                         {edu.institution}
                                     </h3>
-                                    <div className="flex items-center gap-2 text-slate-500 text-sm font-bold uppercase tracking-widest">
-                                        <Calendar className="w-4 h-4" />
+                                    <div className="flex items-center gap-2 text-slate-500 font-mono text-[10px] font-bold uppercase tracking-wider">
+                                        <Calendar className="w-3.5 h-3.5" />
                                         {edu.period}
                                     </div>
                                 </div>
 
-                                <div className="flex flex-wrap items-center gap-4 text-slate-400">
-                                    <div className="flex items-center gap-1.5 font-medium">
-                                        <GraduationCap className="w-4 h-4 text-indigo-400" />
+                                <div className="flex flex-wrap items-center gap-4 text-slate-400 mb-6">
+                                    <div className="flex items-center gap-1.5 text-xs font-mono">
+                                        <GraduationCap className="w-3.5 h-3.5 text-amber-500" />
                                         {edu.degree}
                                     </div>
-                                    <div className="flex items-center gap-1.5 font-medium">
-                                        <MapPin className="w-4 h-4 text-indigo-400" />
+                                    <div className="flex items-center gap-1.5 text-xs font-mono">
+                                        <MapPin className="w-3.5 h-3.5 text-amber-500" />
                                         {edu.location}
                                     </div>
                                     {edu.score && (
-                                        <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-bold border border-emerald-500/20 uppercase tracking-widest">
+                                        <span className="px-2.5 py-0.5 rounded border border-amber-500/20 bg-amber-500/5 text-amber-500 font-mono text-[9px] uppercase tracking-wider">
                                             Score: {edu.score}
                                         </span>
                                     )}
                                 </div>
 
-                                <div className="flex flex-wrap gap-2 pt-2">
+                                <div className="flex flex-wrap gap-2">
                                     {edu.coursework.map((course) => (
-                                        <span key={course} className="text-[10px] font-bold text-slate-500 uppercase tracking-widest border border-white/5 bg-white/5 px-2 py-1 rounded group-hover:border-indigo-500/20 transition-colors">
+                                        <span key={course} className="px-2 py-0.5 font-mono text-[10px] text-slate-400 rounded border border-border bg-[#0d0d0e]/60 group-hover:border-amber-500/20 transition-colors">
                                             {course}
                                         </span>
                                     ))}

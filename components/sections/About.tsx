@@ -40,9 +40,9 @@ const HIGHLIGHT_CARDS: HighlightCard[] = [
 
 export default function About() {
     return (
-        <SectionWrapper id="about" className="py-32 bg-white/5">
-            <div className="max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <SectionWrapper id="about" className="py-32 border-t border-border bg-card">
+            <div className="max-w-5xl mx-auto px-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
@@ -51,23 +51,38 @@ export default function About() {
                         className="space-y-8"
                     >
                         <div>
-                            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">
+                            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6">
                                 I Build <span className="text-gradient">Systems</span> <br /> 
                                 That Work Under the Hood.
                             </h2>
-                            <div className="space-y-4 text-slate-400 text-lg leading-relaxed">
+                            <div className="space-y-4 text-slate-400 text-sm md:text-base leading-relaxed">
                                 <p>
-                                    I am a Full Stack Developer with a deep-seated passion for backend architecture and distributed systems. While others focus solely on the surface, I find my flow in the logic that powers complex applications.
+                                    I am a software engineer focused on building robust, high-performance web systems. I specialize in scalable backend architectures, clean data schemas, and fluid, intuitive frontend interfaces.
                                 </p>
-                                <p>
-                                    My journey is defined by a commitment to clean code, scalable patterns, and the relentless pursuit of understanding "how it works." From designing RESTful APIs to optimizing database queries, I strive to build systems that are not just functional, but elegant.
-                                </p>
+                            </div>
+
+                            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border mt-6">
+                                <div className="space-y-1">
+                                    <span className="text-2xl font-extrabold text-white tracking-tight">300+</span>
+                                    <p className="text-[9px] font-mono font-bold text-amber-500 uppercase tracking-wider">Algorithmic Solves</p>
+                                    <p className="text-[9px] text-slate-500">Solved on LeetCode & key platforms</p>
+                                </div>
+                                <div className="space-y-1">
+                                    <span className="text-2xl font-extrabold text-white tracking-tight">10+</span>
+                                    <p className="text-[9px] font-mono font-bold text-amber-500 uppercase tracking-wider">Active Nodes</p>
+                                    <p className="text-[9px] text-slate-500">From core concept to production build</p>
+                                </div>
+                                <div className="space-y-1">
+                                    <span className="text-2xl font-extrabold text-white tracking-tight">300+</span>
+                                    <p className="text-[9px] font-mono font-bold text-amber-500 uppercase tracking-wider">GitHub Commits</p>
+                                    <p className="text-[9px] text-slate-500">Contributions across active repos</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="flex flex-wrap gap-3">
+                        <div className="flex flex-wrap gap-2.5">
                             {["Architecture-First", "Clean Code", "Backend-Focus", "System Design"].map((tag) => (
-                                <span key={tag} className="px-4 py-1.5 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold border border-indigo-500/20 uppercase tracking-widest">
+                                <span key={tag} className="px-2.5 py-1 rounded border border-amber-500/20 bg-amber-500/5 text-amber-500 font-mono text-[10px] uppercase tracking-wider">
                                     {tag}
                                 </span>
                             ))}
@@ -84,12 +99,12 @@ export default function About() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="p-6 rounded-2xl border border-white/10 bg-white/5 hover:border-white/20 transition-colors group"
+                                    className="p-6 rounded-xl border border-border bg-[#0d0d0e]/60 hover:border-amber-500/30 transition-all duration-300 group"
                                 >
-                                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mb-4 group-hover:bg-indigo-500/10 transition-colors">
-                                        <Icon className="w-5 h-5 text-slate-400 group-hover:text-indigo-400 transition-colors" />
+                                    <div className="w-9 h-9 rounded bg-amber-500/5 flex items-center justify-center mb-4 group-hover:bg-amber-500/10 transition-colors border border-amber-500/10">
+                                        <Icon className="w-4.5 h-4.5 text-slate-400 group-hover:text-amber-500 transition-colors" />
                                     </div>
-                                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">
+                                    <p className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-1">
                                         {card.label}
                                     </p>
                                     <p className="text-sm font-bold text-white mb-1">

@@ -7,115 +7,88 @@ import SocialLinks from "@/components/common/SocialLinks";
 import { ArrowRight, Download } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
-const CODE_LINES = [
-    { tokens: [{ text: "// Senior Full Stack Developer", type: "comment" }] },
-    { tokens: [] },
-    {
-        tokens: [
-            { text: "const ", type: "keyword" },
-            { text: "prakhar", type: "variable" },
-            { text: " = {", type: "default" },
-        ],
-    },
-    {
-        tokens: [
-            { text: "  role", type: "property" },
-            { text: ": ", type: "default" },
-            { text: '"SDE-1"', type: "string" },
-            { text: ",", type: "default" },
-        ],
-    },
-    {
-        tokens: [
-            { text: "  focus", type: "property" },
-            { text: ": ", type: "default" },
-            { text: '"Distributed Systems"', type: "string" },
-            { text: ",", type: "default" },
-        ],
-    },
-    {
-        tokens: [
-            { text: "  stack", type: "property" },
-            { text: ": [", type: "default" },
-            { text: '"Java"', type: "string" },
-            { text: ", ", type: "default" },
-            { text: '"Spring Boot"', type: "string" },
-            { text: "],", type: "default" },
-        ],
-    },
-    {
-        tokens: [
-            { text: "  frontend", type: "property" },
-            { text: ": ", type: "default" },
-            { text: '"React / Next.js"', type: "string" },
-            { text: ",", type: "default" },
-        ],
-    },
-    {
-        tokens: [
-            { text: "  available", type: "property" },
-            { text: ": ", type: "default" },
-            { text: "true", type: "boolean" },
-            { text: ",", type: "default" },
-        ],
-    },
-    { tokens: [{ text: "};", type: "default" }] },
-];
-
-type TokenType =
-    | "comment"
-    | "keyword"
-    | "string"
-    | "property"
-    | "boolean"
-    | "variable"
-    | "default";
-
-const TOKEN_CLASSES: Record<TokenType, string> = {
-    comment: "text-slate-500 italic",
-    keyword: "text-indigo-400",
-    string: "text-cyan-400",
-    property: "text-violet-400",
-    boolean: "text-orange-400",
-    variable: "text-foreground",
-    default: "text-foreground/80",
-};
+const CODE_LINES = []; // Unused in new blueprint layout
 
 function CodeCard() {
     return (
         <div className="relative group">
-            {/* Glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+            {/* Subtle terminal-green backing border */}
+            <div className="absolute -inset-[1px] bg-emerald-500/10 rounded-xl" />
             
             <motion.div
-                initial={{ rotateY: 20, rotateX: 10, opacity: 0 }}
-                animate={{ rotateY: 0, rotateX: 0, opacity: 1 }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
-                className="relative glass-darker rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                className="relative bg-card border border-border rounded-xl overflow-hidden shadow-2xl"
             >
-                <div className="flex items-center justify-between px-5 py-3 bg-white/5 border-b border-white/10">
-                    <div className="flex gap-2">
-                        <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                        <div className="w-3 h-3 rounded-full bg-amber-500/50" />
-                        <div className="w-3 h-3 rounded-full bg-emerald-500/50" />
+                {/* Title Bar */}
+                <div className="flex items-center justify-between px-4 py-2.5 bg-secondary border-b border-border">
+                    <div className="flex gap-1.5">
+                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/40" />
+                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/40" />
                     </div>
                     <span className="text-[10px] text-slate-500 font-mono tracking-widest uppercase">
-                        profile.ts
+                        prakhar.sys --bash
                     </span>
                 </div>
-                <div className="p-8 font-mono text-xs md:text-sm leading-relaxed">
-                    {CODE_LINES.map((line, i) => (
-                        <div key={i} className="min-h-[1.5rem]">
-                            {line.tokens.map((token, j) => (
-                                <span
-                                    key={j}
-                                    className={TOKEN_CLASSES[token.type as TokenType]}
-                                >
-                                    {token.text}
-                                </span>
-                            ))}
+                
+                {/* Terminal Content */}
+                <div className="p-6 font-mono text-[11px] md:text-[12px] leading-relaxed text-slate-400 space-y-6">
+                    <div>
+                        <span className="text-emerald-400">$</span> cat profile.json
+                        <pre className="text-slate-300 mt-2 font-mono">
+{`{
+  "host": "yadavxprakhar.dev",
+  "specialization": "Distributed Systems",
+  "status": "operational",
+  "auth": "secure_jwt"
+}`}
+                        </pre>
+                    </div>
+
+                    <div className="border-t border-border pt-4 space-y-3">
+                        <span className="text-emerald-400">$</span> sys --draw-architecture
+                        
+                        {/* Distributed Systems Toplogy Diagram */}
+                        <div className="mt-2 p-4 bg-black/40 rounded-lg border border-border flex flex-col items-center justify-center space-y-2 text-[10px] select-none text-slate-300">
+                            {/* Frontend Gateway */}
+                            <div className="px-3 py-1 rounded border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 font-bold uppercase tracking-wider">
+                                Client (React)
+                            </div>
+                            
+                            <div className="text-slate-600 font-bold">│ (REST API)</div>
+                            
+                            {/* API Gateway */}
+                            <div className="px-3 py-1 rounded border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 font-bold uppercase tracking-wider">
+                                Spring API Gateway
+                            </div>
+                            
+                            <div className="text-slate-600 font-bold">├───┴───┐</div>
+                            
+                            {/* internal microservices */}
+                            <div className="flex gap-4">
+                                <div className="flex flex-col items-center">
+                                    <div className="px-2.5 py-0.5 rounded border border-indigo-500/30 bg-indigo-500/5 text-indigo-400 font-semibold">
+                                        Auth Svc
+                                    </div>
+                                    <div className="text-slate-600 font-bold">│</div>
+                                    <div className="px-2 py-0.5 rounded border border-slate-700 bg-slate-800/40 text-slate-400 text-[8px]">
+                                        Redis Cache
+                                    </div>
+                                </div>
+                                <div className="flex flex-col items-center">
+                                    <div className="px-2.5 py-0.5 rounded border border-indigo-500/30 bg-indigo-500/5 text-indigo-400 font-semibold">
+                                        Data Engine
+                                    </div>
+                                    <div className="text-slate-600 font-bold">│</div>
+                                    <div className="px-2 py-0.5 rounded border border-slate-700 bg-slate-800/40 text-slate-400 text-[8px]">
+                                        PostgreSQL
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    ))}
+                    </div>
                 </div>
             </motion.div>
         </div>
@@ -154,42 +127,39 @@ export default function Hero() {
             id="hero"
             className="relative min-h-[90vh] flex items-center w-full section-padding overflow-hidden"
         >
-            <div className="hero-glow" />
-            <ParticleBackground />
-
-            <div className="relative z-10 max-w-7xl mx-auto w-full pt-20">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            <div className="relative z-10 max-w-5xl mx-auto w-full pt-20">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                     {/* Left: Text Content */}
                     <motion.div
                         variants={container}
                         initial="hidden"
                         animate="visible"
-                        className="lg:col-span-7 flex flex-col gap-8"
+                        className="lg:col-span-7 flex flex-col gap-6"
                     >
                         <motion.div variants={itemVariant}>
-                            <span className="inline-flex items-center gap-2 text-[13px] font-medium rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-4 py-1.5 uppercase tracking-wider">
+                            <span className="inline-flex items-center gap-2 text-[11px] font-mono font-medium rounded bg-amber-500/10 text-amber-500 border border-amber-500/20 px-3 py-1 uppercase tracking-wider">
                                 <span className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500" />
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
                                 </span>
-                                Available for new opportunities
+                                Host Status: operational
                             </span>
                         </motion.div>
 
-                        <div className="space-y-4">
+                        <div className="space-y-3">
                             <motion.h1
                                 variants={itemVariant}
-                                className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1]"
+                                className="text-3xl sm:text-4xl md:text-[2.75rem] lg:text-[3.2rem] xl:text-[3.6rem] font-bold tracking-tight leading-[1.1]"
                             >
-                                Crafting <span className="text-gradient">Digital</span> <br /> 
-                                Experiences.
+                                Building Scalable <br /> 
+                                <span className="text-gradient">Full-Stack</span> Systems.
                             </motion.h1>
                             
                             <motion.p
                                 variants={itemVariant}
-                                className="text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed"
+                                className="text-base md:text-lg text-slate-400 max-w-xl leading-relaxed font-sans"
                             >
-                                I&apos;m <span className="text-white font-semibold">Prakhar Yadav</span>, a Full Stack Developer specializing in high-performance backend systems and fluid user interfaces.
+                                I&apos;m <span className="text-foreground font-semibold">Prakhar Yadav</span>. I build high-performance web apps and systems while documenting my journey in tech. Passionate about creating clean digital products, growing a personal brand, and turning ideas into scalable businesses.
                             </motion.p>
                         </div>
 
@@ -200,7 +170,7 @@ export default function Hero() {
                             <Button
                                 onClick={scrollToProjects}
                                 size="lg"
-                                className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-full px-8 h-14 text-base font-semibold group"
+                                className="bg-amber-500 hover:bg-amber-600 text-black rounded px-8 h-14 text-base font-semibold group font-mono"
                             >
                                 Explore Work
                                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -210,7 +180,7 @@ export default function Hero() {
                                 <Button
                                     variant="outline"
                                     size="icon"
-                                    className="rounded-full w-14 h-14 border-white/10 bg-white/5 hover:bg-white/10"
+                                    className="rounded w-14 h-14 border-border bg-card hover:bg-secondary"
                                     asChild
                                 >
                                     <a href="https://github.com/yadavxprakhar" target="_blank">
@@ -220,7 +190,7 @@ export default function Hero() {
                                 <Button
                                     variant="outline"
                                     size="lg"
-                                    className="rounded-full h-14 border-white/10 bg-white/5 hover:bg-white/10 font-medium"
+                                    className="rounded h-14 border-border bg-card hover:bg-secondary font-mono font-medium"
                                     asChild
                                 >
                                     <a href="/Prakhar_Yadav_Resume.pdf" download>

@@ -21,44 +21,45 @@
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-outfit), var(--font-inter), sans-serif;
+  --font-mono: var(--font-fira-code), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 @layer base {
   :root {
-    --background: #ffffff;
-    --foreground: #020617;
+    --background: #fdfbf7;
+    --foreground: #1c1c1e;
     --card: #ffffff;
-    --card-foreground: #020617;
+    --card-foreground: #1c1c1e;
     --popover: #ffffff;
-    --popover-foreground: #020617;
-    --primary: #6366f1;
+    --popover-foreground: #1c1c1e;
+    --primary: #ea580c;
     --primary-foreground: #ffffff;
-    --secondary: #f1f5f9;
-    --secondary-foreground: #0f172a;
-    --muted: #f1f5f9;
-    --muted-foreground: #64748b;
-    --accent: #22d3ee;
+    --secondary: #f4f4f6;
+    --secondary-foreground: #1c1c1e;
+    --muted: #f4f4f6;
+    --muted-foreground: #6c6c70;
+    --accent: #ea580c;
     --accent-foreground: #ffffff;
-    --border: #e2e8f0;
+    --border: #e4e4e7;
     --radius: 0.75rem;
   }
 
   .dark {
-    --background: #020617;
-    --foreground: #f8fafc;
-    --card: #0f172a;
-    --card-foreground: #f8fafc;
-    --popover: #0f172a;
-    --popover-foreground: #f8fafc;
-    --primary: #818cf8;
-    --primary-foreground: #ffffff;
-    --secondary: #1e293b;
-    --secondary-foreground: #f8fafc;
-    --muted: #1e293b;
-    --muted-foreground: #94a3b8;
-    --accent: #22d3ee;
-    --accent-foreground: #0f172a;
-    --border: #1e293b;
+    --background: #0d0d0e;
+    --foreground: #f4ebd4;
+    --card: #121214;
+    --card-foreground: #f4ebd4;
+    --popover: #121214;
+    --popover-foreground: #f4ebd4;
+    --primary: #f97316;
+    --primary-foreground: #0d0d0e;
+    --secondary: #1a1a1c;
+    --secondary-foreground: #f4ebd4;
+    --muted: #1a1a1c;
+    --muted-foreground: #8a8a8e;
+    --accent: #f97316;
+    --accent-foreground: #0d0d0e;
+    --border: #1d1d20;
   }
 
   * {
@@ -70,6 +71,16 @@
     color: var(--foreground);
     font-family: var(--font-sans);
     overflow-x: hidden;
+    background-size: 50px 50px;
+    background-image: 
+      linear-gradient(to right, rgba(244, 235, 212, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(244, 235, 212, 0.02) 1px, transparent 1px);
+  }
+
+  .light body {
+    background-image: 
+      linear-gradient(to right, rgba(28, 28, 30, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(28, 28, 30, 0.03) 1px, transparent 1px);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -80,7 +91,7 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-cyan-400 to-indigo-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400;
     background-size: 200% auto;
     animation: shine 5s linear infinite;
   }

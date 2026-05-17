@@ -33,7 +33,7 @@ export const projects: Project[] = [
         liveUrl: "https://lynkforge.vercel.app",
         githubUrl: "https://github.com/prakharyadav/lynkforge",
         featured: true,
-        image: "/images/lynkforge.png",
+        image: "/images/lynkforge_v2.png",
     },
     {
         id: "flowkit",
@@ -63,7 +63,7 @@ export const projects: Project[] = [
         liveUrl: "https://flow-kit-flame.vercel.app/",
         githubUrl: "https://github.com/yadavxprakhar/FlowKit",
         featured: true,
-        image: "/images/flowkit.png",
+        image: "/images/flowkit_v2.png",
     },
 ];
 

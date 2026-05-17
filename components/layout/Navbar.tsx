@@ -1,13 +1,12 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import {
     Sheet,
     SheetContent,
     SheetTrigger,
-    SheetClose,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/common/ThemeToggle";
@@ -62,7 +61,7 @@ export default function Navbar() {
             )}
         >
             <nav className={cn(
-                "max-w-4xl mx-auto h-14 flex items-center justify-between px-6 rounded-full transition-all duration-300",
+                "max-w-4xl mx-auto h-14 flex items-center justify-between px-6 rounded-full transition-all duration-300 font-mono",
                 scrolled 
                     ? "glass-darker border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]" 
                     : "bg-transparent border-transparent"
@@ -73,14 +72,14 @@ export default function Navbar() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                    className="flex items-center gap-2 focus:outline-none"
+                    className="flex items-center gap-2.5 focus:outline-none"
                     aria-label="Scroll to top"
                 >
-                    <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
-                        <span className="text-white font-bold text-sm">P</span>
+                    <div className="w-8 h-8 rounded border border-amber-500/20 bg-amber-500/5 flex items-center justify-center shadow-lg shadow-amber-500/5">
+                        <span className="text-amber-500 font-bold text-sm">P</span>
                     </div>
-                    <span className="hidden sm:block text-sm font-bold tracking-tight text-white">
-                        Prakhar<span className="text-indigo-400">.</span>
+                    <span className="hidden sm:block text-xs font-bold tracking-tight text-white">
+                        Prakhar<span className="text-amber-500">.</span>sys
                     </span>
                 </motion.button>
 
@@ -93,9 +92,9 @@ export default function Navbar() {
                                 <button
                                     onClick={() => handleNavClick(item.href)}
                                     className={cn(
-                                        "relative px-4 py-1.5 text-xs font-medium rounded-full transition-all duration-300",
+                                        "relative px-4 py-1.5 text-xs font-medium rounded transition-all duration-300",
                                         isActive
-                                            ? "text-white"
+                                            ? "text-amber-500 font-semibold"
                                             : "text-slate-400 hover:text-white"
                                     )}
                                 >
@@ -103,7 +102,7 @@ export default function Navbar() {
                                     {isActive && (
                                         <motion.span
                                             layoutId="nav-pill"
-                                            className="absolute inset-0 z-0 bg-white/10 rounded-full"
+                                            className="absolute inset-0 z-0 bg-amber-500/5 border border-amber-500/10 rounded"
                                             transition={{ type: "spring", stiffness: 400, damping: 30 }}
                                         />
                                     )}
@@ -122,10 +121,10 @@ export default function Navbar() {
                         whileTap={{ scale: 0.95 }}
                         href="/Prakhar_Yadav_Resume.pdf"
                         download
-                        className="hidden sm:flex items-center gap-1 px-4 py-1.5 rounded-full bg-white text-black text-xs font-bold hover:bg-slate-200 transition-colors"
+                        className="hidden sm:flex items-center gap-1 px-4 py-1.5 rounded border border-amber-500 bg-amber-500 hover:bg-amber-600 text-black text-xs font-bold transition-all duration-200"
                     >
                         Resume
-                        <ArrowUpRight className="w-3 h-3" />
+                        <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5px]" />
                     </motion.a>
 
                     {/* Mobile Hamburger */}
@@ -134,26 +133,28 @@ export default function Navbar() {
                             <Button
                                 variant="ghost"
                                 size="icon"
-                                className="md:hidden w-8 h-8 rounded-full hover:bg-white/10"
+                                className="md:hidden w-8 h-8 rounded hover:bg-white/10"
                                 aria-label="Open navigation menu"
                             >
                                 {mobileOpen ? <X className="w-4 h-4 text-white" /> : <Menu className="w-4 h-4 text-white" />}
                             </Button>
                         </SheetTrigger>
 
-                        <SheetContent side="top" className="h-fit bg-[#020617] border-white/10 px-6 py-12">
+                        <SheetContent side="top" className="h-fit bg-[#0d0d0e] border-border px-6 py-12 font-mono">
                             <nav className="flex flex-col gap-6 items-center justify-center">
                                 {NAV_ITEMS.map((item) => (
                                     <button
                                         key={item.sectionId}
                                         onClick={() => handleNavClick(item.href)}
-                                        className="text-2xl font-bold text-slate-400 hover:text-white transition-colors"
+                                        className="text-lg font-bold text-slate-400 hover:text-amber-500 transition-colors"
                                     >
                                         {item.label}
                                     </button>
                                 ))}
-                                <Button className="w-full mt-4 bg-indigo-600 rounded-full h-14 text-lg">
-                                    Download Resume
+                                <Button className="w-full mt-4 bg-amber-500 text-black hover:bg-amber-600 font-bold font-mono" asChild>
+                                    <a href="/Prakhar_Yadav_Resume.pdf" download>
+                                        Download Resume
+                                    </a>
                                 </Button>
                             </nav>
                         </SheetContent>

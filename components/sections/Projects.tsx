@@ -27,7 +27,7 @@ const PROJECTS: Project[] = [
         tech: ["Java", "Spring Boot", "React", "PostgreSQL", "Redis"],
         github: "https://github.com/yadavxprakhar/Lynkforge---A-URL-Shortner-App",
         live: "https://lynkforge.vercel.app",
-        image: "/images/lynkforge.png",
+        image: "/images/lynkforge_v2.png",
         category: "Full Stack",
     },
     {
@@ -37,18 +37,18 @@ const PROJECTS: Project[] = [
         tech: ["React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
         github: "https://github.com/yadavxprakhar/FlowKit",
         live: "https://flow-kit-flame.vercel.app/",
-        image: "/images/flowkit.png",
+        image: "/images/flowkit_v2.png",
         category: "Full Stack",
     },
     {
         id: "portfolio",
-        title: "Premium Portfolio",
+        title: "Personal Portfolio",
         description: "High-performance personal website with advanced animations, glassmorphism, and a custom design system. Optimized for SEO and mobile responsiveness.",
         tech: ["Next.js 15", "Framer Motion", "Tailwind v4"],
         github: "https://github.com/yadavxprakhar/portfolio-website",
         live: "https://portfolio-website-tau-seven-73.vercel.app/",
-        image: "/images/portfolio.png",
-        category: "Full Stack",
+        image: "/images/portfolio_v3.png",
+        category: "Frontend",
     }
 ];
 
@@ -60,69 +60,69 @@ function ProjectCard({ project }: { project: Project }) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="group relative flex flex-col h-full rounded-3xl border border-white/10 bg-white/5 overflow-hidden hover:border-white/20 transition-all duration-500"
+            className="group relative flex flex-col h-full rounded-xl border border-border bg-card overflow-hidden hover:border-amber-500/30 transition-all duration-500 shadow-lg"
         >
-            <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+            <div className="relative aspect-[16/10] overflow-hidden bg-[#0d0d0e]">
                 {project.image ? (
                     <Image 
                         src={project.image} 
                         alt={project.title}
                         fill
-                        className="object-cover object-top group-hover:scale-110 transition-transform duration-700"
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
                     />
                 ) : (
                     <>
-                        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 group-hover:scale-110 transition-transform duration-700" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-orange-500/10 group-hover:scale-105 transition-transform duration-700" />
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <h3 className="text-3xl font-black text-white/10 select-none group-hover:text-white/20 transition-colors">
+                            <h3 className="text-3xl font-black text-amber-500/10 select-none group-hover:text-amber-500/20 transition-colors font-mono">
                                 {project.title.toUpperCase()}
                             </h3>
                         </div>
                     </>
                 )}
                 <div className="absolute top-4 left-4 z-10">
-                    <span className="px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[10px] font-bold text-white uppercase tracking-wider">
+                    <span className="px-2 py-0.5 rounded border border-amber-500/30 bg-amber-500/5 text-amber-500 font-mono text-[9px] uppercase tracking-wider">
                         {project.category}
                     </span>
                 </div>
             </div>
 
-            <div className="flex flex-col flex-1 p-8">
-                <h3 className="text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-indigo-400 transition-colors">
+            <div className="flex flex-col flex-1 p-6">
+                <h3 className="text-xl font-bold text-white mb-2 tracking-tight group-hover:text-amber-500 transition-colors">
                     {project.title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
+                <p className="text-slate-400 text-xs md:text-sm leading-relaxed mb-4 flex-1">
                     {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-8">
+                <div className="flex flex-wrap gap-2 mb-6">
                     {project.tech.map((t) => (
-                        <span key={t} className="text-[10px] font-bold text-indigo-400/80 uppercase tracking-widest bg-indigo-500/5 px-2 py-1 rounded">
+                        <span key={t} className="px-2 py-0.5 font-mono text-[10px] text-slate-400 rounded border border-border bg-[#0d0d0e]/60">
                             {t}
                         </span>
                     ))}
                 </div>
 
-                <div className="flex gap-4">
+                <div className="flex gap-3">
                     <Button
                         variant="outline"
                         size="sm"
-                        className="flex-1 rounded-full border-white/10 bg-white/5 hover:bg-white/10 text-white font-bold h-11"
+                        className="flex-1 rounded border-border bg-[#0d0d0e]/60 hover:bg-secondary text-white font-mono h-10 text-xs"
                         asChild
                     >
                         <a href={project.github} target="_blank">
-                            <FaGithub className="w-4 h-4 mr-2" />
+                            <FaGithub className="w-3.5 h-3.5 mr-2" />
                             Code
                         </a>
                     </Button>
                     {project.live && (
                         <Button
                             size="sm"
-                            className="flex-1 rounded-full bg-white text-black hover:bg-slate-200 font-bold h-11"
+                            className="flex-1 rounded bg-amber-500 text-black hover:bg-amber-600 font-mono h-10 text-xs font-bold"
                             asChild
                         >
                             <a href={project.live} target="_blank">
-                                <ExternalLink className="w-4 h-4 mr-2" />
+                                <ExternalLink className="w-3.5 h-3.5 mr-2" />
                                 Live
                             </a>
                         </Button>
@@ -168,10 +168,10 @@ export default function Projects() {
                             <button
                                 key={c}
                                 onClick={() => setFilter(c)}
-                                className={`px-6 py-2 rounded-full text-xs font-bold transition-all duration-300 ${
+                                className={`px-4 py-1.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                                     filter === c 
-                                        ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/20" 
-                                        : "bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white"
+                                        ? "bg-amber-500 text-black border border-amber-500 shadow-lg shadow-amber-500/10" 
+                                        : "bg-secondary border border-border text-slate-400 hover:bg-card hover:text-white"
                                 }`}
                             >
                                 {c}

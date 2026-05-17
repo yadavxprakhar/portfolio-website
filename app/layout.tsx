@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Inter, Outfit, Fira_Code } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import BackToTop from "@/components/common/BackToTop";
 import CustomCursor from "@/components/common/CustomCursor";
+import OnekoCat from "@/components/common/OnekoCat";
 import { SITE_CONFIG } from "@/lib/constants";
 import "./globals.css";
 
@@ -19,6 +20,12 @@ const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-outfit",
+});
+
+const firaCode = Fira_Code({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-fira-code",
 });
 
 export const metadata: Metadata = {
@@ -89,8 +96,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${outfit.variable}`}>
-      <body className="font-sans antialiased min-h-screen bg-background text-foreground selection:bg-indigo-500/30">
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${outfit.variable} ${firaCode.variable}`}>
+      <body className="font-sans antialiased min-h-screen bg-background text-foreground selection:bg-amber-500/20 selection:text-foreground">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -98,6 +105,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <CustomCursor />
+          <OnekoCat />
           <div className="noise" />
           
           <Navbar />
