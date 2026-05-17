@@ -14,12 +14,12 @@ export const personal: PersonalInfo = {
   concepts for developers at every level.`,
     shortBio:
         "Final-year CS student. Java & Spring Boot developer. Tech content creator with 29K+ followers.",
-    email: "yadavprakhar1034@email.com", // Replace with your actual email
+    email: "yadavxprakhar@gmail.com",
     github: "https://github.com/yadavxprakhar",
     linkedin: "https://www.linkedin.com/in/prakharyxdev/",
     twitter: "https://x.com/PrakharYxdev",
     instagram: "https://www.instagram.com/prakharyxdev",
-    resumeUrl: "/resume.pdf",
+    resumeUrl: "/Prakhar_Yadav_Resume.pdf",
     currentStatus:
         "Final year B.Tech student — available for full-time roles from mid-2026",
     hobbies:
