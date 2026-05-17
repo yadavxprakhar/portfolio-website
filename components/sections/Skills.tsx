@@ -15,30 +15,30 @@ interface Layer {
 const SYSTEMS_LAYERS: Layer[] = [
     {
         id: "LAYER_01",
-        name: "Client Ingress (Frontend Gateway)",
+        name: "Frontend & User Experience",
         icon: LayoutGrid,
-        desc: "Interactive, fluid user interfaces designed for high responsiveness, SEO optimization, and browser compatibility.",
+        desc: "Crafting fast, responsive, and beautiful user interfaces with fluid animations and modern web standards.",
         skills: ["React.js", "Next.js", "Tailwind CSS", "TypeScript", "JavaScript", "Framer Motion"],
     },
     {
         id: "LAYER_02",
-        name: "Ingress Control & Security",
+        name: "Security & Access Control",
         icon: Shield,
-        desc: "Secure middleware gatekeeping protocols, token-based authorization structures, and system communication routing.",
+        desc: "Securing system endpoints with robust token authorization, secure middleware, and clean gateway patterns.",
         skills: ["Spring Security", "JWT Auth", "REST APIs", "API Gateway", "OAuth 2.0"],
     },
     {
         id: "LAYER_03",
-        name: "Application Processing Core (Backend Services)",
+        name: "Backend & Core Services",
         icon: Server,
-        desc: "Robust, decoupled backend business logic, transactional database handlers, and schema microservices.",
+        desc: "Building stable, high-performance server logic, database transactions, and scalable API services.",
         skills: ["Java", "Spring Boot", "Spring Data JPA", "Node.js", "Hibernate"],
     },
     {
         id: "LAYER_04",
-        name: "Persistence & Infrastructure Tier",
+        name: "Databases & DevOps",
         icon: Database,
-        desc: "High-integrity relational and document storage engines, rapid caching systems, and lightweight containerization pipelines.",
+        desc: "Managing relational and document storage, caching layers, and lightweight containerization for reliable deployments.",
         skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Docker", "Git"],
     },
 ];
@@ -54,13 +54,13 @@ export default function Skills() {
                     viewport={{ once: true }}
                 >
                     <span className="text-[10px] font-mono text-amber-500 font-bold uppercase tracking-widest bg-amber-500/5 px-2.5 py-1 border border-amber-500/20 rounded">
-                        System Topology
+                        My Tech Stack
                     </span>
                     <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-4 tracking-tighter">
-                        Technical <span className="text-gradient">Infrastructure</span> Stack
+                        How I <span className="text-gradient">Build</span> Software
                     </h2>
                     <p className="text-slate-400 max-w-2xl text-base leading-relaxed">
-                        A structured representation of my full-stack engineering workflow, organized as a decoupled multi-tier technical architecture.
+                        A breakdown of the tools, frameworks, and databases I use to build robust and scalable full-stack applications from front to back.
                     </p>
                 </motion.div>
 
