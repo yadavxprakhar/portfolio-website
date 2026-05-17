@@ -53,7 +53,7 @@ export default function Certifications() {
                     <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-4 tracking-tighter">
                         Verified <span className="text-gradient">Credentials</span>
                     </h2>
-                    <p className="text-slate-400 max-w-2xl mx-auto text-base leading-relaxed">
+                    <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
                         Professional validations, platform accreditations, and specialized technical certifications.
                     </p>
                 </motion.div>
@@ -66,30 +66,30 @@ export default function Certifications() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="p-6 rounded-xl border border-border bg-[#0d0d0e]/60 hover:border-amber-500/30 transition-all duration-300 flex flex-col justify-between group"
+                            className="p-6 rounded-xl border border-border bg-background hover:border-amber-500/30 transition-all duration-300 flex flex-col justify-between group"
                         >
                             <div>
                                 <div className="flex items-start justify-between mb-6">
                                     <div className="w-9 h-9 rounded bg-amber-500/5 flex items-center justify-center border border-amber-500/20 text-amber-500 group-hover:bg-amber-500/10 transition-colors">
                                         <Award className="w-4.5 h-4.5" />
                                     </div>
-                                    <span className="px-2.5 py-0.5 rounded border border-border bg-card font-mono text-[9px] font-bold text-slate-500 uppercase tracking-widest">
+                                    <span className="px-2.5 py-0.5 rounded border border-border bg-card font-mono text-[9px] font-bold text-muted-foreground uppercase tracking-widest">
                                         {cert.year}
                                     </span>
                                 </div>
 
                                 <div className="space-y-2">
-                                    <h3 className="text-lg font-bold text-white group-hover:text-amber-500 transition-colors tracking-tight">
+                                    <h3 className="text-lg font-bold text-foreground group-hover:text-amber-500 transition-colors tracking-tight">
                                         {cert.title}
                                     </h3>
-                                    <p className="text-xs text-slate-400 font-mono">
+                                    <p className="text-xs text-muted-foreground font-mono">
                                         {cert.issuer}
                                     </p>
                                 </div>
 
                                 <div className="flex flex-wrap gap-1.5 my-6">
                                     {cert.skills.map((skill) => (
-                                        <span key={skill} className="px-2 py-0.5 font-mono text-[9px] text-slate-400 rounded border border-border bg-card">
+                                        <span key={skill} className="px-2 py-0.5 font-mono text-[9px] text-muted-foreground rounded border border-border bg-secondary">
                                             {skill}
                                         </span>
                                     ))}
@@ -100,7 +100,7 @@ export default function Certifications() {
                                 <Button
                                     variant="outline"
                                     size="sm"
-                                    className="w-full rounded border border-border bg-[#0d0d0e]/60 hover:bg-secondary hover:border-amber-500/30 hover:text-amber-500 text-white font-mono h-10 text-xs mt-2 group"
+                                    className="w-full rounded border border-border bg-card hover:bg-secondary hover:border-amber-500/30 hover:text-amber-500 text-foreground font-mono h-10 text-xs mt-2 group"
                                     asChild
                                 >
                                     <a href={cert.url} target="_blank">

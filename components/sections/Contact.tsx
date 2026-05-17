@@ -70,28 +70,28 @@ export default function Contact() {
                             <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-4 tracking-tighter">
                                 Let&apos;s <span className="text-gradient">Connect.</span>
                             </h2>
-                            <p className="text-slate-400 text-base leading-relaxed max-w-md">
+                            <p className="text-muted-foreground text-base leading-relaxed max-w-md">
                                 Whether you have a specific opportunity in mind or just want to discuss backend architectures, distributed systems, or fitness journey, my gateway is open.
                             </p>
                         </div>
 
                         <div className="space-y-4">
                             <a href="mailto:yadavxprakhar@gmail.com" className="flex items-center gap-4 group">
-                                <div className="w-10 h-10 rounded border border-border bg-[#0d0d0e]/60 flex items-center justify-center group-hover:border-amber-500/30 group-hover:bg-amber-500/5 transition-all duration-300">
-                                    <Mail className="w-4.5 h-4.5 text-slate-400 group-hover:text-amber-500 transition-colors" />
+                                <div className="w-10 h-10 rounded border border-border bg-background flex items-center justify-center group-hover:border-amber-500/30 group-hover:bg-amber-500/5 transition-all duration-300">
+                                    <Mail className="w-4.5 h-4.5 text-muted-foreground group-hover:text-amber-500 transition-colors" />
                                 </div>
                                 <div>
-                                    <p className="text-[9px] font-bold text-slate-500 uppercase tracking-widest font-mono">Email</p>
+                                    <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest font-mono">Email</p>
                                     <p className="text-foreground text-sm font-bold font-mono group-hover:text-amber-500 transition-colors">yadavxprakhar@gmail.com</p>
                                 </div>
                             </a>
 
                             <a href="https://www.linkedin.com/in/prakharyxdev/" target="_blank" className="flex items-center gap-4 group">
-                                <div className="w-10 h-10 rounded border border-border bg-[#0d0d0e]/60 flex items-center justify-center group-hover:border-amber-500/30 group-hover:bg-amber-500/5 transition-all duration-300">
-                                    <FaLinkedin className="w-4.5 h-4.5 text-slate-400 group-hover:text-amber-500 transition-colors" />
+                                <div className="w-10 h-10 rounded border border-border bg-background flex items-center justify-center group-hover:border-amber-500/30 group-hover:bg-amber-500/5 transition-all duration-300">
+                                    <FaLinkedin className="w-4.5 h-4.5 text-muted-foreground group-hover:text-amber-500 transition-colors" />
                                 </div>
                                 <div>
-                                    <p className="text-[9px] font-bold text-slate-500 uppercase tracking-widest font-mono">LinkedIn</p>
+                                    <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest font-mono">LinkedIn</p>
                                     <p className="text-foreground text-sm font-bold font-mono group-hover:text-amber-500 transition-colors">linkedin.com/in/prakharyxdev</p>
                                 </div>
                             </a>
@@ -103,7 +103,7 @@ export default function Contact() {
                                 { icon: FaLinkedin, href: "https://www.linkedin.com/in/prakharyxdev/" },
                                 { icon: Mail, href: "mailto:yadavxprakhar@gmail.com" }
                             ].map((social, i) => (
-                                <a key={i} href={social.href} target="_blank" className="w-9 h-9 rounded border border-border flex items-center justify-center text-slate-400 hover:text-amber-500 hover:border-amber-500/30 bg-[#0d0d0e]/60 transition-all">
+                                <a key={i} href={social.href} target="_blank" className="w-9 h-9 rounded border border-border flex items-center justify-center text-muted-foreground hover:text-amber-500 hover:border-amber-500/30 bg-background transition-all">
                                     <social.icon className="w-4.5 h-4.5" />
                                 </a>
                             ))}
@@ -114,11 +114,11 @@ export default function Contact() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="p-6 md:p-8 rounded-xl border border-border bg-[#0d0d0e]/60 backdrop-blur-sm"
+                        className="p-6 md:p-8 rounded-xl border border-border bg-background backdrop-blur-sm shadow-lg"
                     >
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                             <div className="space-y-1.5">
-                                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1 font-mono">Name</label>
+                                <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1 font-mono">Name</label>
                                 <Input 
                                     {...register("name", { required: true })}
                                     placeholder="Enter your name"
@@ -126,7 +126,7 @@ export default function Contact() {
                                 />
                             </div>
                             <div className="space-y-1.5">
-                                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1 font-mono">Email</label>
+                                <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1 font-mono">Email</label>
                                 <Input 
                                     {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
                                     placeholder="your@email.com"
@@ -134,7 +134,7 @@ export default function Contact() {
                                 />
                             </div>
                             <div className="space-y-1.5">
-                                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1 font-mono">Message</label>
+                                <label className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest ml-1 font-mono">Message</label>
                                 <Textarea 
                                     {...register("message", { required: true })}
                                     placeholder="How can I help?"

@@ -34,10 +34,10 @@ function CodeCard() {
                 </div>
                 
                 {/* Terminal Content */}
-                <div className="p-6 font-mono text-[11px] md:text-[12px] leading-relaxed text-slate-400 space-y-6">
+                <div className="p-6 font-mono text-[11px] md:text-[12px] leading-relaxed text-muted-foreground space-y-6">
                     <div>
-                        <span className="text-emerald-400">$</span> cat profile.json
-                        <pre className="text-slate-300 mt-2 font-mono">
+                        <span className="text-emerald-600 dark:text-emerald-400">$</span> <span className="text-foreground">cat profile.json</span>
+                        <pre className="text-foreground/80 dark:text-slate-300 mt-2 font-mono">
 {`{
   "host": "yadavxprakhar.dev",
   "specialization": "Distributed Systems",
@@ -48,41 +48,41 @@ function CodeCard() {
                     </div>
 
                     <div className="border-t border-border pt-4 space-y-3">
-                        <span className="text-emerald-400">$</span> sys --draw-architecture
+                        <span className="text-emerald-600 dark:text-emerald-400">$</span> <span className="text-foreground">sys --draw-architecture</span>
                         
                         {/* Distributed Systems Toplogy Diagram */}
-                        <div className="mt-2 p-4 bg-black/40 rounded-lg border border-border flex flex-col items-center justify-center space-y-2 text-[10px] select-none text-slate-300">
+                        <div className="mt-2 p-4 bg-secondary/50 dark:bg-black/40 rounded-lg border border-border flex flex-col items-center justify-center space-y-2 text-[10px] select-none text-foreground">
                             {/* Frontend Gateway */}
-                            <div className="px-3 py-1 rounded border border-emerald-500/30 bg-emerald-500/5 text-emerald-400 font-bold uppercase tracking-wider">
+                            <div className="px-3 py-1 rounded border border-emerald-500/30 bg-emerald-500/10 dark:bg-emerald-500/5 text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-wider">
                                 Client (React)
                             </div>
                             
-                            <div className="text-slate-600 font-bold">│ (REST API)</div>
+                            <div className="text-muted-foreground/60 dark:text-slate-600 font-bold">│ (REST API)</div>
                             
                             {/* API Gateway */}
-                            <div className="px-3 py-1 rounded border border-cyan-500/30 bg-cyan-500/5 text-cyan-400 font-bold uppercase tracking-wider">
+                            <div className="px-3 py-1 rounded border border-cyan-500/30 bg-cyan-500/10 dark:bg-cyan-500/5 text-cyan-600 dark:text-cyan-400 font-bold uppercase tracking-wider">
                                 Spring API Gateway
                             </div>
                             
-                            <div className="text-slate-600 font-bold">├───┴───┐</div>
+                            <div className="text-muted-foreground/60 dark:text-slate-600 font-bold">├───┴───┐</div>
                             
                             {/* internal microservices */}
                             <div className="flex gap-4">
                                 <div className="flex flex-col items-center">
-                                    <div className="px-2.5 py-0.5 rounded border border-indigo-500/30 bg-indigo-500/5 text-indigo-400 font-semibold">
+                                    <div className="px-2.5 py-0.5 rounded border border-indigo-500/30 bg-indigo-500/10 dark:bg-indigo-500/5 text-indigo-600 dark:text-indigo-400 font-semibold">
                                         Auth Svc
                                     </div>
-                                    <div className="text-slate-600 font-bold">│</div>
-                                    <div className="px-2 py-0.5 rounded border border-slate-700 bg-slate-800/40 text-slate-400 text-[8px]">
+                                    <div className="text-muted-foreground/60 dark:text-slate-600 font-bold">│</div>
+                                    <div className="px-2 py-0.5 rounded border border-border bg-background dark:border-slate-700 dark:bg-slate-800/40 text-muted-foreground text-[8px]">
                                         Redis Cache
                                     </div>
                                 </div>
                                 <div className="flex flex-col items-center">
-                                    <div className="px-2.5 py-0.5 rounded border border-indigo-500/30 bg-indigo-500/5 text-indigo-400 font-semibold">
+                                    <div className="px-2.5 py-0.5 rounded border border-indigo-500/30 bg-indigo-500/10 dark:bg-indigo-500/5 text-indigo-600 dark:text-indigo-400 font-semibold">
                                         Data Engine
                                     </div>
-                                    <div className="text-slate-600 font-bold">│</div>
-                                    <div className="px-2 py-0.5 rounded border border-slate-700 bg-slate-800/40 text-slate-400 text-[8px]">
+                                    <div className="text-muted-foreground/60 dark:text-slate-600 font-bold">│</div>
+                                    <div className="px-2 py-0.5 rounded border border-border bg-background dark:border-slate-700 dark:bg-slate-800/40 text-muted-foreground text-[8px]">
                                         PostgreSQL
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@ export default function Hero() {
                             
                             <motion.p
                                 variants={itemVariant}
-                                className="text-base md:text-lg text-slate-400 max-w-xl leading-relaxed font-sans"
+                                className="text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed font-sans"
                             >
                                 I&apos;m <span className="text-foreground font-semibold">Prakhar Yadav</span>. I build high-performance web apps and systems while documenting my journey in tech. Passionate about creating clean digital products, growing a personal brand, and turning ideas into scalable businesses.
                             </motion.p>

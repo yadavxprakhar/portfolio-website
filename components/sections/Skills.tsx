@@ -59,13 +59,13 @@ export default function Skills() {
                     <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-4 tracking-tighter">
                         How I <span className="text-gradient">Build</span> Software
                     </h2>
-                    <p className="text-slate-400 max-w-2xl text-base leading-relaxed">
+                    <p className="text-muted-foreground max-w-2xl text-base leading-relaxed">
                         A breakdown of the tools, frameworks, and databases I use to build robust and scalable full-stack applications from front to back.
                     </p>
                 </motion.div>
 
                 {/* System Topology Map */}
-                <div className="space-y-8 relative before:absolute before:left-6 before:top-2 before:bottom-2 before:w-[1px] before:bg-border/60">
+                <div className="space-y-8 relative before:absolute before:left-0 md:before:left-6 before:top-2 before:bottom-2 before:w-[1px] before:bg-border/60">
                     {SYSTEMS_LAYERS.map((layer, index) => {
                         const Icon = layer.icon;
                         return (
@@ -75,10 +75,10 @@ export default function Skills() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="relative pl-12 group"
+                                className="relative pl-8 md:pl-12 group"
                             >
                                 {/* Connector Dot */}
-                                <div className="absolute left-[19px] top-6 w-2.5 h-2.5 rounded-full border-2 border-border bg-background group-hover:border-amber-500 group-hover:bg-amber-500 transition-all duration-300 z-10" />
+                                <div className="absolute left-[-5px] md:left-[19px] top-6 w-2.5 h-2.5 rounded-full border-2 border-border bg-background group-hover:border-amber-500 group-hover:bg-amber-500 transition-all duration-300 z-10" />
 
                                 <div className="p-6 md:p-8 rounded-xl border border-border bg-card hover:border-amber-500/30 transition-all duration-300">
                                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
@@ -90,7 +90,7 @@ export default function Skills() {
                                                 <span className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-widest">
                                                     {layer.id}
                                                 </span>
-                                                <h3 className="text-lg font-bold text-white tracking-tight">
+                                                <h3 className="text-lg font-bold text-foreground tracking-tight">
                                                     {layer.name}
                                                 </h3>
                                             </div>
@@ -103,7 +103,7 @@ export default function Skills() {
                                         </div>
                                     </div>
 
-                                    <p className="text-sm text-slate-400 mb-6 max-w-3xl leading-relaxed">
+                                    <p className="text-sm text-muted-foreground mb-6 max-w-3xl leading-relaxed">
                                         {layer.desc}
                                     </p>
 
@@ -111,7 +111,7 @@ export default function Skills() {
                                         {layer.skills.map((skill) => (
                                             <span
                                                 key={skill}
-                                                className="px-3 py-1 font-mono text-[11px] text-slate-300 rounded border border-border bg-[#0d0d0e]/60 hover:border-amber-500/30 hover:text-amber-400 transition-colors"
+                                                className="px-3 py-1 font-mono text-[11px] text-muted-foreground rounded border border-border bg-secondary hover:border-amber-500/30 hover:text-amber-500 hover:bg-secondary/80 transition-colors"
                                             >
                                                 {skill}
                                             </span>

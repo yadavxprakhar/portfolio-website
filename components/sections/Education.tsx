@@ -55,7 +55,7 @@ export default function Education() {
                     <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-4 tracking-tighter">
                         Education & <span className="text-gradient">Background</span>
                     </h2>
-                    <p className="text-slate-400 max-w-2xl mx-auto text-base leading-relaxed">
+                    <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
                         My formal education and specialized academic training, organized chronologically.
                     </p>
                 </motion.div>
@@ -73,18 +73,18 @@ export default function Education() {
                             {/* Technical Timeline Connector */}
                             <div className="absolute left-[-5px] top-2 w-[9px] h-[9px] rounded-full border-2 border-border bg-background group-hover:border-amber-500 group-hover:bg-amber-500 transition-all duration-300 z-10" />
                             
-                            <div className="p-6 md:p-8 rounded-xl border border-border bg-[#0d0d0e]/60 hover:border-amber-500/30 transition-all duration-300">
+                            <div className="p-6 md:p-8 rounded-xl border border-border bg-background hover:border-amber-500/30 transition-all duration-300">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-                                    <h3 className="text-xl font-bold text-white group-hover:text-amber-500 transition-colors">
+                                    <h3 className="text-xl font-bold text-foreground group-hover:text-amber-500 transition-colors">
                                         {edu.institution}
                                     </h3>
-                                    <div className="flex items-center gap-2 text-slate-500 font-mono text-[10px] font-bold uppercase tracking-wider">
+                                    <div className="flex items-center gap-2 text-muted-foreground font-mono text-[10px] font-bold uppercase tracking-wider">
                                         <Calendar className="w-3.5 h-3.5" />
                                         {edu.period}
                                     </div>
                                 </div>
 
-                                <div className="flex flex-wrap items-center gap-4 text-slate-400 mb-6">
+                                <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-6">
                                     <div className="flex items-center gap-1.5 text-xs font-mono">
                                         <GraduationCap className="w-3.5 h-3.5 text-amber-500" />
                                         {edu.degree}
@@ -102,7 +102,7 @@ export default function Education() {
 
                                 <div className="flex flex-wrap gap-2">
                                     {edu.coursework.map((course) => (
-                                        <span key={course} className="px-2 py-0.5 font-mono text-[10px] text-slate-400 rounded border border-border bg-[#0d0d0e]/60 group-hover:border-amber-500/20 transition-colors">
+                                        <span key={course} className="px-2 py-0.5 font-mono text-[10px] text-muted-foreground rounded border border-border bg-secondary group-hover:border-amber-500/20 transition-colors">
                                             {course}
                                         </span>
                                     ))}

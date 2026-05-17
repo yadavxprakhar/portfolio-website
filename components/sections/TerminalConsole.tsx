@@ -20,7 +20,7 @@ export default function TerminalConsole() {
                     <div>[OK] Loading Technical Skills Topology Layer...</div>
                     <div>[OK] Syncing LeetCode metric controllers... (300+ Solved)</div>
                     <div>[OK] Connection established. Operational.</div>
-                    <div className="text-slate-500 mt-2">Type &apos;help&apos; to view all available system operations.</div>
+                    <div className="text-muted-foreground mt-2">Type &apos;help&apos; to view all available system operations.</div>
                 </div>
             ),
         },
@@ -59,7 +59,7 @@ export default function TerminalConsole() {
         switch (trimmed) {
             case "help":
                 output = (
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-slate-300 font-mono text-[11px] md:text-xs">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-muted-foreground font-mono text-[11px] md:text-xs">
                         <div><span className="text-amber-500 font-bold">about</span> - User specs</div>
                         <div><span className="text-amber-500 font-bold">skills</span> - Stack topology</div>
                         <div><span className="text-amber-500 font-bold">projects</span> - Active nodes</div>
@@ -73,9 +73,9 @@ export default function TerminalConsole() {
 
             case "about":
                 output = (
-                    <div className="space-y-2 text-slate-300 font-mono text-[11px] md:text-xs leading-relaxed">
+                    <div className="space-y-2 text-muted-foreground font-mono text-[11px] md:text-xs leading-relaxed">
                         <p>
-                            <span className="text-white font-bold">Prakhar Yadav</span> is a Systems and Backend Software Engineer in his final year of B.Tech Computer Science at Galgotias College (2022-2026).
+                            <span className="text-foreground font-bold">Prakhar Yadav</span> is a Systems and Backend Software Engineer in his final year of B.Tech Computer Science at Galgotias College (2022-2026).
                         </p>
                         <p>
                             Specializes in high-efficiency distributed system architectures, clean transactional databases, and fluid, intuitive frontend interfaces. Dedicated to clean code, test integrity, and system scalability under heavy load.
@@ -86,7 +86,7 @@ export default function TerminalConsole() {
 
             case "skills":
                 output = (
-                    <div className="space-y-2 text-slate-300 font-mono text-[11px] md:text-xs">
+                    <div className="space-y-2 text-muted-foreground font-mono text-[11px] md:text-xs">
                         <div><span className="text-amber-500 font-bold">[Layer 01] Frontend Ingress:</span> React, Next.js, Tailwind CSS, TypeScript</div>
                         <div><span className="text-amber-500 font-bold">[Layer 02] Security Gate:</span> Spring Security, JWT, OAuth 2.0, REST Router</div>
                         <div><span className="text-amber-500 font-bold">[Layer 03] Backend Engine:</span> Java, Spring Boot, JPA, Hibernate, Node.js</div>
@@ -97,7 +97,7 @@ export default function TerminalConsole() {
 
             case "projects":
                 output = (
-                    <div className="space-y-3 text-slate-300 font-mono text-[11px] md:text-xs">
+                    <div className="space-y-3 text-muted-foreground font-mono text-[11px] md:text-xs">
                         <div>
                             <span className="text-amber-500 font-bold">lynkforge_v2</span> - B2B Developer Integration Portal (Java, Spring Boot, React)
                             <br />
@@ -119,7 +119,7 @@ export default function TerminalConsole() {
 
             case "certs":
                 output = (
-                    <div className="space-y-2 text-slate-300 font-mono text-[11px] md:text-xs">
+                    <div className="space-y-2 text-muted-foreground font-mono text-[11px] md:text-xs">
                         <div>• <span className="text-amber-500 font-bold">Java Developer Certification</span> (Infosys Springboard)</div>
                         <div>• <span className="text-amber-500 font-bold">Frontend Development Certificate</span> (FreeCodeCamp)</div>
                     </div>
@@ -137,7 +137,7 @@ export default function TerminalConsole() {
    ██║      ██║  ██║
    ╚═╝      ╚═╝  ╚═╝`}
                         </pre>
-                        <div className="space-y-1 text-slate-300">
+                        <div className="space-y-1 text-muted-foreground">
                             <div><span className="text-amber-500 font-bold">guest@prakhar.sys</span></div>
                             <div>--------------------</div>
                             <div><span className="text-amber-500 font-bold">OS:</span> PrakharOS v1.0.0 (Darwin arm64)</div>
@@ -154,7 +154,7 @@ export default function TerminalConsole() {
 
             case "contact":
                 output = (
-                    <div className="space-y-1 text-slate-300 font-mono text-[11px] md:text-xs">
+                    <div className="space-y-1 text-muted-foreground font-mono text-[11px] md:text-xs">
                         <div><span className="text-amber-500 font-bold">Email:</span> yadavxprakhar@gmail.com</div>
                         <div><span className="text-amber-500 font-bold">Github:</span> github.com/yadavxprakhar</div>
                         <div><span className="text-amber-500 font-bold">LinkedIn:</span> linkedin.com/in/prakharyxdev</div>
@@ -200,7 +200,7 @@ export default function TerminalConsole() {
                     <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-4 tracking-tighter">
                         Engineering <span className="text-gradient">Console</span> playground
                     </h2>
-                    <p className="text-slate-400 max-w-2xl text-base leading-relaxed">
+                    <p className="text-muted-foreground max-w-2xl text-base leading-relaxed">
                         Query Prakhar&apos;s developer parameters, stack topology, and core project specifications directly from a live interactive terminal gateway.
                     </p>
                 </motion.div>
@@ -227,7 +227,7 @@ export default function TerminalConsole() {
                         {history.map((item, index) => (
                             <div key={index} className="space-y-1.5">
                                 {item.command !== "system-init" && (
-                                    <div className="flex items-center gap-2 text-slate-300 font-bold">
+                                    <div className="flex items-center gap-2 text-foreground font-bold">
                                         <span className="text-amber-500">guest@prakhar.sys:~$</span>
                                         <span>{item.command}</span>
                                     </div>
@@ -266,7 +266,7 @@ export default function TerminalConsole() {
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
                             onKeyDown={handleKeyDown}
-                            className="flex-1 bg-transparent border-none outline-none font-mono text-[11px] md:text-xs text-white"
+                            className="flex-1 bg-transparent border-none outline-none font-mono text-[11px] md:text-xs text-foreground caret-amber-500"
                             placeholder="Type a command and press Enter..."
                             autoComplete="off"
                             autoCorrect="off"

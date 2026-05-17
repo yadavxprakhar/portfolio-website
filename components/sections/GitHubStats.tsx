@@ -39,7 +39,11 @@ const STAT_CARDS: StatCard[] = [
 ];
 
 function themeQuery(resolvedTheme: string | undefined): string {
-    return "theme=transparent&text_color=94a3b8&icon_color=6366f1&title_color=ffffff&bg_color=00000000";
+    const isDark = resolvedTheme === "dark";
+    const titleColor = isDark ? "f4ebd4" : "1c1c1e";
+    const textColor = isDark ? "8a8a8e" : "6c6c70";
+    const iconColor = isDark ? "f97316" : "ea580c";
+    return `theme=transparent&text_color=${textColor}&icon_color=${iconColor}&title_color=${titleColor}&bg_color=00000000`;
 }
 
 export default function GitHubStats() {
@@ -64,7 +68,7 @@ export default function GitHubStats() {
                     <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">
                         Code <span className="text-gradient">Activity</span>
                     </h2>
-                    <p className="text-slate-400 text-lg">
+                    <p className="text-muted-foreground text-lg">
                         Real-time statistics of my contributions and open-source presence.
                     </p>
                 </motion.div>
@@ -77,7 +81,7 @@ export default function GitHubStats() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="p-4 rounded-2xl border border-white/10 bg-white/5 hover:border-white/20 transition-all flex items-center justify-center min-h-[220px] overflow-hidden"
+                            className="p-4 rounded-2xl border border-border bg-card hover:border-amber-500/30 transition-all flex items-center justify-center min-h-[220px] overflow-hidden shadow-md"
                         >
                             {mounted && (
                                 <img
@@ -97,7 +101,7 @@ export default function GitHubStats() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                 >
-                    <Button variant="outline" className="rounded-full border-white/10 bg-white/5 hover:bg-white/10 text-white font-bold px-8 h-12" asChild>
+                    <Button variant="outline" className="rounded-full border-border bg-card hover:bg-secondary text-foreground hover:text-amber-500 font-bold px-8 h-12" asChild>
                         <a href={`https://github.com/${GH_USER}`} target="_blank">
                             <FaGithub className="w-4 h-4 mr-2" />
                             Explore GitHub Profile

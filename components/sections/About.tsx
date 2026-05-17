@@ -55,7 +55,7 @@ export default function About() {
                                 I Build <span className="text-gradient">Systems</span> <br /> 
                                 That Work Under the Hood.
                             </h2>
-                            <div className="space-y-4 text-slate-400 text-sm md:text-base leading-relaxed">
+                            <div className="space-y-4 text-muted-foreground text-sm md:text-base leading-relaxed">
                                 <p>
                                     I am a software engineer focused on building robust, high-performance web systems. I specialize in scalable backend architectures, clean data schemas, and fluid, intuitive frontend interfaces.
                                 </p>
@@ -63,19 +63,19 @@ export default function About() {
 
                             <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border mt-6">
                                 <div className="space-y-1">
-                                    <span className="text-2xl font-extrabold text-white tracking-tight">300+</span>
+                                    <span className="text-2xl font-extrabold text-foreground tracking-tight">300+</span>
                                     <p className="text-[9px] font-mono font-bold text-amber-500 uppercase tracking-wider">Algorithmic Solves</p>
-                                    <p className="text-[9px] text-slate-500">Solved on LeetCode & key platforms</p>
+                                    <p className="text-[9px] text-muted-foreground">Solved on LeetCode & key platforms</p>
                                 </div>
                                 <div className="space-y-1">
-                                    <span className="text-2xl font-extrabold text-white tracking-tight">10+</span>
+                                    <span className="text-2xl font-extrabold text-foreground tracking-tight">10+</span>
                                     <p className="text-[9px] font-mono font-bold text-amber-500 uppercase tracking-wider">Active Nodes</p>
-                                    <p className="text-[9px] text-slate-500">From core concept to production build</p>
+                                    <p className="text-[9px] text-muted-foreground">From core concept to production build</p>
                                 </div>
                                 <div className="space-y-1">
-                                    <span className="text-2xl font-extrabold text-white tracking-tight">300+</span>
+                                    <span className="text-2xl font-extrabold text-foreground tracking-tight">300+</span>
                                     <p className="text-[9px] font-mono font-bold text-amber-500 uppercase tracking-wider">GitHub Commits</p>
-                                    <p className="text-[9px] text-slate-500">Contributions across active repos</p>
+                                    <p className="text-[9px] text-muted-foreground">Contributions across active repos</p>
                                 </div>
                             </div>
                         </div>
@@ -99,18 +99,18 @@ export default function About() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="p-6 rounded-xl border border-border bg-[#0d0d0e]/60 hover:border-amber-500/30 transition-all duration-300 group"
+                                    className="p-6 rounded-xl border border-border bg-background hover:border-amber-500/30 transition-all duration-300 group"
                                 >
                                     <div className="w-9 h-9 rounded bg-amber-500/5 flex items-center justify-center mb-4 group-hover:bg-amber-500/10 transition-colors border border-amber-500/10">
-                                        <Icon className="w-4.5 h-4.5 text-slate-400 group-hover:text-amber-500 transition-colors" />
+                                        <Icon className="w-4.5 h-4.5 text-muted-foreground group-hover:text-amber-500 transition-colors" />
                                     </div>
-                                    <p className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-1">
+                                    <p className="text-[9px] font-mono font-bold text-muted-foreground uppercase tracking-widest mb-1">
                                         {card.label}
                                     </p>
-                                    <p className="text-sm font-bold text-white mb-1">
+                                    <p className="text-sm font-bold text-foreground mb-1">
                                         {card.value}
                                     </p>
-                                    <p className="text-xs text-slate-500 italic">
+                                    <p className="text-xs text-muted-foreground italic">
                                         {card.sub}
                                     </p>
                                 </motion.div>

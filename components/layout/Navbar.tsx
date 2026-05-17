@@ -63,7 +63,7 @@ export default function Navbar() {
             <nav className={cn(
                 "max-w-4xl mx-auto h-14 flex items-center justify-between px-6 rounded-full transition-all duration-300 font-mono",
                 scrolled 
-                    ? "glass-darker border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]" 
+                    ? "bg-background/80 dark:bg-card/80 backdrop-blur-lg border border-border shadow-lg" 
                     : "bg-transparent border-transparent"
             )}>
 
@@ -78,7 +78,7 @@ export default function Navbar() {
                     <div className="w-8 h-8 rounded border border-amber-500/20 bg-amber-500/5 flex items-center justify-center shadow-lg shadow-amber-500/5">
                         <span className="text-amber-500 font-bold text-sm">P</span>
                     </div>
-                    <span className="hidden sm:block text-xs font-bold tracking-tight text-white">
+                    <span className="hidden sm:block text-xs font-bold tracking-tight text-foreground">
                         Prakhar<span className="text-amber-500">.</span>sys
                     </span>
                 </motion.button>
@@ -95,14 +95,14 @@ export default function Navbar() {
                                         "relative px-4 py-1.5 text-xs font-medium rounded transition-all duration-300",
                                         isActive
                                             ? "text-amber-500 font-semibold"
-                                            : "text-slate-400 hover:text-white"
+                                            : "text-muted-foreground hover:text-foreground"
                                     )}
                                 >
                                     <span className="relative z-10">{item.label}</span>
                                     {isActive && (
                                         <motion.span
                                             layoutId="nav-pill"
-                                            className="absolute inset-0 z-0 bg-amber-500/5 border border-amber-500/10 rounded"
+                                            className="absolute inset-0 z-0 bg-amber-500/10 dark:bg-amber-500/5 border border-amber-500/20 dark:border-amber-500/10 rounded"
                                             transition={{ type: "spring", stiffness: 400, damping: 30 }}
                                         />
                                     )}
@@ -133,20 +133,20 @@ export default function Navbar() {
                             <Button
                                 variant="ghost"
                                 size="icon"
-                                className="md:hidden w-8 h-8 rounded hover:bg-white/10"
+                                className="md:hidden w-8 h-8 rounded hover:bg-secondary text-foreground"
                                 aria-label="Open navigation menu"
                             >
-                                {mobileOpen ? <X className="w-4 h-4 text-white" /> : <Menu className="w-4 h-4 text-white" />}
+                                {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
                             </Button>
                         </SheetTrigger>
 
-                        <SheetContent side="top" className="h-fit bg-[#0d0d0e] border-border px-6 py-12 font-mono">
+                        <SheetContent side="top" className="h-fit bg-background border-border px-6 py-12 font-mono">
                             <nav className="flex flex-col gap-6 items-center justify-center">
                                 {NAV_ITEMS.map((item) => (
                                     <button
                                         key={item.sectionId}
                                         onClick={() => handleNavClick(item.href)}
-                                        className="text-lg font-bold text-slate-400 hover:text-amber-500 transition-colors"
+                                        className="text-lg font-bold text-muted-foreground hover:text-amber-500 transition-colors"
                                     >
                                         {item.label}
                                     </button>

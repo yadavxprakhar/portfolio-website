@@ -88,16 +88,16 @@ function ProjectCard({ project }: { project: Project }) {
             </div>
 
             <div className="flex flex-col flex-1 p-6">
-                <h3 className="text-xl font-bold text-white mb-2 tracking-tight group-hover:text-amber-500 transition-colors">
+                <h3 className="text-xl font-bold text-foreground mb-2 tracking-tight group-hover:text-amber-500 transition-colors">
                     {project.title}
                 </h3>
-                <p className="text-slate-400 text-xs md:text-sm leading-relaxed mb-4 flex-1">
+                <p className="text-muted-foreground text-xs md:text-sm leading-relaxed mb-4 flex-1">
                     {project.description}
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
                     {project.tech.map((t) => (
-                        <span key={t} className="px-2 py-0.5 font-mono text-[10px] text-slate-400 rounded border border-border bg-[#0d0d0e]/60">
+                        <span key={t} className="px-2 py-0.5 font-mono text-[10px] text-muted-foreground rounded border border-border bg-secondary">
                             {t}
                         </span>
                     ))}
@@ -107,7 +107,7 @@ function ProjectCard({ project }: { project: Project }) {
                     <Button
                         variant="outline"
                         size="sm"
-                        className="flex-1 rounded border-border bg-[#0d0d0e]/60 hover:bg-secondary text-white font-mono h-10 text-xs"
+                        className="flex-1 rounded border border-border bg-card text-foreground hover:bg-secondary font-mono h-10 text-xs hover:text-amber-500"
                         asChild
                     >
                         <a href={project.github} target="_blank">
@@ -153,7 +153,7 @@ export default function Projects() {
                         <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">
                             Featured <span className="text-gradient">Projects</span>
                         </h2>
-                        <p className="text-slate-400 max-w-md text-lg">
+                        <p className="text-muted-foreground max-w-md text-lg">
                             A curated selection of my most impactful projects and experiments.
                         </p>
                     </motion.div>
@@ -171,7 +171,7 @@ export default function Projects() {
                                 className={`px-4 py-1.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                                     filter === c 
                                         ? "bg-amber-500 text-black border border-amber-500 shadow-lg shadow-amber-500/10" 
-                                        : "bg-secondary border border-border text-slate-400 hover:bg-card hover:text-white"
+                                        : "bg-secondary border border-border text-muted-foreground hover:bg-card hover:text-foreground"
                                 }`}
                             >
                                 {c}
@@ -194,7 +194,7 @@ export default function Projects() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <Button variant="ghost" className="group text-slate-400 hover:text-white text-lg font-bold" asChild>
+                    <Button variant="ghost" className="group text-muted-foreground hover:text-foreground text-lg font-bold" asChild>
                         <a href="https://github.com/yadavxprakhar" target="_blank">
                             View More on GitHub
                             <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
