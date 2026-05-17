@@ -266,7 +266,7 @@ export default function TerminalConsole() {
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
                             onKeyDown={handleKeyDown}
-                            className="flex-1 bg-transparent border-none outline-none font-mono text-[11px] md:text-xs text-foreground caret-amber-500"
+                            className="flex-1 bg-transparent border-none outline-none font-mono text-base md:text-xs text-foreground caret-amber-500"
                             placeholder="Type a command and press Enter..."
                             autoComplete="off"
                             autoCorrect="off"

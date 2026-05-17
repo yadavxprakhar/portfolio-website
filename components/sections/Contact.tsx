@@ -122,7 +122,7 @@ export default function Contact() {
                                 <Input 
                                     {...register("name", { required: true })}
                                     placeholder="Enter your name"
-                                    className="bg-card border-border focus-visible:ring-1 focus-visible:ring-amber-500 focus-visible:border-amber-500 h-10 rounded font-mono text-xs"
+                                    className="bg-card border-border focus-visible:ring-1 focus-visible:ring-amber-500 focus-visible:border-amber-500 h-10 rounded font-mono text-base md:text-xs"
                                 />
                             </div>
                             <div className="space-y-1.5">
@@ -130,7 +130,7 @@ export default function Contact() {
                                 <Input 
                                     {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
                                     placeholder="your@email.com"
-                                    className="bg-card border-border focus-visible:ring-1 focus-visible:ring-amber-500 focus-visible:border-amber-500 h-10 rounded font-mono text-xs"
+                                    className="bg-card border-border focus-visible:ring-1 focus-visible:ring-amber-500 focus-visible:border-amber-500 h-10 rounded font-mono text-base md:text-xs"
                                 />
                             </div>
                             <div className="space-y-1.5">
@@ -138,7 +138,7 @@ export default function Contact() {
                                 <Textarea 
                                     {...register("message", { required: true })}
                                     placeholder="How can I help?"
-                                    className="bg-card border-border focus-visible:ring-1 focus-visible:ring-amber-500 focus-visible:border-amber-500 min-h-[120px] rounded p-3 font-mono text-xs"
+                                    className="bg-card border-border focus-visible:ring-1 focus-visible:ring-amber-500 focus-visible:border-amber-500 min-h-[120px] rounded p-3 font-mono text-base md:text-xs"
                                 />
                             </div>
                             <Button 

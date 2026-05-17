@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import BackToTop from "@/components/common/BackToTop";
 import CustomCursor from "@/components/common/CustomCursor";
 import OnekoCat from "@/components/common/OnekoCat";
+import ThemeColorMeta from "@/components/common/ThemeColorMeta";
 import { SITE_CONFIG } from "@/lib/constants";
 import "./globals.css";
 
@@ -104,6 +105,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ThemeColorMeta />
           <CustomCursor />
           <OnekoCat />
           <div className="noise" />

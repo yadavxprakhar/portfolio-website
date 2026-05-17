@@ -64,8 +64,14 @@
 
   * {
     border-color: var(--border);
+    -webkit-tap-highlight-color: transparent;
   }
   
+  html, body {
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
   body {
     background-color: var(--background);
     color: var(--foreground);
