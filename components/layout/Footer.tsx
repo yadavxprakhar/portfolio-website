@@ -48,8 +48,7 @@ export default function Footer() {
                     <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-[9px] font-bold text-slate-500 uppercase tracking-wider">
                         <span>© {currentYear} Prakhar Yadav · Node: operational</span>
                         <span className="h-3 w-px bg-slate-800 hidden sm:inline-block" />
-                        <div className="flex items-center gap-1.5 opacity-70 hover:opacity-100 transition-opacity">
-                            <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Visits:</span>
+                        <div className="flex items-center opacity-70 hover:opacity-100 transition-opacity">
                             <a 
                                 href="https://counter.websiteout.com" 
                                 target="_blank" 
