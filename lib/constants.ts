@@ -41,7 +41,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 
 // ── Site Config ───────────────────────────────────────────────
 export const SITE_CONFIG: SiteConfig = {
-    title: "Prakhar Yadav | Full Stack Developer",
+    title: "prakharyxdev",
     description:
         "Final-year CS student and Full Stack Developer specializing in Java, Spring Boot & React. Open to internships and full-time opportunities.",
     url:

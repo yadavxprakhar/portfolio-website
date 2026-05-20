@@ -73,7 +73,7 @@ export default function About() {
                                     <p className="text-[9px] text-muted-foreground">From core concept to production build</p>
                                 </div>
                                 <div className="space-y-1">
-                                    <span className="text-2xl font-extrabold text-foreground tracking-tight">300+</span>
+                                    <span className="text-2xl font-extrabold text-foreground tracking-tight">400+</span>
                                     <p className="text-[9px] font-mono font-bold text-amber-500 uppercase tracking-wider">GitHub Commits</p>
                                     <p className="text-[9px] text-muted-foreground">Contributions across active repos</p>
                                 </div>

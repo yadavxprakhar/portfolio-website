@@ -32,7 +32,7 @@ const firaCode = Fira_Code({
 export const metadata: Metadata = {
   title: {
     default: SITE_CONFIG.title,
-    template: `%s | Prakhar Yadav`,
+    template: `%s | prakharyxdev`,
   },
   description: SITE_CONFIG.description,
   keywords: [
