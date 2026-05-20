@@ -34,7 +34,7 @@ const STAT_CARDS: StatCard[] = [
         id: "streak",
         label: "Streak Stats",
         getUrl: (t) =>
-            `https://github-readme-streak-stats.herokuapp.com?user=${GH_USER}&hide_border=true&${t}`,
+            `https://streak-stats.demolab.com?user=${GH_USER}&hide_border=true&${t}`,
     },
 ];
 
