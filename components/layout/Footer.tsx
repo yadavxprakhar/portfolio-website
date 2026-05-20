@@ -45,9 +45,26 @@ export default function Footer() {
                 </div>
 
                 <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">
-                        © {currentYear} Prakhar Yadav · Node: operational
-                    </p>
+                    <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-[9px] font-bold text-slate-500 uppercase tracking-wider">
+                        <span>© {currentYear} Prakhar Yadav · Node: operational</span>
+                        <span className="h-3 w-px bg-slate-800 hidden sm:inline-block" />
+                        <div className="flex items-center gap-1.5 opacity-70 hover:opacity-100 transition-opacity">
+                            <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">Visits:</span>
+                            <a 
+                                href="https://counter.websiteout.com" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="inline-flex items-center"
+                                aria-label="Web Hit Counter"
+                            >
+                                <img 
+                                    src={`https://counter.websiteout.com/compte.php?S=${encodeURIComponent(typeof window !== 'undefined' ? window.location.origin : 'https://yadavxprakhar.github.io')}&C=20&D=0&N=0&M=1`} 
+                                    alt="Web Hit Counter" 
+                                    className="h-3.5 object-contain filter contrast-125 brightness-110"
+                                />
+                            </a>
+                        </div>
+                    </div>
                     <p className="text-[9px] font-bold text-slate-500 uppercase tracking-wider">
                         Stay Curious // Built with passion
                     </p>
