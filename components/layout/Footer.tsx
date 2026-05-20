@@ -40,6 +40,8 @@ export default function Footer() {
                             <a href="mailto:yadavxprakhar@gmail.com" className="hover:text-amber-500 transition-colors">Email</a>
                             <a href="https://www.linkedin.com/in/prakharyxdev/" target="_blank" className="hover:text-amber-500 transition-colors">LinkedIn</a>
                             <a href="https://github.com/yadavxprakhar" target="_blank" className="hover:text-amber-500 transition-colors">GitHub</a>
+                            <a href="https://x.com/prakharyadav" target="_blank" className="hover:text-amber-500 transition-colors">X (Twitter)</a>
+                            <a href="https://instagram.com/prakharyadav" target="_blank" className="hover:text-amber-500 transition-colors">Instagram</a>
                         </div>
                     </div>
                 </div>
