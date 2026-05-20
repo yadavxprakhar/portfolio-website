@@ -76,7 +76,7 @@ export default function Footer() {
                                 <FaGithub className="w-[18px] h-[18px]" />
                             </a>
                             <a 
-                                href="https://x.com/prakharyadav" 
+                                href="https://x.com/PrakharYxdev" 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 aria-label="X (Twitter)" 
@@ -85,7 +85,7 @@ export default function Footer() {
                                 <FaTwitter className="w-[18px] h-[18px]" />
                             </a>
                             <a 
-                                href="https://instagram.com/prakharyadav" 
+                                href="https://www.instagram.com/prakharyxdev" 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 aria-label="Instagram" 
