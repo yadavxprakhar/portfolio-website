@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import SocialLinks from "@/components/common/SocialLinks";
+import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -9,7 +9,7 @@ export default function Footer() {
     return (
         <footer className="w-full border-t border-border bg-card dark:bg-[#0d0d0e] py-20 px-6 font-mono transition-colors duration-300">
             <div className="max-w-5xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
                     <div className="col-span-2 space-y-6">
                         <div className="flex items-center gap-2.5">
                             <div className="w-8 h-8 rounded border border-amber-500/20 bg-amber-500/5 flex items-center justify-center">
@@ -35,13 +35,80 @@ export default function Footer() {
                     </div>
 
                     <div className="space-y-4">
+                        <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Resources</h4>
+                        <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-400">
+                            <li>
+                                <a 
+                                    href="https://medium.com/@yadavxprakhar" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="hover:text-amber-500 transition-colors"
+                                >
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a 
+                                    href="https://github.com/yadavxprakhar" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="hover:text-amber-500 transition-colors"
+                                >
+                                    Github
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className="space-y-4">
                         <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Connect</h4>
-                        <div className="flex flex-col gap-2 text-xs text-slate-600 dark:text-slate-400">
-                            <a href="mailto:yadavxprakhar@gmail.com" className="hover:text-amber-500 transition-colors">Email</a>
-                            <a href="https://www.linkedin.com/in/prakharyxdev/" target="_blank" className="hover:text-amber-500 transition-colors">LinkedIn</a>
-                            <a href="https://github.com/yadavxprakhar" target="_blank" className="hover:text-amber-500 transition-colors">GitHub</a>
-                            <a href="https://x.com/prakharyadav" target="_blank" className="hover:text-amber-500 transition-colors">X (Twitter)</a>
-                            <a href="https://instagram.com/prakharyadav" target="_blank" className="hover:text-amber-500 transition-colors">Instagram</a>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Wanna chat? Contact anywhere below.
+                        </p>
+                        <div className="flex items-center gap-2 pt-1 flex-wrap">
+                            <a 
+                                href="https://github.com/yadavxprakhar" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                aria-label="GitHub" 
+                                className="w-9 h-9 rounded-full bg-slate-100 dark:bg-[#18181b]/50 text-slate-600 dark:text-slate-400 hover:bg-amber-500/10 hover:text-amber-500 dark:hover:bg-amber-500/10 dark:hover:text-amber-500 border border-slate-200 dark:border-slate-800 transition-colors flex items-center justify-center"
+                            >
+                                <FaGithub className="w-[18px] h-[18px]" />
+                            </a>
+                            <a 
+                                href="https://x.com/prakharyadav" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                aria-label="X (Twitter)" 
+                                className="w-9 h-9 rounded-full bg-slate-100 dark:bg-[#18181b]/50 text-slate-600 dark:text-slate-400 hover:bg-amber-500/10 hover:text-amber-500 dark:hover:bg-amber-500/10 dark:hover:text-amber-500 border border-slate-200 dark:border-slate-800 transition-colors flex items-center justify-center"
+                            >
+                                <FaTwitter className="w-[18px] h-[18px]" />
+                            </a>
+                            <a 
+                                href="https://instagram.com/prakharyadav" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                aria-label="Instagram" 
+                                className="w-9 h-9 rounded-full bg-slate-100 dark:bg-[#18181b]/50 text-slate-600 dark:text-slate-400 hover:bg-amber-500/10 hover:text-amber-500 dark:hover:bg-amber-500/10 dark:hover:text-amber-500 border border-slate-200 dark:border-slate-800 transition-colors flex items-center justify-center"
+                            >
+                                <FaInstagram className="w-[18px] h-[18px]" />
+                            </a>
+                            <a 
+                                href="mailto:yadavxprakhar@gmail.com" 
+                                aria-label="Email" 
+                                className="w-9 h-9 rounded-full bg-slate-100 dark:bg-[#18181b]/50 text-slate-600 dark:text-slate-400 hover:bg-amber-500/10 hover:text-amber-500 dark:hover:bg-amber-500/10 dark:hover:text-amber-500 border border-slate-200 dark:border-slate-800 transition-colors flex items-center justify-center"
+                            >
+                                <FaEnvelope className="w-[18px] h-[18px]" />
+                            </a>
+                            <a 
+                                href="https://www.linkedin.com/in/prakharyxdev/" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                aria-label="LinkedIn" 
+                                className="w-9 h-9 rounded-full bg-slate-100 dark:bg-[#18181b]/50 text-slate-600 dark:text-slate-400 hover:bg-amber-500/10 hover:text-amber-500 dark:hover:bg-amber-500/10 dark:hover:text-amber-500 border border-slate-200 dark:border-slate-800 transition-colors flex items-center justify-center"
+                            >
+                                <FaLinkedin className="w-[18px] h-[18px]" />
+                            </a>
                         </div>
                     </div>
                 </div>
