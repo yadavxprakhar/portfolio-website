@@ -200,7 +200,7 @@ export default function Projects() {
                     </motion.div>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-8">
+                <div className={`flex flex-wrap gap-8 ${filter === "All" ? "justify-center" : "justify-start"}`}>
                     <AnimatePresence mode="popLayout">
                         {filtered.map((project) => (
                             <div key={project.id} className="w-full md:w-[calc(50%-16px)] lg:w-[calc(33.333%-21.33px)] flex flex-col">
