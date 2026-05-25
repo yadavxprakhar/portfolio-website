@@ -109,6 +109,16 @@ export default function TerminalConsole() {
                             <span className="text-slate-500">Status: Operational // Deployed</span>
                         </div>
                         <div>
+                            <span className="text-amber-500 font-bold">e-akhbar</span> - Modern Full-Stack News Aggregator (Spring Boot, Node.js, React)
+                            <br />
+                            <span className="text-slate-500">Status: Operational // Deployed</span>
+                        </div>
+                        <div>
+                            <span className="text-amber-500 font-bold">polytest_ai</span> - AI-Powered Automated Test Suite Generator (AI/LLMs, TypeScript)
+                            <br />
+                            <span className="text-slate-500">Status: Operational // Deployed</span>
+                        </div>
+                        <div>
                             <span className="text-amber-500 font-bold">personal_portfolio</span> - Blueprint Systems Portfolio (Next.js, Tailwind v4)
                             <br />
                             <span className="text-slate-500">Status: Active Node</span>
