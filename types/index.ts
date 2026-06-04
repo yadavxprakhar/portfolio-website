@@ -102,6 +102,20 @@ export interface SiteConfig {
     ogImage: string;
 }
 
+// ── Blog ─────────────────────────────────────────────────────
+export interface Blog {
+    id: string;
+    title: string;
+    subtitle: string;
+    description?: string;
+    publishDate: string;
+    readTime: string;
+    url: string;
+    tags: string[];
+    featured?: boolean;
+    image?: string;
+}
+
 // ── Animation Variant (Framer Motion) ────────────────────────
 export interface AnimationVariant {
     hidden: Record<string, unknown>;

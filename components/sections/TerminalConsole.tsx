@@ -63,6 +63,7 @@ export default function TerminalConsole() {
                         <div><span className="text-amber-500 font-bold">about</span> - User specs</div>
                         <div><span className="text-amber-500 font-bold">skills</span> - Stack topology</div>
                         <div><span className="text-amber-500 font-bold">projects</span> - Active nodes</div>
+                        <div><span className="text-amber-500 font-bold">blogs</span> - Featured articles</div>
                         <div><span className="text-amber-500 font-bold">certs</span> - Credentials</div>
                         <div><span className="text-amber-500 font-bold">neofetch</span> - System specs</div>
                         <div><span className="text-amber-500 font-bold">contact</span> - Route to user</div>
@@ -122,6 +123,20 @@ export default function TerminalConsole() {
                             <span className="text-amber-500 font-bold">personal_portfolio</span> - Blueprint Systems Portfolio (Next.js, Tailwind v4)
                             <br />
                             <span className="text-slate-500">Status: Active Node</span>
+                        </div>
+                    </div>
+                );
+                break;
+
+            case "blogs":
+                output = (
+                    <div className="space-y-3 text-muted-foreground font-mono text-[11px] md:text-xs">
+                        <div>
+                            <span className="text-amber-500 font-bold">should_you_still_learn_to_code_in_2026</span>
+                            <br />
+                            <span className="text-slate-400">Subtitle: The Honest Answer Nobody Is Giving You</span>
+                            <br />
+                            <span className="text-slate-500">Link: https://medium.com/@yadavxprakhar/should-you-still-learn-to-code-in-2026-cccab3bac4a6</span>
                         </div>
                     </div>
                 );
@@ -251,7 +266,7 @@ export default function TerminalConsole() {
                     {/* Interactive suggestions drawer */}
                     <div className="px-6 py-2 bg-secondary border-t border-border flex flex-wrap gap-2 items-center text-[10px] font-mono select-none">
                         <span className="text-slate-500 uppercase tracking-wider font-bold">Quick Queries:</span>
-                        {["help", "about", "skills", "projects", "neofetch", "contact"].map((cmd) => (
+                        {["help", "about", "skills", "projects", "blogs", "neofetch", "contact"].map((cmd) => (
                             <button
                                 key={cmd}
                                 onClick={(e) => {
