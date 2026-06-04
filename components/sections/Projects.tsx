@@ -37,7 +37,7 @@ const PROJECTS: Project[] = [
         tech: ["React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
         github: "https://github.com/yadavxprakhar/FlowKit",
         live: "https://flow-kit-flame.vercel.app/",
-        image: "/images/flowkit_v2.png",
+        image: "/images/flowkit_v3.png",
         category: "Full Stack",
     },
     {

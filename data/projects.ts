@@ -63,7 +63,7 @@ export const projects: Project[] = [
         liveUrl: "https://flow-kit-flame.vercel.app/",
         githubUrl: "https://github.com/yadavxprakhar/FlowKit",
         featured: true,
-        image: "/images/flowkit_v2.png",
+        image: "/images/flowkit_v3.png",
     },
     {
         id: "e-akhbar",
