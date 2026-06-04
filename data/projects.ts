@@ -132,6 +132,34 @@ export const projects: Project[] = [
         featured: true,
         image: "/images/polytest_v1.png",
     },
+    {
+        id: "ember-stone",
+        title: "Ember & Stone",
+        description:
+            "An immersive wood-fired fine dining reservation website and booking dashboard featuring an organic layout, stateful menu accordions, and interactive bookings.",
+        longDescription: `Ember & Stone is a conceptual premium wood-fired restaurant landing page and online booking platform. 
+    It features an immersive, storytelling-driven client experience with organic layout segments, stateful interactive menu cards, 
+    an dynamic table reservation dashboard with live seating charts, and fully responsive fluid layouts.`,
+        techStack: [
+            "React",
+            "Vite",
+            "Tailwind CSS",
+            "Framer Motion",
+            "Lucide React",
+        ],
+        category: "frontend",
+        features: [
+            "Immersive fine dining storytelling theme & typography",
+            "Stateful interactive food menu accordions & filters",
+            "Live dining table booking & reservation dashboard mock workflow",
+            "Parallax and sliding entry micro-animations",
+            "Responsive fluid design optimized for all viewports",
+        ],
+        liveUrl: "https://ember-stone-seven.vercel.app/",
+        githubUrl: "https://github.com/yadavxprakhar/Ember-Stone",
+        featured: true,
+        image: "/images/ember_stone_v1.png",
+    },
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);

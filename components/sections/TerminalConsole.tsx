@@ -120,6 +120,11 @@ export default function TerminalConsole() {
                             <span className="text-slate-500">Status: Operational // Deployed</span>
                         </div>
                         <div>
+                            <span className="text-amber-500 font-bold">ember_stone</span> - Culinary booking engine & restaurant story (React, Tailwind)
+                            <br />
+                            <span className="text-slate-500">Status: Operational // Deployed</span>
+                        </div>
+                        <div>
                             <span className="text-amber-500 font-bold">personal_portfolio</span> - Blueprint Systems Portfolio (Next.js, Tailwind v4)
                             <br />
                             <span className="text-slate-500">Status: Active Node</span>
