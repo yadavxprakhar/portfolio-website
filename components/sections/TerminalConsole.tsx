@@ -143,6 +143,13 @@ export default function TerminalConsole() {
                             <br />
                             <span className="text-slate-500">Link: https://medium.com/@yadavxprakhar/should-you-still-learn-to-code-in-2026-cccab3bac4a6</span>
                         </div>
+                        <div>
+                            <span className="text-amber-500 font-bold">job_hunting_in_2026_what_nobody_tells_new_grads</span>
+                            <br />
+                            <span className="text-slate-400">Subtitle: The Raw Reality of the Post-College Job Hunt</span>
+                            <br />
+                            <span className="text-slate-500">Link: https://medium.com/@yadavxprakhar/job-hunting-in-2026-what-nobody-tells-new-graduates-d2f4eafaf4d1</span>
+                        </div>
                     </div>
                 );
                 break;

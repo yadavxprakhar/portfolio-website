@@ -13,6 +13,18 @@ export const blogs: Blog[] = [
         tags: ["Software Engineering", "AI", "Career Guidance", "Web Development"],
         featured: true,
     },
+    {
+        id: "job-hunting-2026",
+        title: "Job Hunting in 2026: What Nobody Tells New Graduates",
+        subtitle: "The Raw Reality of the Post-College Job Hunt",
+        description:
+            "College is over, final exams are done, and the reality of the 2026 tech job market settles in. Let's talk about what it actually takes to get hired today, beyond just building projects and grinding LeetCode.",
+        publishDate: "June 5, 2026",
+        readTime: "7 min read",
+        url: "https://medium.com/@yadavxprakhar/job-hunting-in-2026-what-nobody-tells-new-graduates-d2f4eafaf4d1",
+        tags: ["Career Guidance", "Job Hunting", "Software Engineering", "AI"],
+        featured: true,
+    },
 ];
 
 export const featuredBlogs = blogs.filter((b) => b.featured);
