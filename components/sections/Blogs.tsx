@@ -9,7 +9,7 @@ import { blogs } from "@/data/blogs";
 export default function Blogs() {
     return (
         <SectionWrapper id="blogs" className="py-32 border-t border-border bg-card/30 dark:bg-card/10">
-            <div className="max-w-5xl mx-auto px-6">
+            <div className="max-w-7xl mx-auto px-6">
                 <motion.div
                     className="text-center mb-20"
                     initial={{ opacity: 0, y: 20 }}
@@ -35,7 +35,7 @@ export default function Blogs() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="w-full md:w-[calc(50%-16px)] lg:w-[calc(50%-16px)] xl:w-[600px] flex flex-col group relative rounded-2xl border border-border bg-card overflow-hidden hover:border-amber-500/30 transition-all duration-300 shadow-lg"
+                            className="w-full md:w-[calc(50%-16px)] flex flex-col group relative rounded-2xl border border-border bg-card overflow-hidden hover:border-amber-500/30 transition-all duration-300 shadow-lg"
                         >
                             {/* Visual Card Header with Premium Tech Gradients and Grid Pattern */}
                             <div className="relative aspect-[21/9] overflow-hidden bg-slate-950 flex items-center justify-center border-b border-border">
