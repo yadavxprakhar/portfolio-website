@@ -100,7 +100,7 @@ export default function TerminalConsole() {
                 output = (
                     <div className="space-y-3 text-muted-foreground font-mono text-[11px] md:text-xs">
                         <div>
-                            <span className="text-amber-500 font-bold">lynkforge_v2</span> - B2B Developer Integration Portal (Java, Spring Boot, React)
+                            <span className="text-amber-500 font-bold">e-akhbar</span> - Modern Full-Stack News Aggregator (Spring Boot, Node.js, React)
                             <br />
                             <span className="text-slate-500">Status: Operational // Deployed</span>
                         </div>
@@ -110,7 +110,7 @@ export default function TerminalConsole() {
                             <span className="text-slate-500">Status: Operational // Deployed</span>
                         </div>
                         <div>
-                            <span className="text-amber-500 font-bold">e-akhbar</span> - Modern Full-Stack News Aggregator (Spring Boot, Node.js, React)
+                            <span className="text-amber-500 font-bold">lynkforge_v2</span> - B2B Developer Integration Portal (Java, Spring Boot, React)
                             <br />
                             <span className="text-slate-500">Status: Operational // Deployed</span>
                         </div>

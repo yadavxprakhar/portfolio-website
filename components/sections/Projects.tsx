@@ -21,13 +21,13 @@ interface Project {
 
 const PROJECTS: Project[] = [
     {
-        id: "lynkforge",
-        title: "Lynkforge",
-        description: "A production-ready URL shortening platform built with Spring Boot and React. Features JWT authentication, path-based routing, and a scalable microservices architecture.",
-        tech: ["Java", "Spring Boot", "React", "PostgreSQL", "Redis"],
-        github: "https://github.com/yadavxprakhar/Lynkforge---A-URL-Shortner-App",
-        live: "https://lynkforge.vercel.app",
-        image: "/images/lynkforge_v2.png",
+        id: "e-akhbar",
+        title: "e-Akhbar",
+        description: "A modern full-stack news aggregator built with React, TypeScript, Node.js, Spring Boot, and PostgreSQL. Get your daily news from multiple sources in one elegant platform.",
+        tech: ["React", "TypeScript", "Node.js", "Spring Boot", "PostgreSQL"],
+        github: "https://github.com/yadavxprakhar/e-akhbar",
+        live: "https://modern-news-app.vercel.app/",
+        image: "/images/eakhbar_v1.png",
         category: "Full Stack",
     },
     {
@@ -41,13 +41,13 @@ const PROJECTS: Project[] = [
         category: "Full Stack",
     },
     {
-        id: "e-akhbar",
-        title: "e-Akhbar",
-        description: "A modern full-stack news aggregator built with React, TypeScript, Node.js, Spring Boot, and PostgreSQL. Get your daily news from multiple sources in one elegant platform.",
-        tech: ["React", "TypeScript", "Node.js", "Spring Boot", "PostgreSQL"],
-        github: "https://github.com/yadavxprakhar/e-akhbar",
-        live: "https://modern-news-app.vercel.app/",
-        image: "/images/eakhbar_v1.png",
+        id: "lynkforge",
+        title: "Lynkforge",
+        description: "A production-ready URL shortening platform built with Spring Boot and React. Features JWT authentication, path-based routing, and a scalable microservices architecture.",
+        tech: ["Java", "Spring Boot", "React", "PostgreSQL", "Redis"],
+        github: "https://github.com/yadavxprakhar/Lynkforge---A-URL-Shortner-App",
+        live: "https://lynkforge.vercel.app",
+        image: "/images/lynkforge_v2.png",
         category: "Full Stack",
     },
     {
