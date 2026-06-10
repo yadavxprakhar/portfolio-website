@@ -47,7 +47,7 @@ const PROJECTS: Project[] = [
         tech: ["Java", "Spring Boot", "React", "PostgreSQL", "Redis"],
         github: "https://github.com/yadavxprakhar/Lynkforge---A-URL-Shortner-App",
         live: "https://lynkforge.vercel.app",
-        image: "/images/lynkforge_v2.png",
+        image: "/images/lynkforge_v3.png",
         category: "Full Stack",
     },
     {

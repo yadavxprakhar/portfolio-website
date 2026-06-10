@@ -97,7 +97,7 @@ export const projects: Project[] = [
         liveUrl: "https://lynkforge.vercel.app",
         githubUrl: "https://github.com/prakharyadav/lynkforge",
         featured: true,
-        image: "/images/lynkforge_v2.png",
+        image: "/images/lynkforge_v3.png",
     },
     {
         id: "polytest-ai",
