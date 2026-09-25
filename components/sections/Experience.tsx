@@ -27,11 +27,9 @@ const EXPERIENCES: ExperienceItem[] = [
         duration: "3 Mos",
         location: "Gurugram, Haryana, India · Remote",
         highlights: [
-            "Contributing to Sharkdom's production-grade B2B SaaS platform — enterprise workflow automation for partnership and GTM teams — built on a Next.js 14 + TypeScript codebase.",
-            "Developed and shipped multiple client-facing web pages including a marketing landing page for a live workshop campaign and a product comparison page — both deployed to the live production environment.",
-            "Owning the Trello integration frontend module — diagnosing broken integration logic, identifying missing pieces causing sync failures, and rewriting the affected logic to correctly bridge Trello's API with Sharkdom's internal workflow engine.",
-            "Working directly within an existing production TypeScript codebase — reading unfamiliar code, debugging real issues, and shipping fixes that affect live users.",
-            "Collaborating remotely with the product engineering team on feature delivery, code reviews, and iterative improvements in a fast-paced SaaS environment."
+            "Contributed to Sharkdom's production-grade B2B SaaS platform (Next.js 14 + TypeScript), developing and shipping client-facing web pages directly to live production.",
+            "Owned the Trello integration frontend module — diagnosing broken integration logic and rewriting the bridge connecting Trello's API with Sharkdom's internal workflow engine.",
+            "Collaborated remotely with the product engineering team on feature delivery, code reviews, and shipping fixes for live users in a fast-paced SaaS environment."
         ],
         skills: ["Next.js 14", "TypeScript", "Tailwind CSS", "Trello API", "React.js", "REST APIs"]
     },
@@ -45,11 +43,9 @@ const EXPERIENCES: ExperienceItem[] = [
         duration: "2 Weeks",
         location: "India · Remote",
         highlights: [
-            "Developing a full-stack project awareness web platform for InAmigos Foundation — designed to inform and engage communities around social impact initiatives.",
-            "Building responsive UI components using React.js and JavaScript — structured for clarity, accessibility, and cross-device compatibility.",
-            "Implementing frontend layout with HTML5 and CSS3 — semantic markup, component-level styling, and mobile-first responsive design.",
-            "Integrating Spring Boot backend APIs into the React frontend — handling data flow between client and server for dynamic content rendering.",
-            "Collaborating remotely with the team on feature delivery, code reviews, and iterative UI improvements in a real-world project environment."
+            "Developed a full-stack project awareness web platform designed to inform and engage communities around social impact initiatives.",
+            "Built responsive, accessible UI components using React.js, JavaScript, HTML5, and CSS3 following mobile-first design principles.",
+            "Integrated Spring Boot backend APIs into the React frontend, handling dynamic data flow between client and server."
         ],
         skills: ["React.js", "JavaScript", "HTML5", "CSS3", "Spring Boot", "REST APIs"]
     }
