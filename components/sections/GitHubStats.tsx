@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import SectionWrapper from "@/components/common/SectionWrapper";
 import { Button } from "@/components/ui/button";
+
+const emptySubscribe = () => () => {};
 
 const GH_USER = "yadavxprakhar";
 
@@ -48,11 +48,7 @@ function themeQuery(resolvedTheme: string | undefined): string {
 
 export default function GitHubStats() {
     const { resolvedTheme } = useTheme();
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
+    const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
     const themeQ = themeQuery(resolvedTheme);
 
@@ -84,6 +80,7 @@ export default function GitHubStats() {
                             className="p-4 rounded-2xl border border-border bg-card hover:border-amber-500/30 transition-all flex items-center justify-center min-h-[220px] overflow-hidden shadow-md"
                         >
                             {mounted && (
+                                /* eslint-disable-next-line @next/next/no-img-element */
                                 <img
                                     src={card.getUrl(themeQ)}
                                     alt={card.label}

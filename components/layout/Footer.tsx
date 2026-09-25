@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
@@ -126,6 +125,7 @@ export default function Footer() {
                                 className="inline-flex items-center"
                                 aria-label="Web Hit Counter"
                             >
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img 
                                     src={`https://counter.websiteout.com/compte.php?S=${encodeURIComponent(typeof window !== 'undefined' ? window.location.origin : 'https://yadavxprakhar.github.io')}&C=20&D=0&N=0&M=1`} 
                                     alt="Web Hit Counter" 

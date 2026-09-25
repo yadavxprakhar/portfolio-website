@@ -51,7 +51,7 @@ export default function Blogs() {
                                 {/* Interactive code illustration */}
                                 <div className="relative z-10 font-mono text-[10px] md:text-xs text-amber-500/40 select-none p-4 w-full h-full flex flex-col justify-between">
                                     <div className="flex justify-between items-center opacity-60">
-                                        <span>// publication_node_01</span>
+                                        <span>{"// publication_node_01"}</span>
                                         <span>active_node.sh</span>
                                     </div>
                                     <div className="flex flex-col gap-1 items-start pl-4">

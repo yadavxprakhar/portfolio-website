@@ -2,12 +2,9 @@
 
 import { motion, type Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import ParticleBackground from "@/components/common/ParticleBackground";
 import SocialLinks from "@/components/common/SocialLinks";
 import { ArrowRight, Download } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
-
-const CODE_LINES = []; // Unused in new blueprint layout
 
 function CodeCard() {
     return (

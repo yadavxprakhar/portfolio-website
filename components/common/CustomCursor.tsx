@@ -1,16 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { motion, useSpring } from "framer-motion";
 
+const subscribe = () => () => {};
+
 export default function CustomCursor() {
-    const [mounted, setMounted] = useState(false);
+    const mounted = useSyncExternalStore(subscribe, () => true, () => false);
     
     const cursorX = useSpring(0, { damping: 20, stiffness: 300 });
     const cursorY = useSpring(0, { damping: 20, stiffness: 300 });
 
     useEffect(() => {
-        setMounted(true);
         const moveCursor = (e: MouseEvent) => {
             cursorX.set(e.clientX - 16);
             cursorY.set(e.clientY - 16);
